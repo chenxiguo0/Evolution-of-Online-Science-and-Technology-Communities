@@ -1,0 +1,62 @@
+---
+title: "Natural Language Processing"
+subtitle: "Sentiment Analysis and Topic Modeling"
+---
+
+::: {.callout-important}
+## Milestone 2 Deliverable
+This page is populated during **Milestone 2 (Week 5)** with NLP findings.
+:::
+
+## Overview
+
+This page presents NLP analysis addressing [3-4] NLP business questions through sentiment analysis, topic modeling, and text mining.
+
+## Business Question 1: [Your NLP Question]
+
+**Question:** [Full question text]
+
+### Findings
+
+[Visualization placeholder]
+
+**Key Insights:**
+
+- [Insight 1]
+- [Insight 2]
+
+## Sentiment Analysis
+
+### Overall Sentiment Distribution
+
+[Description and visualization]
+
+### Sentiment by Subreddit
+
+[Comparison visualization]
+
+## Topic Modeling
+
+### Discovered Topics
+
+**Topic 1: [Topic Name]**
+
+- Keywords: [keywords]
+
+**Topic 2: [Topic Name]**
+
+- Keywords: [keywords]
+
+## Summary
+
+### Answers to NLP Business Questions
+
+1. **[Question 1]**: [Answer]
+2. **[Question 2]**: [Answer]
+3. **[Question 3]**: [Answer]
+
+---
+
+::: {.callout-tip}
+All NLP code is in `code/nlp/` directory.
+:::

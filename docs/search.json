@@ -1,0 +1,261 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project Title",
+    "section": "",
+    "text": "Team Member 1\nTeam Member 2\nTeam Member 3\nTeam Member 4"
+  },
+  {
+    "objectID": "index.html#team-members",
+    "href": "index.html#team-members",
+    "title": "Project Title",
+    "section": "",
+    "text": "Team Member 1\nTeam Member 2\nTeam Member 3\nTeam Member 4"
+  },
+  {
+    "objectID": "index.html#project-overview",
+    "href": "index.html#project-overview",
+    "title": "Project Title",
+    "section": "Project Overview",
+    "text": "Project Overview\nHigh-Level Problem Statement:\n[Your overarching business problem - e.g., “How can we optimize content strategy and community management for technology-focused Reddit communities?”]\n\nDataset\n\nSource: Reddit Comments and Submissions\nTime Period: [Your date range]\nSubreddits: [List your chosen subreddits]\nScale: [Total rows - should be 100M+]\nSize: [Total GB]\n\n\n\nBusiness Questions\nWe address 10 business questions spanning three analytical approaches:\nExploratory Data Analysis (EDA):\n\n[Question 1]\n[Question 2]\n[Question 3]\n[Question 4]\n\nNatural Language Processing (NLP):\n\n[Question 5]\n[Question 6]\n[Question 7]\n\nMachine Learning (ML):\n\n[Question 8]\n[Question 9]\n[Question 10]\n\nSee BUSINESS_QUESTIONS.md for detailed technical approaches."
+  },
+  {
+    "objectID": "index.html#methodology",
+    "href": "index.html#methodology",
+    "title": "Project Title",
+    "section": "Methodology",
+    "text": "Methodology\n\nData Processing Infrastructure\n\nPlatform: Apache Spark cluster on AWS EC2\nProcessing: Distributed computing with PySpark\nStorage: Amazon S3 for data lake architecture\nScale: Processing hundreds of millions of rows\n\n\n\nAnalysis Pipeline\n\nData Acquisition & Filtering (Milestone 0)\n\nCopy full Reddit dataset from source bucket\nFilter to subreddits of interest\nGenerate dataset statistics\n\nExploratory Data Analysis (Milestone 1) → EDA Page\n\nStatistical analysis\nTemporal patterns\nCommunity comparisons\n\nNatural Language Processing (Milestone 2) → NLP Page\n\nSentiment analysis\nTopic modeling\nText mining\n\nMachine Learning (Milestone 3) → ML Page\n\nFeature engineering\nModel training and evaluation\nPrediction and classification\n\nFinal Analysis (Milestone 4) → Conclusion\n\nSynthesis of findings\nBusiness recommendations"
+  },
+  {
+    "objectID": "index.html#key-findings-preview",
+    "href": "index.html#key-findings-preview",
+    "title": "Project Title",
+    "section": "Key Findings Preview",
+    "text": "Key Findings Preview\n\n\n\n\n\n\nComing Soon\n\n\n\nKey findings will be populated as analysis progresses through each milestone.\n\n\n\nMajor Insights\n\n[Finding 1 - from EDA]\n[Finding 2 - from NLP]\n[Finding 3 - from ML]\n\n\n\nBusiness Impact\n[Summary of how your findings address the high-level problem and provide actionable recommendations]"
+  },
+  {
+    "objectID": "index.html#navigation",
+    "href": "index.html#navigation",
+    "title": "Project Title",
+    "section": "Navigation",
+    "text": "Navigation\nUse the navigation bar above to explore:\n\nEDA: Exploratory data analysis with statistical insights and temporal patterns\nNLP: Natural language processing analysis including sentiment and topics\nML: Machine learning models and predictions\nConclusion: Summary of findings and recommendations"
+  },
+  {
+    "objectID": "index.html#repository",
+    "href": "index.html#repository",
+    "title": "Project Title",
+    "section": "Repository",
+    "text": "Repository\n\nGitHub: [Link to your repository]\nDocumentation: All code, data outputs, and analysis documentation available in repository\n\n\nLast updated: [Date]"
+  },
+  {
+    "objectID": "conclusion.html",
+    "href": "conclusion.html",
+    "title": "Conclusion and Recommendations",
+    "section": "",
+    "text": "Milestone 4 Deliverable\n\n\n\nThis page is populated during Milestone 4 (Week 8) - Final Submission."
+  },
+  {
+    "objectID": "conclusion.html#executive-summary",
+    "href": "conclusion.html#executive-summary",
+    "title": "Conclusion and Recommendations",
+    "section": "Executive Summary",
+    "text": "Executive Summary\n[High-level summary of the entire project and key findings]"
+  },
+  {
+    "objectID": "conclusion.html#answers-to-all-10-business-questions",
+    "href": "conclusion.html#answers-to-all-10-business-questions",
+    "title": "Conclusion and Recommendations",
+    "section": "Answers to All 10 Business Questions",
+    "text": "Answers to All 10 Business Questions\n\nEDA Questions\n\n[Question 1]: [Answer with key findings]\n[Question 2]: [Answer with key findings]\n[Question 3]: [Answer with key findings]\n[Question 4]: [Answer with key findings]\n\n\n\nNLP Questions\n\n[Question 5]: [Answer with key findings]\n[Question 6]: [Answer with key findings]\n[Question 7]: [Answer with key findings]\n\n\n\nML Questions\n\n[Question 8]: [Answer with key findings]\n[Question 9]: [Answer with key findings]\n[Question 10]: [Answer with key findings]"
+  },
+  {
+    "objectID": "conclusion.html#major-findings",
+    "href": "conclusion.html#major-findings",
+    "title": "Conclusion and Recommendations",
+    "section": "Major Findings",
+    "text": "Major Findings\n\nKey Insight 1: [Title]\n[Description of major finding from EDA]\nBusiness Impact: [How this finding matters]\n\n\nKey Insight 2: [Title]\n[Description of major finding from NLP]\nBusiness Impact: [How this finding matters]\n\n\nKey Insight 3: [Title]\n[Description of major finding from ML]\nBusiness Impact: [How this finding matters]"
+  },
+  {
+    "objectID": "conclusion.html#addressing-the-high-level-problem",
+    "href": "conclusion.html#addressing-the-high-level-problem",
+    "title": "Conclusion and Recommendations",
+    "section": "Addressing the High-Level Problem",
+    "text": "Addressing the High-Level Problem\nOriginal Problem Statement:\n[Restate your high-level problem from index.qmd]\nHow Our Analysis Addresses It:\n[Comprehensive discussion of how your 10 questions and findings collectively address the overarching problem]"
+  },
+  {
+    "objectID": "conclusion.html#business-recommendations",
+    "href": "conclusion.html#business-recommendations",
+    "title": "Conclusion and Recommendations",
+    "section": "Business Recommendations",
+    "text": "Business Recommendations\n\nRecommendation 1: [Title]\nBased on: [Which findings]\nAction: [Specific recommendation]\nExpected Impact: [What will change]\n\n\nRecommendation 2: [Title]\nBased on: [Which findings]\nAction: [Specific recommendation]\nExpected Impact: [What will change]\n\n\nRecommendation 3: [Title]\nBased on: [Which findings]\nAction: [Specific recommendation]\nExpected Impact: [What will change]"
+  },
+  {
+    "objectID": "conclusion.html#limitations-and-future-work",
+    "href": "conclusion.html#limitations-and-future-work",
+    "title": "Conclusion and Recommendations",
+    "section": "Limitations and Future Work",
+    "text": "Limitations and Future Work\n\nLimitations\n\n[Limitation 1 and mitigation]\n[Limitation 2 and mitigation]\n[Limitation 3 and mitigation]\n\n\n\nFuture Work\n\n[Future analysis 1]\n[Future analysis 2]\n[Future analysis 3]"
+  },
+  {
+    "objectID": "conclusion.html#technical-achievements",
+    "href": "conclusion.html#technical-achievements",
+    "title": "Conclusion and Recommendations",
+    "section": "Technical Achievements",
+    "text": "Technical Achievements\n\nBig Data Processing\n\nProcessed [X million] rows of Reddit data\nUtilized Apache Spark cluster for distributed computing\nAchieved [performance metrics]\n\n\n\nAnalytical Breadth\n\nEDA: [Summary of techniques used]\nNLP: [Summary of techniques used]\nML: [Summary of models and results]"
+  },
+  {
+    "objectID": "conclusion.html#lessons-learned",
+    "href": "conclusion.html#lessons-learned",
+    "title": "Conclusion and Recommendations",
+    "section": "Lessons Learned",
+    "text": "Lessons Learned\n\nTechnical Lessons\n\n[Lesson about Spark/big data processing]\n[Lesson about NLP at scale]\n[Lesson about ML pipeline]\n\n\n\nDomain Lessons\n\n[Insight about Reddit communities]\n[Insight about social media analysis]\n[Insight about your specific domain]"
+  },
+  {
+    "objectID": "conclusion.html#final-thoughts",
+    "href": "conclusion.html#final-thoughts",
+    "title": "Conclusion and Recommendations",
+    "section": "Final Thoughts",
+    "text": "Final Thoughts\n[Concluding paragraph tying everything together and reflecting on the project journey]"
+  },
+  {
+    "objectID": "conclusion.html#acknowledgments",
+    "href": "conclusion.html#acknowledgments",
+    "title": "Conclusion and Recommendations",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nTeam Members: [List all contributors]\nCourse: DSAN 6000 Big Data Analytics\nTools: Apache Spark, PySpark, Quarto\nData Source: Reddit via Pushshift archives"
+  },
+  {
+    "objectID": "nlp.html",
+    "href": "nlp.html",
+    "title": "Natural Language Processing",
+    "section": "",
+    "text": "Milestone 2 Deliverable\n\n\n\nThis page is populated during Milestone 2 (Week 5) with NLP findings."
+  },
+  {
+    "objectID": "nlp.html#overview",
+    "href": "nlp.html#overview",
+    "title": "Natural Language Processing",
+    "section": "Overview",
+    "text": "Overview\nThis page presents NLP analysis addressing [3-4] NLP business questions through sentiment analysis, topic modeling, and text mining."
+  },
+  {
+    "objectID": "nlp.html#business-question-1-your-nlp-question",
+    "href": "nlp.html#business-question-1-your-nlp-question",
+    "title": "Natural Language Processing",
+    "section": "Business Question 1: [Your NLP Question]",
+    "text": "Business Question 1: [Your NLP Question]\nQuestion: [Full question text]\n\nFindings\n[Visualization placeholder]\nKey Insights:\n\n[Insight 1]\n[Insight 2]"
+  },
+  {
+    "objectID": "nlp.html#sentiment-analysis",
+    "href": "nlp.html#sentiment-analysis",
+    "title": "Natural Language Processing",
+    "section": "Sentiment Analysis",
+    "text": "Sentiment Analysis\n\nOverall Sentiment Distribution\n[Description and visualization]\n\n\nSentiment by Subreddit\n[Comparison visualization]"
+  },
+  {
+    "objectID": "nlp.html#topic-modeling",
+    "href": "nlp.html#topic-modeling",
+    "title": "Natural Language Processing",
+    "section": "Topic Modeling",
+    "text": "Topic Modeling\n\nDiscovered Topics\nTopic 1: [Topic Name]\n\nKeywords: [keywords]\n\nTopic 2: [Topic Name]\n\nKeywords: [keywords]"
+  },
+  {
+    "objectID": "nlp.html#summary",
+    "href": "nlp.html#summary",
+    "title": "Natural Language Processing",
+    "section": "Summary",
+    "text": "Summary\n\nAnswers to NLP Business Questions\n\n[Question 1]: [Answer]\n[Question 2]: [Answer]\n[Question 3]: [Answer]\n\n\n\n\n\n\n\n\nTip\n\n\n\nAll NLP code is in code/nlp/ directory."
+  },
+  {
+    "objectID": "ml.html",
+    "href": "ml.html",
+    "title": "Machine Learning",
+    "section": "",
+    "text": "Milestone 3 Deliverable\n\n\n\nThis page is populated during Milestone 3 (Week 6) with ML findings."
+  },
+  {
+    "objectID": "ml.html#overview",
+    "href": "ml.html#overview",
+    "title": "Machine Learning",
+    "section": "Overview",
+    "text": "Overview\nThis page presents machine learning models addressing [2-3] ML business questions through classification, regression, or clustering."
+  },
+  {
+    "objectID": "ml.html#business-question-1-your-ml-question",
+    "href": "ml.html#business-question-1-your-ml-question",
+    "title": "Machine Learning",
+    "section": "Business Question 1: [Your ML Question]",
+    "text": "Business Question 1: [Your ML Question]\nQuestion: [Full question text]\n\nProblem Formulation\n\nTask Type: [Classification / Regression / Clustering]\nTarget Variable: [What you’re predicting]\nEvaluation Metric: [Primary metric]\n\n\n\nFeature Engineering\nFeatures Used:\n\n[Feature category 1]\n[Feature category 2]\n[Feature category 3]\n\n\n\nModel Performance\n[Visualization: ROC curve, confusion matrix, etc.]\nResults:\n\nAccuracy: [value]\nPrecision: [value]\nRecall: [value]\nF1 Score: [value]"
+  },
+  {
+    "objectID": "ml.html#feature-importance",
+    "href": "ml.html#feature-importance",
+    "title": "Machine Learning",
+    "section": "Feature Importance",
+    "text": "Feature Importance\n\nTop 10 Most Important Features\n[Visualization and table]"
+  },
+  {
+    "objectID": "ml.html#model-comparison",
+    "href": "ml.html#model-comparison",
+    "title": "Machine Learning",
+    "section": "Model Comparison",
+    "text": "Model Comparison\n[Table comparing different models tried]"
+  },
+  {
+    "objectID": "ml.html#summary",
+    "href": "ml.html#summary",
+    "title": "Machine Learning",
+    "section": "Summary",
+    "text": "Summary\n\nAnswers to ML Business Questions\n\n[Question 1]: [Answer]\n[Question 2]: [Answer]\n\n\n\nBusiness Implications\n[How models can be applied in practice]\n\n\n\n\n\n\n\nTip\n\n\n\nAll ML code is in code/ml/ directory. Models saved in code/ml/models/."
+  },
+  {
+    "objectID": "eda.html",
+    "href": "eda.html",
+    "title": "Exploratory Data Analysis",
+    "section": "",
+    "text": "Milestone 1 Deliverable\n\n\n\nThis page is populated during Milestone 1 (Week 3) with EDA findings."
+  },
+  {
+    "objectID": "eda.html#overview",
+    "href": "eda.html#overview",
+    "title": "Exploratory Data Analysis",
+    "section": "Overview",
+    "text": "Overview\nThis page presents exploratory data analysis of our Reddit dataset, addressing [3-4] EDA business questions through statistical analysis, temporal patterns, and visualizations."
+  },
+  {
+    "objectID": "eda.html#data-overview",
+    "href": "eda.html#data-overview",
+    "title": "Exploratory Data Analysis",
+    "section": "Data Overview",
+    "text": "Data Overview\n\nDataset Summary\nKey Statistics:\n\nTotal Comments: [Number]\nTotal Submissions: [Number]\nDate Range: [Start] to [End]\nNumber of Subreddits: [Number]"
+  },
+  {
+    "objectID": "eda.html#business-question-1-your-eda-question",
+    "href": "eda.html#business-question-1-your-eda-question",
+    "title": "Exploratory Data Analysis",
+    "section": "Business Question 1: [Your EDA Question]",
+    "text": "Business Question 1: [Your EDA Question]\nQuestion: [Full question text]\n\nAnalysis Approach\n[Brief description of methodology]\n\n\nFindings\n[Placeholder for visualization]\nKey Insights:\n\n[Insight 1]\n[Insight 2]\n[Insight 3]"
+  },
+  {
+    "objectID": "eda.html#business-question-2-your-eda-question",
+    "href": "eda.html#business-question-2-your-eda-question",
+    "title": "Exploratory Data Analysis",
+    "section": "Business Question 2: [Your EDA Question]",
+    "text": "Business Question 2: [Your EDA Question]\nQuestion: [Full question text]\n\nAnalysis Approach\n[Brief description of methodology]\n\n\nFindings\n[Placeholder for visualization]\nKey Insights:\n\n[Insight 1]\n[Insight 2]\n[Insight 3]"
+  },
+  {
+    "objectID": "eda.html#temporal-analysis",
+    "href": "eda.html#temporal-analysis",
+    "title": "Exploratory Data Analysis",
+    "section": "Temporal Analysis",
+    "text": "Temporal Analysis\n\nPosting Patterns Over Time\n[Description of temporal patterns discovered]\n\n\nPeak Activity Analysis\nHourly Patterns:\n\nPeak hours: [Hours]\nLowest activity: [Hours]\n\nWeekly Patterns:\n\nMost active days: [Days]\nLeast active days: [Days]"
+  },
+  {
+    "objectID": "eda.html#summary",
+    "href": "eda.html#summary",
+    "title": "Exploratory Data Analysis",
+    "section": "Summary",
+    "text": "Summary\n\nAnswers to EDA Business Questions\n\n[Question 1]: [Concise answer]\n[Question 2]: [Concise answer]\n[Question 3]: [Concise answer]\n\n\n\nKey Takeaways\n\n[Major finding 1]\n[Major finding 2]\n[Major finding 3]\n\n\n\n\n\n\n\n\nCode and Data\n\n\n\nAll EDA code is available in code/eda/ directory. Results are saved in data/csv/ and visualizations in data/plots/."
+  }
+]

@@ -1,0 +1,69 @@
+---
+title: "Machine Learning"
+subtitle: "Predictive Models and Classification"
+---
+
+::: {.callout-important}
+## Milestone 3 Deliverable
+This page is populated during **Milestone 3 (Week 6)** with ML findings.
+:::
+
+## Overview
+
+This page presents machine learning models addressing [2-3] ML business questions through classification, regression, or clustering.
+
+## Business Question 1: [Your ML Question]
+
+**Question:** [Full question text]
+
+### Problem Formulation
+
+- **Task Type:** [Classification / Regression / Clustering]
+- **Target Variable:** [What you're predicting]
+- **Evaluation Metric:** [Primary metric]
+
+### Feature Engineering
+
+**Features Used:**
+
+- [Feature category 1]
+- [Feature category 2]
+- [Feature category 3]
+
+### Model Performance
+
+[Visualization: ROC curve, confusion matrix, etc.]
+
+**Results:**
+
+- Accuracy: [value]
+- Precision: [value]
+- Recall: [value]
+- F1 Score: [value]
+
+## Feature Importance
+
+### Top 10 Most Important Features
+
+[Visualization and table]
+
+## Model Comparison
+
+[Table comparing different models tried]
+
+## Summary
+
+### Answers to ML Business Questions
+
+1. **[Question 1]**: [Answer]
+2. **[Question 2]**: [Answer]
+
+### Business Implications
+
+[How models can be applied in practice]
+
+---
+
+::: {.callout-tip}
+All ML code is in `code/ml/` directory. Models saved in `code/ml/models/`.
+:::

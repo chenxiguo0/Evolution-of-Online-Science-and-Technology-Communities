@@ -1,0 +1,120 @@
+---
+title: "Project Title"
+subtitle: "DSAN 6000 Big Data Analytics - Fall 2024"
+---
+
+## Team Members
+
+- Team Member 1
+- Team Member 2
+- Team Member 3
+- Team Member 4
+
+## Project Overview
+
+**High-Level Problem Statement:**
+
+[Your overarching business problem - e.g., "How can we optimize content strategy and community management for technology-focused Reddit communities?"]
+
+### Dataset
+
+- **Source:** Reddit Comments and Submissions
+- **Time Period:** [Your date range]
+- **Subreddits:** [List your chosen subreddits]
+- **Scale:** [Total rows - should be 100M+]
+- **Size:** [Total GB]
+
+### Business Questions
+
+We address 10 business questions spanning three analytical approaches:
+
+**Exploratory Data Analysis (EDA):**
+
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+4. [Question 4]
+
+**Natural Language Processing (NLP):**
+
+5. [Question 5]
+6. [Question 6]
+7. [Question 7]
+
+**Machine Learning (ML):**
+
+8. [Question 8]
+9. [Question 9]
+10. [Question 10]
+
+See [BUSINESS_QUESTIONS.md](https://github.com/your-repo/BUSINESS_QUESTIONS.md) for detailed technical approaches.
+
+## Methodology
+
+### Data Processing Infrastructure
+
+- **Platform:** Apache Spark cluster on AWS EC2
+- **Processing:** Distributed computing with PySpark
+- **Storage:** Amazon S3 for data lake architecture
+- **Scale:** Processing hundreds of millions of rows
+
+### Analysis Pipeline
+
+1. **Data Acquisition & Filtering** (Milestone 0)
+   - Copy full Reddit dataset from source bucket
+   - Filter to subreddits of interest
+   - Generate dataset statistics
+
+2. **Exploratory Data Analysis** (Milestone 1) → [EDA Page](eda.qmd)
+   - Statistical analysis
+   - Temporal patterns
+   - Community comparisons
+
+3. **Natural Language Processing** (Milestone 2) → [NLP Page](nlp.qmd)
+   - Sentiment analysis
+   - Topic modeling
+   - Text mining
+
+4. **Machine Learning** (Milestone 3) → [ML Page](ml.qmd)
+   - Feature engineering
+   - Model training and evaluation
+   - Prediction and classification
+
+5. **Final Analysis** (Milestone 4) → [Conclusion](conclusion.qmd)
+   - Synthesis of findings
+   - Business recommendations
+
+## Key Findings Preview
+
+::: {.callout-note}
+## Coming Soon
+Key findings will be populated as analysis progresses through each milestone.
+:::
+
+### Major Insights
+
+1. [Finding 1 - from EDA]
+2. [Finding 2 - from NLP]
+3. [Finding 3 - from ML]
+
+### Business Impact
+
+[Summary of how your findings address the high-level problem and provide actionable recommendations]
+
+## Navigation
+
+Use the navigation bar above to explore:
+
+- **[EDA](eda.qmd)**: Exploratory data analysis with statistical insights and temporal patterns
+- **[NLP](nlp.qmd)**: Natural language processing analysis including sentiment and topics
+- **[ML](ml.qmd)**: Machine learning models and predictions
+- **[Conclusion](conclusion.qmd)**: Summary of findings and recommendations
+
+## Repository
+
+- **GitHub:** [Link to your repository]
+- **Documentation:** All code, data outputs, and analysis documentation available in repository
+
+---
+
+*Last updated: [Date]*

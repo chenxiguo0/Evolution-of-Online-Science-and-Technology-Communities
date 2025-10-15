@@ -1,0 +1,145 @@
+---
+title: "Conclusion and Recommendations"
+subtitle: "Final Analysis and Business Impact"
+---
+
+::: {.callout-important}
+## Milestone 4 Deliverable
+This page is populated during **Milestone 4 (Week 8)** - Final Submission.
+:::
+
+## Executive Summary
+
+[High-level summary of the entire project and key findings]
+
+## Answers to All 10 Business Questions
+
+### EDA Questions
+
+1. **[Question 1]**: [Answer with key findings]
+2. **[Question 2]**: [Answer with key findings]
+3. **[Question 3]**: [Answer with key findings]
+4. **[Question 4]**: [Answer with key findings]
+
+### NLP Questions
+
+5. **[Question 5]**: [Answer with key findings]
+6. **[Question 6]**: [Answer with key findings]
+7. **[Question 7]**: [Answer with key findings]
+
+### ML Questions
+
+8. **[Question 8]**: [Answer with key findings]
+9. **[Question 9]**: [Answer with key findings]
+10. **[Question 10]**: [Answer with key findings]
+
+## Major Findings
+
+### Key Insight 1: [Title]
+
+[Description of major finding from EDA]
+
+**Business Impact:** [How this finding matters]
+
+### Key Insight 2: [Title]
+
+[Description of major finding from NLP]
+
+**Business Impact:** [How this finding matters]
+
+### Key Insight 3: [Title]
+
+[Description of major finding from ML]
+
+**Business Impact:** [How this finding matters]
+
+## Addressing the High-Level Problem
+
+**Original Problem Statement:**
+
+[Restate your high-level problem from index.qmd]
+
+**How Our Analysis Addresses It:**
+
+[Comprehensive discussion of how your 10 questions and findings collectively address the overarching problem]
+
+## Business Recommendations
+
+### Recommendation 1: [Title]
+
+**Based on:** [Which findings]
+
+**Action:** [Specific recommendation]
+
+**Expected Impact:** [What will change]
+
+### Recommendation 2: [Title]
+
+**Based on:** [Which findings]
+
+**Action:** [Specific recommendation]
+
+**Expected Impact:** [What will change]
+
+### Recommendation 3: [Title]
+
+**Based on:** [Which findings]
+
+**Action:** [Specific recommendation]
+
+**Expected Impact:** [What will change]
+
+## Limitations and Future Work
+
+### Limitations
+
+- [Limitation 1 and mitigation]
+- [Limitation 2 and mitigation]
+- [Limitation 3 and mitigation]
+
+### Future Work
+
+- [Future analysis 1]
+- [Future analysis 2]
+- [Future analysis 3]
+
+## Technical Achievements
+
+### Big Data Processing
+
+- Processed [X million] rows of Reddit data
+- Utilized Apache Spark cluster for distributed computing
+- Achieved [performance metrics]
+
+### Analytical Breadth
+
+- **EDA:** [Summary of techniques used]
+- **NLP:** [Summary of techniques used]
+- **ML:** [Summary of models and results]
+
+## Lessons Learned
+
+### Technical Lessons
+
+- [Lesson about Spark/big data processing]
+- [Lesson about NLP at scale]
+- [Lesson about ML pipeline]
+
+### Domain Lessons
+
+- [Insight about Reddit communities]
+- [Insight about social media analysis]
+- [Insight about your specific domain]
+
+## Final Thoughts
+
+[Concluding paragraph tying everything together and reflecting on the project journey]
+
+---
+
+## Acknowledgments
+
+- **Team Members:** [List all contributors]
+- **Course:** DSAN 6000 Big Data Analytics
+- **Tools:** Apache Spark, PySpark, Quarto
+- **Data Source:** Reddit via Pushshift archives

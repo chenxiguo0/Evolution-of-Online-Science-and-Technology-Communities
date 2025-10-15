@@ -1,0 +1,118 @@
+---
+title: "Exploratory Data Analysis"
+subtitle: "Statistical Analysis and Temporal Patterns"
+---
+
+::: {.callout-important}
+## Milestone 1 Deliverable
+This page is populated during **Milestone 1 (Week 3)** with EDA findings.
+:::
+
+## Overview
+
+This page presents exploratory data analysis of our Reddit dataset, addressing [3-4] EDA business questions through statistical analysis, temporal patterns, and visualizations.
+
+## Data Overview
+
+### Dataset Summary
+
+```{python}
+#| echo: false
+#| eval: false
+# Example: Load and display dataset summary
+import pandas as pd
+
+# Load summary statistics
+df_summary = pd.read_csv('../data/csv/dataset_summary.csv')
+print(df_summary.to_markdown(index=False))
+```
+
+**Key Statistics:**
+
+- Total Comments: [Number]
+- Total Submissions: [Number]
+- Date Range: [Start] to [End]
+- Number of Subreddits: [Number]
+
+## Business Question 1: [Your EDA Question]
+
+**Question:** [Full question text]
+
+### Analysis Approach
+
+[Brief description of methodology]
+
+### Findings
+
+[Placeholder for visualization]
+
+```{python}
+#| echo: false
+#| eval: false
+# Example: Display plot
+from IPython.display import Image
+Image('../data/plots/eda_question1_plot.png')
+```
+
+**Key Insights:**
+
+- [Insight 1]
+- [Insight 2]
+- [Insight 3]
+
+## Business Question 2: [Your EDA Question]
+
+**Question:** [Full question text]
+
+### Analysis Approach
+
+[Brief description of methodology]
+
+### Findings
+
+[Placeholder for visualization]
+
+**Key Insights:**
+
+- [Insight 1]
+- [Insight 2]
+- [Insight 3]
+
+## Temporal Analysis
+
+### Posting Patterns Over Time
+
+[Description of temporal patterns discovered]
+
+### Peak Activity Analysis
+
+**Hourly Patterns:**
+
+- Peak hours: [Hours]
+- Lowest activity: [Hours]
+
+**Weekly Patterns:**
+
+- Most active days: [Days]
+- Least active days: [Days]
+
+## Summary
+
+### Answers to EDA Business Questions
+
+1. **[Question 1]**: [Concise answer]
+2. **[Question 2]**: [Concise answer]
+3. **[Question 3]**: [Concise answer]
+
+### Key Takeaways
+
+- [Major finding 1]
+- [Major finding 2]
+- [Major finding 3]
+
+---
+
+::: {.callout-tip}
+## Code and Data
+All EDA code is available in `code/eda/` directory. Results are saved in `data/csv/` and visualizations in `data/plots/`.
+:::
