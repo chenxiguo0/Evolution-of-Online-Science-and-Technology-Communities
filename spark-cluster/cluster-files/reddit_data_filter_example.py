@@ -33,8 +33,8 @@ from pyspark.sql.functions import (
     col,
     from_unixtime,
     to_date,
+    date_format
 )
-
 
 # Configure logging with basicConfig
 logging.basicConfig(
@@ -47,15 +47,119 @@ logger = logging.getLogger(__name__)
 
 # Example subreddits of interest (students should customize this)
 EXAMPLE_SUBREDDITS: List[str] = [
-    "datascience",
-    "MachineLearning",
-    "artificial",
-    "learnmachinelearning",
-    "deeplearning",
-    "AskReddit",
-    "science",
-    "technology",
+    # AI / ML / Deep Learning (highly active / popular)
+    "MachineLearning",          # ML research and discussions
+    "ArtificialInteligence",    # AI news and debate
+    "OpenAI",                   # OpenAI-related discussions
+    "ChatGPT",                  # ChatGPT discussions
+    "Futurology",               # Future tech and AI predictions
+    "technology",               # Broad tech topics
+    "AIethics",                 # Ethical AI discussions
+    "deeplearning",             # Deep learning research and projects
+    "AI_Agents",                # AI agent development
+    "GenerativeAI",             # Generative AI models
+    "genai",                    # Generative AI discussions
+    "DeepLearningAI",           # Deep Learning AI community
+    "NeuralNetworks",           # Neural network research
+    "AI_Research",              # AI research papers/discussion
+    "MLQuestions",              # Machine learning Q&A
+    "ReinforcementLearning",    # RL topics and papers
+    "ComputerVision",           # Computer vision research
+    "AI_Art",                   # AI-generated art (high engagement) # NEW
+    "LLM",                      # Large Language Model discussions # NEW
+    "AI_Programming",           # AI applied to coding # NEW
+
+    # Programming / Data / Computing (highly active)
+    "programming",              # General programming
+    "datascience",              # Data science topics
+    "bigdata",                  # Big data discussion
+    "computerscience",          # Computer science discussions
+    "coding",                   # Coding discussions
+    "learnprogramming",         # Beginners learning programming
+    "robotics",                 # Robotics and automation
+    "DataIsBeautiful",          # Data visualization community
+    "technews",                 # Tech news discussions
+    "Python",                   # Python programming
+    "JavaScript",               # JavaScript programming
+    "Rust",                     # Rust language
+    "GoLang",                   # Go programming
+    "Linux",                    # Linux OS and usage
+    "OpenSource",               # Open source software
+    "CyberSecurity",            # Cybersecurity topics
+    "Hacking",                  # Ethical hacking discussions
+    "DevOps",                   # DevOps and cloud practices
+    "CloudComputing",           # Cloud technologies
+    "webdev",                   # Web development, active # NEW
+    "programmerhumor",          # Programming humor, very active # NEW
+    "cscareerquestions",        # CS career questions, high activity # NEW
+    "learnpython",              # Python beginner questions # NEW
+    "learnjava",                # Java beginner questions # NEW
+
+    # Broad Science / STEM (moderate to high activity)
+    "science",                  # General science
+    "Physics",                  # Physics discussions
+    "Chemistry",                # Chemistry community
+    "Biology",                  # Biology discussions
+    "Mathematics",              # Math discussions
+    "Astronomy",                # Astronomy discussions, popular # NEW
+    "Space",                    # Space exploration
+    "EarthScience",             # Earth science topics
+    "Geology",                  # Geology discussions
+    "Neuroscience",             # Brain research
+    "EnvironmentalScience",     # Environmental topics
+    "Engineering",              # Engineering broad topics
+    "ElectricalEngineering",    # Electrical engineering
+    "MechanicalEngineering",    # Mechanical engineering
+    "CivilEngineering",         # Civil engineering
+    "MaterialsScience",         # Material science
+    "Statistics",               # Statistical discussions
+    "QuantumComputing",         # Quantum computing
+    "Genetics",                 # Genetics research
+    "Ecology",                  # Ecology discussions
+    "Bioinformatics",           # Bioinformatics research
+    "Nanotechnology",           # Nano-tech discussions
+    "Energy",                   # Energy tech
+    "RoboticsEngineering",      # Engineering robotics
+    "ComputerEngineering",      # Computer engineering
+    "TechInnovation",           # Science & tech innovation
+    "Astrophysics",             # Astrophysics research
+    "ScientificResearch",       # General scientific research
+    "ScienceNews",              # Science news
+    "FutureTechnology",         # Future tech
+    "AIinScience",              # AI applications in science
+    "SpaceX",                   # SpaceX updates, popular
+    "NASA",                     # NASA discussions
+    "Cosmology",                # Cosmology research
+    "futurescience",            # Emerging science topics # NEW
+    "biologymemes",             # Humorous biology posts, active # NEW
+    "physicsmemes",             # Humorous physics posts, active # NEW
+    "spaceflight",              # Spaceflight enthusiasts, high activity # NEW
+
+    # General Technology / Future Trends / Science Popularization (high engagement)
+    "TechNewsToday",            # Daily tech news
+    "TechTalk",                 # Tech discussions
+    "Innovation",               # Innovative tech
+    "Futurism",                 # Futuristic tech & society
+    "TechCulture",              # Tech culture discussions
+    "AIforGood",                # AI for social good
+    "TechEntrepreneur",         # Tech entrepreneurship
+    "Startups",                 # Startup discussions
+    "EdTech",                   # Education tech
+    "QuantumPhysics",           # Quantum physics discussions
+    "Blockchain",               # Blockchain discussions
+    "Cryptography",             # Cryptography discussions
+    "MachineLearningMemes",     # ML humor
+    "DataScienceMemes",         # Data science humor
+    "gadgets",                  # Tech gadget enthusiasts # NEW
+    "tech",                     # Broad tech discussions, very active # NEW
+    "futurewhatif",             # Speculative future/tech # NEW
+    "Entrepreneur"              # Tech/business innovation # NEW
 ]
+
+
+
+
+
 
 
 # Commonly interesting columns for analysis
@@ -70,8 +174,9 @@ COMMENT_COLUMNS: List[str] = [
     "link_id",
     "controversiality",
     "gilded",
+    "total_awards_received",
+    "permalink"
 ]
-
 
 SUBMISSION_COLUMNS: List[str] = [
     "id",
@@ -84,7 +189,12 @@ SUBMISSION_COLUMNS: List[str] = [
     "num_comments",
     "url",
     "over_18",
+    "upvote_ratio",
+    "link_flair_text",
+    "total_awards_received",
+    "permalink"
 ]
+
 
 
 def _create_spark_session(
@@ -187,28 +297,28 @@ def _select_columns(
     data_type: str,
 ) -> DataFrame:
     """
-    Select specific columns and add date column.
+    Select specific columns and add date/year_month columns.
 
     Args:
         df: Input DataFrame
         columns: List of column names to select
-        data_type: Type of data being processed
+        data_type: Type of data being processed ('comment' or 'submission')
 
     Returns:
-        DataFrame with selected columns
+        DataFrame with selected columns and additional date columns
     """
     logger.info(f"Selecting {len(columns)} columns from {data_type}")
 
     available_columns = [c for c in columns if c in df.columns]
-
     df_selected = df.select(*available_columns)
 
-    df_selected = df_selected.withColumn(
-        "date",
-        to_date(from_unixtime(col("created_utc")))
+    df_selected = (
+        df_selected
+        .withColumn("date", to_date(from_unixtime(col("created_utc"))))
+        .withColumn("year_month", date_format(col("date"), "yyyy-MM"))
     )
 
-    logger.info(f"Selected columns: {', '.join(available_columns)}")
+    logger.info(f"Selected columns: {', '.join(available_columns)} + ['date', 'year_month']")
     return df_selected
 
 

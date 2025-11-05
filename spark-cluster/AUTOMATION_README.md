@@ -23,7 +23,7 @@ Automatically creates and configures a complete Spark cluster with:
 
 **Example:**
 ```bash
-./setup-spark-cluster.sh 123.45.67.89
+./setup-spark-cluster.sh 24.126.95.54
 ```
 
 **What it does:**
