@@ -1,0 +1,177 @@
+---
+title: "Exploratory Data Analysis"
+format:
+  html:
+    toc: true
+    toc-title: "On this page"
+    toc-location: left
+    theme: cosmo
+    css: ../docs/styles.css
+---
+
+
+We analyze activity, engagement, concentration, and sentiment trends across large Reddit AI and technology subreddits (2023-06 to 2024-07). Our workflow leverages Spark and Python for data aggregation and analysis at scale.
+
+
+## Data Overview
+
+**Dataset Summary:**  
+- **Time range**: 2023-06 – 2024-07  
+- **Total Comments**: See CSV  
+- **Total Submissions**: See CSV  
+- **Top Subreddits**: Shown below
+```{python}
+import pandas as pd
+df_sum = pd.read_csv("../data/csv/dataset_summary_final.csv")
+df_sum
+```
+```{python}
+df_stat = pd.read_csv("../data/csv/subreddit_statistics_final.csv")
+df_stat.sort_values(by="total_rows", ascending=False).head(10)
+```
+
+
+## RQ1: How has community activity evolved across AI and technology subreddits over time?
+
+**Business Question:**  
+How have the post and comment volumes changed monthly? Are there observable surges aligned with key AI/tech events?
+
+**Analysis Approach:**  
+- Aggregate posts/comments by community and month (Spark)  
+- Visualize activity lines
+```{python}
+#| echo: true
+#| output: false
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("../data/plots/rq1_activity.csv")
+plt.figure(figsize=(10, 5))
+for sub in df['subreddit'].unique():
+    subdf = df[df['subreddit']==sub]
+    plt.plot(subdf['month'], subdf['total_activity'], marker='o', label=sub)
+plt.title("Monthly Activity - AI/Tech Subreddits")
+plt.xlabel("Month"), plt.ylabel("Posts + Comments"), plt.xticks(rotation=45)
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.tight_layout()
+```
+
+![](../data/plots/rq1_activity_trends.png)
+
+**Findings:**  
+
+- Activity in subreddits like ChatGPT, technology, ArtificialInteligence, and Futurology exhibits clear temporal fluctuations.
+- Notable spikes in early/mid-2024 appear correlated with major LLM launches and industry news, as captured by dramatic increases in both posts and comments.
+- The technology subreddit maintains the highest and most stable activity levels (200k-300k range), while specialized AI communities show more variable engagement patterns.
+
+
+## RQ2: Which AI-related subreddits demonstrate the strongest user engagement and retention over time?
+
+**Business Question:**  
+Which AI communities retain engaged users month-over-month, rather than fleeting traffic?
+
+**Analysis Approach:**  
+- Compute and visualize monthly (returning/active user) ratio (Spark)  
+- Show engagement as a heatmap
+```{python}
+#| echo: true
+#| output: false
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df = pd.read_csv("../data/plots/rq2_engagement.csv")
+pivot = df.pivot(index="month", columns="subreddit", values="engagement_ratio")
+plt.figure(figsize=(11,6))
+sns.heatmap(pivot, cmap="YlGnBu", linewidths=0.3)
+plt.title("User Retention: Returning/Active Ratio")
+plt.tight_layout()
+```
+
+![](../data/plots/rq2_engagement_heatmap.png)
+
+**Findings:**  
+
+- Specialized communities like Alethics demonstrate occasional high-retention periods (reaching ~1.0 in specific months), indicating strong user return behavior during peak interest phases.
+- Larger mainstream subreddits such as ChatGPT, MachineLearning, and OpenAI display moderate but consistent engagement ratios (0.2-0.4), suggesting steady community participation with a mix of new and returning contributors.
+- The heatmap reveals that user retention varies considerably across time and community type, with niche subreddits showing more volatile patterns compared to established general AI forums.
+
+
+## RQ3: How concentrated is attention within AI and tech discussions?
+
+**Business Question:**  
+Are conversations dominated by a small number of viral posts, or is attention widely spread?
+
+**Analysis Approach:**  
+- Calculate the Gini coefficient for comment distribution per post (Spark)  
+- Show per-subreddit violin/bar plots
+```{python}
+#| echo: true
+#| output: false
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df = pd.read_csv("../data/plots/rq3_gini.csv")
+sns.violinplot(data=df, x="subreddit", y="gini_comments", palette="coolwarm", inner="box")
+plt.title("Discussion Gini Index by Subreddit")
+plt.xlabel("Subreddit"), plt.ylabel("Gini (Comments/Post)"), plt.xticks(rotation=30, ha="right")
+plt.tight_layout()
+```
+![](../data/plots/rq3_gini_violin.png)
+```{python}
+#| echo: true
+#| output: false
+avg_gini = df.groupby("subreddit")[["gini_comments", "gini_scores"]].mean().reset_index()
+sns.barplot(data=avg_gini, x="gini_comments", y="subreddit", palette="viridis")
+plt.title("Average Gini Index - Attention Concentration")
+plt.xlabel("Average Gini (Comments/Post)")
+plt.tight_layout()
+```
+![](../data/plots/rq3_gini_bar_sorted.png)
+
+**Findings:**  
+
+- Subreddits such as technology and ChatGPT show the highest attention concentration (Gini~0.88-0.90), meaning most engagement is absorbed by a few highly popular threads.
+- Communities like MachineLearning and datascience exhibit more egalitarian discussion patterns (Gini~0.70-0.78), with attention spread more broadly among posts.
+- This suggests that general-interest tech communities tend toward "viral hit" dynamics, while technical/professional communities foster more distributed engagement across multiple conversations.
+
+
+## RQ4: How does public sentiment toward AI and emerging technologies fluctuate across time and events?
+
+**Business Question:**  
+How does sentiment change over time or after major events in these subreddits?
+
+**Analysis Approach:**  
+- Compute monthly avg. sentiment by subreddit  
+- Visualize with box+strip plots
+```{python}
+#| echo: true
+#| output: false
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df = pd.read_csv("../data/plots/rq4_sentiment.csv")
+sns.boxplot(data=df, x="subreddit", y="avg_sentiment", palette="RdYlGn", showfliers=False, width=0.6)
+sns.stripplot(data=df, x="subreddit", y="avg_sentiment", color="black", size=3, jitter=True, alpha=0.5)
+plt.axhline(0, color="gray", linestyle="--", linewidth=1)
+plt.title("Sentiment by Month: AI/Tech Subreddits")
+plt.ylabel("Average Sentiment")
+plt.xlabel("Subreddit")
+plt.xticks(rotation=30, ha="right")
+plt.tight_layout()
+```
+![](../data/plots/rq4_sentiment_boxplot.png)
+
+**Findings:**  
+
+- Sentiment across all AI and tech communities remains predominantly neutral (median values clustering around 0), with limited variance in monthly averages.
+- While the distribution is tightly centered, occasional outliers in specific months suggest isolated events or discussions that generate stronger emotional responses (both positive and negative).
+- Overall, public sentiment toward AI appears relatively stable across the 2023-2024 period, though more granular temporal analysis would be needed to identify correlations with specific industry announcements or controversies.
+
+
+## Key Takeaways
+
+- Activity surges around key AI/tech milestones, with the technology subreddit maintaining the highest consistent engagement.
+- User retention patterns vary significantly: specialized communities show volatile high-engagement periods, while mainstream AI forums maintain moderate but steady participation.
+- Attention concentration follows community type: general tech forums exhibit "viral hit" dynamics (Gini~0.9), while technical communities distribute engagement more evenly (Gini~0.7).
+- Sentiment remains predominantly neutral across all communities, with stability suggesting that emotional responses are localized to specific events rather than sustained trends.
+
+

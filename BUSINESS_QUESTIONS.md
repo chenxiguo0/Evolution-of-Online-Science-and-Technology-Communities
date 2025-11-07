@@ -1,54 +1,39 @@
 # Project: Evolution of Online Science and Technology Communities on Reddit
-**Team:** Chenxi Guo Linjin He Xiaoya Meng  
+**Team:** Chenxi Guo, Linjin He, Xiaoya Meng  
 **Dataset:** Reddit comments and submissions (filtered for science, technology, and AI subreddits, ~hundreds of millions of rows)  
 **High-Level Problem Statement:** How do online science and technology communities on Reddit evolve and shape public understanding and sentiment toward AI and emerging technologies?
 
 ---
 
-## Question 1: How has posting and commenting activity changed across major tech-related subreddits between June 2023 and July 2024?
-
+## Question 1: How has community activity evolved across AI and technology subreddits over time?
 **Analysis Type:** EDA
-
 **Technical Approach:**
-- Aggregate monthly post and comment counts using Spark `groupBy` on `year_month` and `subreddit`
-- Visualize growth or decline patterns to identify community surges (e.g., around major AI releases like ChatGPT or Gemini)
-- Expected outcome: Detect periods of rapid community growth or decline and understand posting trends
+- Aggregate monthly post and comment counts for selected subreddits using Spark
+- Visualize temporal trends to identify surges and lulls, especially in connection with technology/AI events
 
 ---
 
-## Question 2: Which technology subreddits show the strongest user engagement and topic retention over time?
-
+## Question 2: Which AI-related subreddits demonstrate the strongest user engagement and retention over time?
 **Analysis Type:** EDA
-
 **Technical Approach:**
-- Track active and returning users per month
-- Compute engagement ratios (e.g., comments per post, average score per user) to identify “sticky” vs. “flash” tech communities
-- Visualize user retention over time using line charts
-- Expected outcome: Identify communities that maintain long-term engagement
+- Calculate monthly ratios of returning vs. active users per subreddit to quantify stickiness
+- Visualize retention and engagement as a heatmap across time and communities
 
 ---
 
-## Question 3: How concentrated is attention within AI and tech discussions?
-
+## Question 3: How concentrated is attention within AI and tech discussions—are conversations dominated by a few topics or widely shared?
 **Analysis Type:** EDA
-
 **Technical Approach:**
-- Compute Gini index of post scores or comment counts per subreddit
-- Measure whether engagement is dominated by a few popular threads (e.g., AI safety, LLMs) or distributed across topics
-- Visualize distribution of attention using Lorenz curves
-- Expected outcome: Quantify inequality of engagement across topics
+- Calculate Gini index for comment distribution per post within subreddits
+- Visualize inequality/concentration using violin and bar plots
 
 ---
 
-## Question 4: Are there temporal or event-driven posting patterns?
-
+## Question 4: How does public sentiment toward AI and emerging technologies fluctuate across time and events?
 **Analysis Type:** EDA
-
 **Technical Approach:**
-- Group posts/comments by date × hour × major AI events (NeurIPS, Google I/O, OpenAI announcements)
-- Identify activity surges aligned with events
-- Visualize using heatmaps or time-series plots
-- Expected outcome: Understand how major events influence posting behavior
+- Perform sentiment analysis per subreddit/month using text mining techniques
+- Visualize sentiment dynamics using box/strip plots and compare with event timelines
 
 ---
 
