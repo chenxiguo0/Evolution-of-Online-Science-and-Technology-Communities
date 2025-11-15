@@ -13,7 +13,7 @@ This document summarizes the key results and insights from the exploratory data 
 ---
 
 ## RQ1. How has community activity evolved across AI and technology subreddits over time?
-**Method:** We aggregate monthly posts and comments for key AI/tech-related subreddits, plotted longitudinally ([rq1_activity.csv](data/plots/rq1_activity.csv)).
+**Method:** We aggregate monthly posts and comments for key AI/tech-related subreddits, plotted longitudinally ([rq1_activity.csv](data/csv/rq1_activity.csv)).
 
 **Visualization:**
 ![Activity Trends](data/plots/rq1_activity_trends.png)
@@ -26,7 +26,7 @@ This document summarizes the key results and insights from the exploratory data 
 ---
 
 ## RQ2. Which AI-related subreddits demonstrate the strongest user engagement and retention over time?
-**Method:** For selected subreddits, we compute the ratio of returning (previously active) users to all monthly active users, visualized via a heatmap ([rq2_engagement.csv](data/plots/rq2_engagement.csv)).
+**Method:** For selected subreddits, we compute the ratio of returning (previously active) users to all monthly active users, visualized via a heatmap ([rq2_engagement.csv](data/csv/rq2_engagement.csv)).
 
 **Visualization:**
 ![User Engagement Heatmap](data/plots/rq2_engagement_heatmap.png)
@@ -39,7 +39,7 @@ This document summarizes the key results and insights from the exploratory data 
 ---
 
 ## RQ3. How concentrated is attention within AI and tech discussions—are conversations dominated by a few topics or widely shared?
-**Method:** We calculate the Gini coefficient (measuring inequality) for comment distribution per post, both per subreddit/month and on average ([rq3_gini.csv](data/plots/rq3_gini.csv)).
+**Method:** We calculate the Gini coefficient (measuring inequality) for comment distribution per post, both per subreddit/month and on average ([rq3_gini.csv](data/csv/rq3_gini.csv)).
 
 **Visualizations:**
 - Violin plot of Gini by subreddit: ![Gini Violin](data/plots/rq3_gini_violin.png)
@@ -53,7 +53,7 @@ This document summarizes the key results and insights from the exploratory data 
 ---
 
 ## RQ4. How does public sentiment toward AI and emerging technologies fluctuate across time and events?
-**Method:** Average sentiment scores are computed per month and subreddit using text sentiment models (see [rq4_sentiment.csv](data/plots/rq4_sentiment.csv)), visualized as box+strip plots.
+**Method:** Average sentiment scores are computed per month and subreddit using text sentiment models (see [rq4_sentiment.csv](data/csv/rq4_sentiment.csv)), visualized as box+strip plots.
 
 **Visualization:**
 ![Sentiment Boxplot](data/plots/rq4_sentiment_boxplot.png)

@@ -1,59 +1,148 @@
-/* Custom styles for DSAN 6000 Project Website */
+/* ============================= */
+/* DSAN 6000 Project Website CSS */
+/* ============================= */
 
-/* Improve readability */
+/* Global body improvements */
 body {
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif; /* 更现代字体 */
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
+    color: #333; /* 字体颜色更柔和 */
+    background-color: #fdfdfd; /* 页面底色更柔和 */
 }
 
-/* Make callouts more prominent */
+/* ============================= */
+/* Callouts */
 .callout {
-    border-left-width: 5px;
+    border-left: 5px solid #4e73df; /* 蓝色强调线 */
+    background-color: #f1f5fb; /* 淡蓝背景 */
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
     margin: 1.5em 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Style for code blocks */
+/* ============================= */
+/* Code blocks */
 pre {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background-color: #1e1e1e; /* 深色背景更突出 */
+    color: #d4d4d4; /* 字体颜色和 VSCode 类似 */
+    border-radius: 0.5rem;
+    padding: 1rem 1.2rem;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Courier New', monospace; /* 编程字体 */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Inline code */
+code {
+    background-color: #f1f1f1;
+    padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
-    padding: 1rem;
+    font-family: 'Fira Code', monospace;
 }
 
-/* Improve table styling */
+/* ============================= */
+/* Tables */
 table {
+    width: 100%;
+    border-collapse: collapse;
     margin: 1.5em 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Style for images */
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+th {
+    background-color: #4e73df;
+    color: #fff;
+    text-align: left;
+}
+
+/* ============================= */
+/* Images */
 img {
     max-width: 100%;
     height: auto;
     margin: 1em 0;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
-/* Navigation improvements */
+/* ============================= */
+/* Navigation bar */
 .navbar {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background-color: #4e73df; /* 蓝色导航栏 */
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
 }
 
-/* Enhance headings */
+/* ============================= */
+/* Headings */
 h1, h2, h3 {
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+    color: #222;
 }
 
 h1 {
-    border-bottom: 2px solid #dee2e6;
+    border-bottom: 3px solid #4e73df;
     padding-bottom: 0.3em;
 }
 
-/* Style for question sections */
+/* ============================= */
+/* Question sections */
 .question-section {
     background-color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
+    padding: 2rem;
+    border-radius: 0.7rem;
     margin: 2em 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* ============================= */
+/* Links */
+a {
+    color: #4e73df;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #2e59d9;
+}
+
+/* ============================= */
+/* Buttons */
+button, .btn {
+    background-color: #4e73df;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #2e59d9;
+}
+
+/* ============================= */
+/* Footnotes, small text */
+small {
+    color: #666;
+}
+
+/* ============================= */
+/* Misc spacing */
+p {
+    margin-bottom: 1em;
 }

@@ -37,7 +37,7 @@
 
 ---
 
-## Question 5: What are the dominant topics and trends within fast-growing AI-related subreddits?
+## Question 5: What are the dominant topics within Technology/Science/AI-related subreddits?
 
 **Analysis Type:** NLP
 
@@ -50,7 +50,7 @@
 
 ---
 
-## Question 6: How does sentiment toward AI systems vary across subreddits and over time?
+## Question 6: How does sentiment toward Technology/Science/AI-related vary across subreddits?
 
 **Analysis Type:** NLP
 
@@ -62,7 +62,7 @@
 
 ---
 
-## Question 7: Do real-world AI milestones trigger noticeable sentiment shifts or topic changes?
+## Question 7: How do sentiment and topic trends evolve across Reddit communities over the course of one year?
 
 **Analysis Type:** NLP
 
@@ -74,9 +74,9 @@
 
 ---
 
-## Question 8: Which types of discussions (technical, ethical, societal) receive the most positive engagement?
+## Question 8: How are ethical, technical, and societal topics represented in Technology/Science/AI-related subreddit discussions?
 
-**Analysis Type:** NLP + EDA
+**Analysis Type:** NLP
 
 **Technical Approach:**
 - Classify posts/comments into discussion types using keyword/topic assignment

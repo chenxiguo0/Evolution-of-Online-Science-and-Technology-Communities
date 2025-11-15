@@ -8,10 +8,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: eda.qmd
-        text: EDA
-      - href: nlp.qmd
-        text: NLP
+      - href: EDA_WEB.qmd
+        text: Exploratory Data Analysis
+      - href: NLP_WEB.qmd
+        text: Natural Language Processing
       - href: ml.qmd
         text: ML
       - href: conclusion.qmd

@@ -221,7 +221,7 @@ def main(net_id, spark_master=None):
     
     # Setup output directory (relative to script location)
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    OUTDIR = os.path.join(script_dir, "..", "data", "plots")
+    OUTDIR = os.path.join(script_dir,"..", "..", "data", "plots")
     os.makedirs(OUTDIR, exist_ok=True)
     logger.info(f"Output directory: {OUTDIR}")
     

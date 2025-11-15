@@ -6,7 +6,7 @@ format:
     toc-title: "On this page"
     toc-location: left
     theme: cosmo
-    css: ../docs/styles.css
+    css: styles.css
 ---
 
 
@@ -44,7 +44,7 @@ How have the post and comment volumes changed monthly? Are there observable surg
 #| output: false
 import pandas as pd
 import matplotlib.pyplot as plt
-df = pd.read_csv("../data/plots/rq1_activity.csv")
+df = pd.read_csv("../data/csv/rq1_activity.csv")
 plt.figure(figsize=(10, 5))
 for sub in df['subreddit'].unique():
     subdf = df[df['subreddit']==sub]
@@ -78,7 +78,7 @@ Which AI communities retain engaged users month-over-month, rather than fleeting
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-df = pd.read_csv("../data/plots/rq2_engagement.csv")
+df = pd.read_csv("../data/csv/rq2_engagement.csv")
 pivot = df.pivot(index="month", columns="subreddit", values="engagement_ratio")
 plt.figure(figsize=(11,6))
 sns.heatmap(pivot, cmap="YlGnBu", linewidths=0.3)
@@ -109,7 +109,7 @@ Are conversations dominated by a small number of viral posts, or is attention wi
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-df = pd.read_csv("../data/plots/rq3_gini.csv")
+df = pd.read_csv("../data/csv/rq3_gini.csv")
 sns.violinplot(data=df, x="subreddit", y="gini_comments", palette="coolwarm", inner="box")
 plt.title("Discussion Gini Index by Subreddit")
 plt.xlabel("Subreddit"), plt.ylabel("Gini (Comments/Post)"), plt.xticks(rotation=30, ha="right")
@@ -148,7 +148,7 @@ How does sentiment change over time or after major events in these subreddits?
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-df = pd.read_csv("../data/plots/rq4_sentiment.csv")
+df = pd.read_csv("../data/csv/rq4_sentiment.csv")
 sns.boxplot(data=df, x="subreddit", y="avg_sentiment", palette="RdYlGn", showfliers=False, width=0.6)
 sns.stripplot(data=df, x="subreddit", y="avg_sentiment", color="black", size=3, jitter=True, alpha=0.5)
 plt.axhline(0, color="gray", linestyle="--", linewidth=1)
