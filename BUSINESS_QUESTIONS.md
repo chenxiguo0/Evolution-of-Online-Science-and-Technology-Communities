@@ -86,27 +86,25 @@
 
 ---
 
-## Question 9: Can we predict whether an AI-related post will become highly engaging?
+## Question 9: Can we automatically identify high-quality Reddit comments based solely on their textual content and simple metadata (e.g., length, presence of URLs, posting time), using classification methods on large-scale social media data?
 
 **Analysis Type:** ML
 
 **Technical Approach:**
-- Engineer features from post metadata and text (posting time, subreddit, title sentiment, topic category, text complexity)
-- Train a binary classification model (Random Forest or Gradient Boosting) using Spark MLlib
-- Evaluate model with precision, recall, and F1-score
-- Expected outcome: Predict high-engagement posts and guide content strategy
+
+A Spark ML pipeline performs tokenization, stopword removal, TF-IDF transformation, feature assembly, and trains a Logistic Regression classifier with class-imbalance weighting.
+
+Model predictions are evaluated using scikit-learn, generating accuracy, F1, AUC, confusion matrix, and ROC/PR plots saved to structured output folders.
 
 ---
 
-## Question 10: Can we forecast the next month’s public sentiment toward AI?
+## Question 10: How can Reddit submissions in Tech/Science/AI domains be grouped into meaningful semantic clusters, and what linguistic patterns characterize each cluster?
 
 **Analysis Type:** ML
 
 **Technical Approach:**
-- Aggregate historical monthly sentiment by subreddit
-- Train regression model (e.g., gradient boosting) to forecast sentiment trends
-- Use feature importance to interpret drivers of sentiment changes
-- Expected outcome: Predict short-term mood trends and identify influential factors
+
+This project applies large‐scale text processing using a Spark pipeline that performs tokenization, stopword removal, and TF-IDF feature extraction. K-Means clustering is then conducted to uncover latent thematic groupings within the comments, with the optimal number of clusters selected via the elbow method. Finally, PCA is used to project high-dimensional TF-IDF vectors into 2D space for visualization and interpretation of cluster structure.
 
 ---
 
