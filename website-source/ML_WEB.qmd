@@ -1,0 +1,115 @@
+---
+title: "Machine Learning"
+format:
+  html:
+    toc: true
+    toc-title: "On this page"
+    toc-location: left
+    theme: cosmo
+    css: styles.css
+---
+
+---
+
+## Overview
+
+In this milestone, we apply various machine learning techniques using Apache Spark's MLlib. Our focus is on solving two main business questions through classification and regression, leveraging features engineered from EDA and NLP insights.
+
+---
+
+## Research Question 9: Can we predict whether an AI-related post will become highly engaging?
+
+**Business Question:**  
+Can we build a model to accurately predict which AI-related posts will achieve high engagement on Reddit?
+
+**Analysis Approach:**  
+This is formulated as a binary classification task. We trained a Logistic Regression model using a rich set of features including post metadata (e.g., subreddit, submission time), and NLP-derived features (e.g., sentiment of title, dominant topic). Model performance is assessed using standard classification metrics.
+
+**Features & training details:**
+- Positive label: `score >= 6` (see `code/ml/ml_Q1.py`).
+- Features: TF-IDF text features (HashingTF + IDF), `comment_length`, `has_url`, `hour_of_day`, `day_of_week`.
+- Train/validation/test splits performed in code (approx. 80/20 overall; train/val internal split applied).
+- Class weighting applied to address imbalance (weightCol used in LogisticRegression).
+- Model saved at: `code/ml/models/logistic_regression`.
+
+### Confusion Matrix
+- true_0 → pred_0: **949,839** ; pred_1: **1,112,372**
+- true_1 → pred_0: **132,447** ; pred_1: **318,706**
+
+### Model performance
+- Accuracy: **0.5047**
+- Precision: **0.2227**
+- Recall: **0.7064**
+- F1-score: **0.3386**
+- AUC: **0.6257**
+
+![](../data/plots/ML1_confusion_matrix_logistic_regression.png)
+
+**confusion matrix:**
+- Counts: true_0 → pred_0: **949,839** ; pred_1: **1,112,372**; true_1 → pred_0: **132,447** ; pred_1: **318,706**.
+- This indicates the model predicts many samples as positive (pred_1), producing a substantial number of false positives. The confusion matrix helps identify where the model misclassifies and guides threshold tuning or feature improvements.
+
+![](../data/plots/ML1_roc_logistic_regression.png)
+
+**ROC:**
+- The ROC curve shows the model's trade-off between true positive rate and false positive rate across thresholds. The reported AUC = **0.626** (see metrics file) indicates modest discriminative ability — better than random but room for improvement.
+- Use this plot to compare models or to choose operating points that balance sensitivity and specificity.
+
+![](../data/plots/ML1_pr_logistic_regression.png)
+
+**Precision–Recall:**
+- Precision = **0.223** and Recall = **0.706** (metrics file). The PR curve highlights that although recall is high (the model catches most high-engagement posts), precision is low — many predicted positives are false.
+- For deployment, consider threshold tuning on the PR curve to meet business needs (e.g., higher precision for automated actions, or higher recall for candidate selection).
+
+**Interpretation & implications:**
+- The model shows **high recall** but **low precision**: it successfully identifies most high-engagement posts but produces many false positives. This means the model is useful for candidate selection (e.g., flagging posts for manual review) but not ideal for automated posting strategies without threshold tuning.
+- AUC ≈ 0.626 indicates modest discriminative power; further work needed to improve robustness.
+
+**Future improvements:**
+- Use embeddings (BERT / Sentence-BERT) to capture semantic meaning rather than HashingTF alone.
+- Incorporate richer author and subreddit metadata (author history, subreddit-specific features, prior post performance).
+- Try stronger classifiers (Gradient Boosting / XGBoost / LightGBM) and tune thresholds by business objective (precision vs recall tradeoffs).
+
+---
+
+## Research Question 10: Can we forecast the next month’s public sentiment toward AI?
+
+**Business Question:**  
+Is it possible to predict future sentiment trends regarding AI in Reddit communities, thereby enabling proactive understanding of public mood?
+
+**Analysis Approach:**  
+We explored clustering of subreddit submissions (K-Means) to identify groups with similar sentiment/text signatures as a first step; a supervised regression pipeline for forecasting monthly sentiment remains to be implemented.
+
+### Cluster analysis & visualization
+- Cluster artifacts and model saved in `code/ml/models/kmeans_k13`.
+- Cluster analysis summary: `data/csv/ML2_cluster_analysis.csv`.
+- Elbow chart for K selection: `data/plots/ML2_elbow_method.png`.
+
+![](../data/plots/ML2_cluster_visualization.png)
+
+**clustering:**
+- The clustering plot groups subreddits by similar text/sentiment patterns. Key clusters include cluster 10 (largest, many tokens like 'removed', 'ai', 'chatgpt') and cluster 8 (conversational language).
+- These clusters can be used to build cluster-specific forecasting models or to include cluster id as a feature in regression/classification tasks.
+
+**Selected cluster summary:**
+- Largest cluster id **10**: size **43,558** (tokens: 'removed', 'im', 'ai', 'chatgpt', 'gpt', 'new', 'use', 'get')
+- Cluster **8**: size **4,989** (conversational tokens: 'im', 'like', 'time')
+- Cluster **6**: size **511** (technical tokens: 'ai', 'code', 'import', 'data')
+
+**Interpretation & current status:**
+- Clustering reveals meaningful groupings that can improve targeted forecasting (modeling per cluster or using cluster as a feature).
+- No regression model for next-month sentiment forecasting is saved in the repository; implementing this is recommended as the next step.
+
+**Next steps to implement forecasting:**
+1. Aggregate monthly features per subreddit/cluster: lagged sentiment, topic shares, activity metrics.
+2. Train and cross-validate regression models (GBRT, ElasticNet), evaluate with RMSE/MAE/R2.
+3. Use interpretability tools (SHAP) to identify key drivers.
+4. Deploy forecasting pipeline and produce monthly forecasts with uncertainty bounds.
+
+---
+
+## Summary
+
+- The Logistic Regression classifier is effective at capturing high-engagement posts (high recall) but has low precision and modest overall discriminative power (AUC ~0.63).
+- Clustering reveals distinct subreddit groups useful for tailored forecasting and analysis.
+- Improvements in text representation, richer features, and model complexity are needed to move from exploratory ML to production-ready predictions.

@@ -37,7 +37,7 @@
 
 ---
 
-## Question 5: What are the dominant topics within Technology/Science/AI-related subreddits?
+## Question 5: What are the dominant topics and trends within fast-growing AI-related subreddits?
 
 **Analysis Type:** NLP
 
@@ -50,7 +50,7 @@
 
 ---
 
-## Question 6: How does sentiment toward Technology/Science/AI-related vary across subreddits?
+## Question 6: How does sentiment toward AI systems vary across subreddits and over time?
 
 **Analysis Type:** NLP
 
@@ -62,7 +62,7 @@
 
 ---
 
-## Question 7: How do sentiment and topic trends evolve across Reddit communities over the course of one year?
+## Question 7: Do real-world AI milestones trigger noticeable sentiment shifts or topic changes?
 
 **Analysis Type:** NLP
 
@@ -74,9 +74,9 @@
 
 ---
 
-## Question 8: How are ethical, technical, and societal topics represented in Technology/Science/AI-related subreddit discussions?
+## Question 8: Which types of discussions (technical, ethical, societal) receive the most positive engagement?
 
-**Analysis Type:** NLP
+**Analysis Type:** NLP + EDA
 
 **Technical Approach:**
 - Classify posts/comments into discussion types using keyword/topic assignment
@@ -86,25 +86,27 @@
 
 ---
 
-## Question 9: Can we automatically identify high-quality Reddit comments based solely on their textual content and simple metadata (e.g., length, presence of URLs, posting time), using classification methods on large-scale social media data?
+## Question 9: Can we predict whether an AI-related post will become highly engaging?
 
 **Analysis Type:** ML
 
 **Technical Approach:**
-
-A Spark ML pipeline performs tokenization, stopword removal, TF-IDF transformation, feature assembly, and trains a Logistic Regression classifier with class-imbalance weighting.
-
-Model predictions are evaluated using scikit-learn, generating accuracy, F1, AUC, confusion matrix, and ROC/PR plots saved to structured output folders.
+- Engineer features from post metadata and text (posting time, subreddit, title sentiment, topic category, text complexity)
+- Train a binary classification model (Random Forest or Gradient Boosting) using Spark MLlib
+- Evaluate model with precision, recall, and F1-score
+- Expected outcome: Predict high-engagement posts and guide content strategy
 
 ---
 
-## Question 10: How can Reddit submissions in Tech/Science/AI domains be grouped into meaningful semantic clusters, and what linguistic patterns characterize each cluster?
+## Question 10: Can we forecast the next month’s public sentiment toward AI?
 
 **Analysis Type:** ML
 
 **Technical Approach:**
-
-This project applies large‐scale text processing using a Spark pipeline that performs tokenization, stopword removal, and TF-IDF feature extraction. K-Means clustering is then conducted to uncover latent thematic groupings within the comments, with the optimal number of clusters selected via the elbow method. Finally, PCA is used to project high-dimensional TF-IDF vectors into 2D space for visualization and interpretation of cluster structure.
+- Aggregate historical monthly sentiment by subreddit
+- Train regression model (e.g., gradient boosting) to forecast sentiment trends
+- Use feature importance to interpret drivers of sentiment changes
+- Expected outcome: Predict short-term mood trends and identify influential factors
 
 ---
 
