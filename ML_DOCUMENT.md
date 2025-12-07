@@ -6,10 +6,7 @@ This document presents the Machine Learning (ML) component of our project, focus
 
 ---
 
-## Research Question 9: Can we predict whether an AI-related post will become highly engaging?
-
-**Business Question:**
-Can we predict which AI-related posts will garner significant user engagement (e.g., high scores, many comments) based on their characteristics?
+## Business Question 9: Can high-quality Reddit comments in science, technology, and AI subreddits be predicted from comment content and basic behavioral features?
 
 **Analysis Approach:**
 We framed this as a binary classification problem. Features engineered from post metadata (e.g., subreddit, time of posting) and textual content (e.g., sentiment, topic categories from NLP) were used to train a Logistic Regression model. The model aims to classify posts into "highly engaging" or "not highly engaging."
@@ -57,7 +54,9 @@ We framed this as a binary classification problem. Features engineered from post
 - AUC: **0.6257**
 
 **Interpretation:**
-- High recall but low precision suggests the model is useful for identifying candidates but not for direct publication decisions. Improving precision is the primary engineering goal.
+- The confusion matrix shows the model correctly identified **318,706** high-quality comments (True Positives) but misclassified **1,112,372** low-quality comments as high-quality (False Positives).
+- It correctly identified **949,839** low-quality comments (True Negatives) but missed **132,447** high-quality ones (False Negatives).
+- This confirms the pattern of high recall (70.6%) at the cost of low precision (22.3%). The model is effective at finding most of the target class but includes many incorrect predictions. This makes it suitable for filtering or flagging content for review, but not for fully automated decisions where precision is critical.
 
 **Future Improvement:**
 - Enrich text representations using contextual embeddings (BERT / Sentence-BERT) instead of or in addition to HashingTF+IDF.
@@ -66,10 +65,7 @@ We framed this as a binary classification problem. Features engineered from post
 
 ---
 
-## Research Question 10: Can we forecast the next month’s public sentiment toward AI?
-
-**Business Question:**
-Can we build a predictive model to forecast the overall public sentiment towards AI in the coming month within specific subreddits?
+## Business Question 10: Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?
 
 **Analysis Approach:**
 This question is framed as a regression problem. We used historical monthly sentiment scores (derived from NLP analysis) as the target variable, along with aggregated features such as past activity levels, topic prevalence, and external event indicators. A regression model (e.g., Gradient Boosting) would typically be trained to predict the continuous sentiment score for the subsequent month.
@@ -79,16 +75,17 @@ This question is framed as a regression problem. We used historical monthly sent
 - Cluster analysis summary is available in `data/csv/ML2_cluster_analysis.csv` and visualized in `data/plots/ML2_cluster_visualization.png`.
 - Elbow method chart (used to select K) is available: `data/plots/ML2_elbow_method.png`.
 
-### Cluster summary (selected clusters)
-- Largest cluster id: **10** (size = **43,558**) — frequent tokens include 'removed', 'im', 'ai', 'chatgpt', 'gpt', 'new', 'use', 'get'.
-- Cluster **8** (size = **4,989**) — casual language cluster with tokens like 'im', 'like', 'time', 'ive', 'know'.
-- Cluster **6** (size = **511**) — includes more technical tokens like 'ai', 'code', 'import', 'data'.
+### Cluster summary (from `ML2_cluster_analysis.csv`)
+- **Cluster 10 (Size: 43,558):** This is the largest cluster by a significant margin. Its top terms include generic words (`'im'`, `'like'`, `'use'`, `'get'`) and high-frequency discussion topics (`'ai'`, `'chatgpt'`, `'gpt'`). The token `'removed'` is also prominent, suggesting this cluster may contain a large volume of moderated or deleted content, typical in high-traffic subreddits.
+- **Cluster 8 (Size: 4,989):** A medium-sized cluster characterized by highly conversational language (`'im'`, `'like'`, `'time'`, `'ive'`, `'know'`). This likely represents informal discussions, personal anecdotes, or user interactions.
+- **Cluster 6 (Size: 511):** A smaller, more specialized cluster. Its top terms (`'ai'`, `'code'`, `'import'`, `'data'`) clearly point to technical discussions related to programming and data science.
+- **Other Clusters:** The remaining clusters are much smaller and capture more niche topics, such as `paused`/`playing` in Cluster 0, likely related to media or games.
 
 ![Cluster Visualization of Subreddit Sentiment](data/plots/ML2_cluster_visualization.png)
 
-**clustering:**
-- Clustering reveals subreddit groups with similar language and sentiment patterns; cluster 10 dominates the corpus, likely representing high-volume or moderated/removed content.
-- These clusters enable stratified modeling: forecasting models trained per-cluster or using cluster id as a feature may yield improved accuracy.
+**Clustering Interpretation:**
+- The K-Means analysis successfully identified distinct thematic groups. The dominance of a large, general-purpose cluster (10) alongside smaller, more coherent clusters (like 6 and 8) is a common pattern in text clustering.
+- These clusters can be used for more targeted analysis. For example, a sentiment forecasting model could be trained separately on the "technical" cluster vs. the "conversational" one to capture different dynamics.
 
 **Limitations & Future Improvement:**
 - No supervised regression model for next-month sentiment is currently saved in the repository; the cluster analysis is preparatory work.

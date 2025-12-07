@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project Title – DSAN 6000 Big Data Project</title>
+<title>Evolution of Online Science and Technology Communities on Reddit – DSAN 6000 Big Data Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-aab37fff69bc8184003ffd2db61e847e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -93,12 +93,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./eda.html"> 
-<span class="menu-text">EDA</span></a>
+    <a class="nav-link" href="./EDA_WEB.html"> 
+<span class="menu-text">Exploratory Data Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./nlp.html"> 
-<span class="menu-text">NLP</span></a>
+    <a class="nav-link" href="./NLP_WEB.html"> 
+<span class="menu-text">Natural Language Processing</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./ml.html"> 
@@ -150,8 +150,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project Title</h1>
-<p class="subtitle lead">DSAN 6000 Big Data Analytics - Fall 2024</p>
+<h1 class="title">Evolution of Online Science and Technology Communities on Reddit</h1>
+<p class="subtitle lead">DSAN 6000 Big Data Analytics and Cloud Computing - Fall 2025</p>
 </div>
 
 
@@ -171,24 +171,23 @@ ul.task-list li input[type="checkbox"] {
 <section id="team-members" class="level2">
 <h2 class="anchored" data-anchor-id="team-members">Team Members</h2>
 <ul>
-<li>Team Member 1</li>
-<li>Team Member 2</li>
-<li>Team Member 3</li>
-<li>Team Member 4</li>
+<li>Chenxi Guo</li>
+<li>Linjin He</li>
+<li>Xiaoya Meng</li>
 </ul>
 </section>
 <section id="project-overview" class="level2">
 <h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
 <p><strong>High-Level Problem Statement:</strong></p>
-<p>[Your overarching business problem - e.g., “How can we optimize content strategy and community management for technology-focused Reddit communities?”]</p>
+<p>How do online science and technology communities on Reddit evolve and shape public understanding and sentiment toward AI and emerging technologies?</p>
 <section id="dataset" class="level3">
 <h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
 <ul>
 <li><strong>Source:</strong> Reddit Comments and Submissions</li>
-<li><strong>Time Period:</strong> [Your date range]</li>
-<li><strong>Subreddits:</strong> [List your chosen subreddits]</li>
-<li><strong>Scale:</strong> [Total rows - should be 100M+]</li>
-<li><strong>Size:</strong> [Total GB]</li>
+<li><strong>Time Period:</strong> 2023-06-01 to 2024-07-31</li>
+<li><strong>Subreddits:</strong> A curated list of science, technology, and AI-related subreddits, including <code>ChatGPT</code>, <code>technology</code>, <code>ArtificialInteligence</code>, <code>MachineLearning</code>, <code>Futurology</code>, <code>datascience</code>, <code>OpenAI</code>, and more.</li>
+<li><strong>Scale:</strong> ~13.4 million rows (~12.6M comments, ~0.8M submissions)</li>
+<li><strong>Size:</strong> ~13.4 GB</li>
 </ul>
 </section>
 <section id="business-questions" class="level3">
@@ -196,24 +195,24 @@ ul.task-list li input[type="checkbox"] {
 <p>We address 10 business questions spanning three analytical approaches:</p>
 <p><strong>Exploratory Data Analysis (EDA):</strong></p>
 <ol type="1">
-<li>[Question 1]</li>
-<li>[Question 2]</li>
-<li>[Question 3]</li>
-<li>[Question 4]</li>
+<li>How has community activity evolved across science, technology, and AI subreddits over time?</li>
+<li>Which technology-related subreddits demonstrate the strongest user engagement and retention over time?</li>
+<li>How concentrated is attention within technology-related discussions (comments and scores)?</li>
+<li>Do science, technology, and AI subreddits share overlapping user communities?</li>
 </ol>
 <p><strong>Natural Language Processing (NLP):</strong></p>
 <ol start="5" type="1">
-<li>[Question 5]</li>
-<li>[Question 6]</li>
-<li>[Question 7]</li>
+<li>What are the dominant topics and trends within fast-growing technology-related subreddits?</li>
+<li>What are the baseline emotional patterns of discussions about AI and emerging technologies?</li>
+<li>How do external technological or policy events disrupt or reshape existing discussion patterns in online technology-related communities?</li>
+<li>How do users shape topic emphasis and sentiment dynamics across science, technology, and AI subreddits?</li>
 </ol>
 <p><strong>Machine Learning (ML):</strong></p>
-<ol start="8" type="1">
-<li>[Question 8]</li>
-<li>[Question 9]</li>
-<li>[Question 10]</li>
+<ol start="9" type="1">
+<li>Can high-quality Reddit comments in science, technology, and AI subreddits be predicted from comment content and basic behavioral features?</li>
+<li>Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?</li>
 </ol>
-<p>See <a href="https://github.com/your-repo/BUSINESS_QUESTIONS.md">BUSINESS_QUESTIONS.md</a> for detailed technical approaches.</p>
+<p>See <a href="../BUSINESS_QUESTIONS.md">BUSINESS_QUESTIONS.md</a> for detailed technical approaches.</p>
 </section>
 </section>
 <section id="methodology" class="level2">
@@ -224,90 +223,68 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Platform:</strong> Apache Spark cluster on AWS EC2</li>
 <li><strong>Processing:</strong> Distributed computing with PySpark</li>
 <li><strong>Storage:</strong> Amazon S3 for data lake architecture</li>
-<li><strong>Scale:</strong> Processing hundreds of millions of rows</li>
+<li><strong>Scale:</strong> Processing over 13 million rows of text and metadata</li>
 </ul>
 </section>
 <section id="analysis-pipeline" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-pipeline">Analysis Pipeline</h3>
 <ol type="1">
-<li><strong>Data Acquisition &amp; Filtering</strong> (Milestone 0)
+<li><strong>Data Acquisition &amp; Filtering</strong>
 <ul>
-<li>Copy full Reddit dataset from source bucket</li>
-<li>Filter to subreddits of interest</li>
-<li>Generate dataset statistics</li>
+<li>Copied and filtered a large public Reddit dataset to relevant subreddits and timeframes.</li>
 </ul></li>
-<li><strong>Exploratory Data Analysis</strong> (Milestone 1) → <a href="./eda.html">EDA Page</a>
+<li><strong>Exploratory Data Analysis</strong> → <a href="./EDA_WEB.html">EDA Page</a>
 <ul>
-<li>Statistical analysis</li>
-<li>Temporal patterns</li>
-<li>Community comparisons</li>
+<li>Analyzed temporal patterns, user engagement, attention concentration, and community overlap.</li>
 </ul></li>
-<li><strong>Natural Language Processing</strong> (Milestone 2) → <a href="./nlp.html">NLP Page</a>
+<li><strong>Natural Language Processing</strong> → <a href="./NLP_WEB.html">NLP Page</a>
 <ul>
-<li>Sentiment analysis</li>
-<li>Topic modeling</li>
-<li>Text mining</li>
+<li>Deployed topic modeling, sentiment analysis, and rule-based text classification.</li>
 </ul></li>
-<li><strong>Machine Learning</strong> (Milestone 3) → <a href="./ml.html">ML Page</a>
+<li><strong>Machine Learning</strong> → <a href="./ML_WEB.html">ML Page</a>
 <ul>
-<li>Feature engineering</li>
-<li>Model training and evaluation</li>
-<li>Prediction and classification</li>
+<li>Trained and evaluated classification and clustering models to predict content quality and identify user segments.</li>
 </ul></li>
-<li><strong>Final Analysis</strong> (Milestone 4) → <a href="./conclusion.html">Conclusion</a>
+<li><strong>Final Analysis</strong> → <a href="./conclusion.html">Conclusion</a>
 <ul>
-<li>Synthesis of findings</li>
-<li>Business recommendations</li>
+<li>Synthesized all findings into actionable insights and business recommendations.</li>
 </ul></li>
 </ol>
 </section>
 </section>
 <section id="key-findings-preview" class="level2">
 <h2 class="anchored" data-anchor-id="key-findings-preview">Key Findings Preview</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Coming Soon
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Key findings will be populated as analysis progresses through each milestone.</p>
-</div>
-</div>
 <section id="major-insights" class="level3">
 <h3 class="anchored" data-anchor-id="major-insights">Major Insights</h3>
 <ol type="1">
-<li>[Finding 1 - from EDA]</li>
-<li>[Finding 2 - from NLP]</li>
-<li>[Finding 3 - from ML]</li>
+<li><strong>Community Engagement is Event-Driven but Emotionally Stable:</strong> User activity surges in response to major AI product launches and news, but the overall emotional tone of the communities remains consistently neutral-to-positive, showing high resilience.</li>
+<li><strong>A Core, Interconnected AI Community Drives the Conversation:</strong> A handful of central AI-focused subreddits (like <code>r/ChatGPT</code>, <code>r/OpenAI</code>) share a large, active user base, acting as the primary hub for discourse that spreads to the wider tech ecosystem.</li>
+<li><strong>Predictive Models Can Augment, Not Replace, Human Moderation:</strong> Our machine learning model can successfully identify the majority of high-quality comments (high recall), but its lower precision makes it best suited as a tool to assist human moderators, not fully automate their work.</li>
 </ol>
 </section>
 <section id="business-impact" class="level3">
 <h3 class="anchored" data-anchor-id="business-impact">Business Impact</h3>
-<p>[Summary of how your findings address the high-level problem and provide actionable recommendations]</p>
+<p>Our findings provide a roadmap for understanding and engaging with online technology communities. By identifying key hubs of conversation, understanding the stable emotional climate, and leveraging ML for content curation, organizations can develop more efficient and impactful communication and community management strategies.</p>
 </section>
 </section>
 <section id="navigation" class="level2">
 <h2 class="anchored" data-anchor-id="navigation">Navigation</h2>
 <p>Use the navigation bar above to explore:</p>
 <ul>
-<li><strong><a href="./eda.html">EDA</a></strong>: Exploratory data analysis with statistical insights and temporal patterns</li>
-<li><strong><a href="./nlp.html">NLP</a></strong>: Natural language processing analysis including sentiment and topics</li>
-<li><strong><a href="./ml.html">ML</a></strong>: Machine learning models and predictions</li>
+<li><strong><a href="./EDA_WEB.html">EDA</a></strong>: Exploratory data analysis with statistical insights and temporal patterns</li>
+<li><strong><a href="./NLP_WEB.html">NLP</a></strong>: Natural language processing analysis including sentiment and topics</li>
+<li><strong><a href="./ML_WEB.html">ML</a></strong>: Machine learning models and predictions</li>
 <li><strong><a href="./conclusion.html">Conclusion</a></strong>: Summary of findings and recommendations</li>
 </ul>
 </section>
 <section id="repository" class="level2">
 <h2 class="anchored" data-anchor-id="repository">Repository</h2>
 <ul>
-<li><strong>GitHub:</strong> [Link to your repository]</li>
-<li><strong>Documentation:</strong> All code, data outputs, and analysis documentation available in repository</li>
+<li><strong>GitHub:</strong> https://github.com/gu-dsan6000/fall-2025-project-team29</li>
+<li><strong>Documentation:</strong> Comprehensive project details, methodology, and results are presented on this website. All source code and data outputs can be found in the GitHub repository.</li>
 </ul>
 <hr>
-<p><em>Last updated: [Date]</em></p>
+<p><em>Last updated: December 6, 2025</em></p>
 
 
 </section>
@@ -395,6 +372,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -505,6 +484,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -1,5 +1,6 @@
 ---
 title: "Machine Learning"
+subtitle: "Predictive Models and Classification"
 format:
   html:
     toc: true
@@ -17,13 +18,10 @@ In this milestone, we apply various machine learning techniques using Apache Spa
 
 ---
 
-## Research Question 9: Can we predict whether an AI-related post will become highly engaging?
-
-**Business Question:**  
-Can we build a model to accurately predict which AI-related posts will achieve high engagement on Reddit?
+## Business Question 9: Can high-quality Reddit comments in science, technology, and AI subreddits be predicted from comment content and basic behavioral features?
 
 **Analysis Approach:**  
-This is formulated as a binary classification task. We trained a Logistic Regression model using a rich set of features including post metadata (e.g., subreddit, submission time), and NLP-derived features (e.g., sentiment of title, dominant topic). Model performance is assessed using standard classification metrics.
+This is formulated as a binary classification task where `score >= 6` defines a "high-quality" comment. We trained a Logistic Regression model using text features (TF-IDF) and behavioral features (comment length, time of day, etc.). Model performance is assessed using standard classification metrics.
 
 **Features & training details:**
 - Positive label: `score >= 6` (see `code/ml/ml_Q1.py`).
@@ -62,8 +60,10 @@ This is formulated as a binary classification task. We trained a Logistic Regres
 - For deployment, consider threshold tuning on the PR curve to meet business needs (e.g., higher precision for automated actions, or higher recall for candidate selection).
 
 **Interpretation & implications:**
-- The model shows **high recall** but **low precision**: it successfully identifies most high-engagement posts but produces many false positives. This means the model is useful for candidate selection (e.g., flagging posts for manual review) but not ideal for automated posting strategies without threshold tuning.
-- AUC ≈ 0.626 indicates modest discriminative power; further work needed to improve robustness.
+- The model shows **high recall (70.6%)** but **low precision (22.3%)**.
+- **Specifically:** It correctly identified **318,706** high-quality comments (True Positives) but misclassified **1,112,372** low-quality ones as high-quality (False Positives).
+- This means the model is effective at finding a majority of the high-quality content but also produces a large number of false alarms. It is best suited for tasks like flagging content for human review, rather than for fully automated decision-making where precision is paramount.
+- The overall **AUC of 0.626** indicates modest discriminative power, suggesting that while the model is better than random chance, there is significant room for improvement.
 
 **Future improvements:**
 - Use embeddings (BERT / Sentence-BERT) to capture semantic meaning rather than HashingTF alone.
@@ -72,13 +72,10 @@ This is formulated as a binary classification task. We trained a Logistic Regres
 
 ---
 
-## Research Question 10: Can we forecast the next month’s public sentiment toward AI?
-
-**Business Question:**  
-Is it possible to predict future sentiment trends regarding AI in Reddit communities, thereby enabling proactive understanding of public mood?
+## Business Question 10: Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?
 
 **Analysis Approach:**  
-We explored clustering of subreddit submissions (K-Means) to identify groups with similar sentiment/text signatures as a first step; a supervised regression pipeline for forecasting monthly sentiment remains to be implemented.
+We applied K-Means clustering to the TF-IDF features of subreddit submissions. The goal is to identify groups of subreddits that share similar textual content and language use. The elbow method was used to determine the optimal number of clusters (K).
 
 ### Cluster analysis & visualization
 - Cluster artifacts and model saved in `code/ml/models/kmeans_k13`.
@@ -97,7 +94,11 @@ We explored clustering of subreddit submissions (K-Means) to identify groups wit
 - Cluster **6**: size **511** (technical tokens: 'ai', 'code', 'import', 'data')
 
 **Interpretation & current status:**
-- Clustering reveals meaningful groupings that can improve targeted forecasting (modeling per cluster or using cluster as a feature).
+- The K-Means clustering successfully segmented the subreddits into meaningful groups based on their language.
+- **Cluster 10 (Size: 43,558):** The largest cluster, characterized by general discussion terms (`'im'`, `'like'`), major topics (`'ai'`, `'chatgpt'`), and moderation-related tokens (`'removed'`). This represents the bulk of high-volume, general-purpose conversations.
+- **Cluster 8 (Size: 4,989):** A significant cluster focused on conversational language (`'ive'`, `'know'`, `'dont'`), indicating a community of informal interaction.
+- **Cluster 6 (Size: 511):** A smaller but highly coherent technical cluster with terms like `'code'`, `'import'`, and `'data'`, clearly identifying programming-focused discussions.
+- These discovered clusters can serve as valuable features for more advanced models, such as building separate sentiment forecasting models for technical vs. conversational communities.
 - No regression model for next-month sentiment forecasting is saved in the repository; implementing this is recommended as the next step.
 
 **Next steps to implement forecasting:**

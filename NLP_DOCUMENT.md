@@ -4,7 +4,7 @@
 
 This study employs Natural Language Processing (NLP) techniques to investigate discussions related to Technology, Science, and Artificial Intelligence on Reddit. We analyze community discourse across multiple subreddits to identify dominant topics, track sentiment trends over time, and explore thematic differences in ethical, technical, and societal discussions. Methods include Latent Dirichlet Allocation (LDA) for topic modeling, VADER for sentiment analysis, and rule-based text classification to generate word clouds, providing both quantitative and visual insights into the semantic structure and community focus within AI- and technology-related discussions.
 
-## Research Question 5: What are the dominant topics within Technology/Science/AI-related subreddits?
+## Business Question 5: What are the dominant topics and trends within fast-growing technology-related subreddits?
 
 As shown in the figure, the Latent Dirichlet Allocation (LDA) model identifies ten distinct topics from the corpus, each represented by its most influential keywords. These keywords provide an interpretable summary of the semantic focus of each discovered topic.
 
@@ -85,26 +85,28 @@ As shown in the pie chart, the Latent Dirichlet Allocation (LDA) model identifie
 This topic distribution underscores the diversity of discussions within AI-related subreddits, ranging from casual interactions to technical, professional, and futuristic themes.
 
 
-## Research Question 6: How does sentiment toward Technology/Science/AI-related vary across subreddits?
+## Business Question 6: What are the baseline emotional patterns of discussions about AI and emerging technologies?
 
-As shown in the figure, we conducted VADER sentiment analysis on the comment content. The bar chart illustrates the distribution of sentiment components in the corpus:
+**Method:** We applied the VADER sentiment analysis tool to each comment and submission to calculate a `compound` score, which ranges from -1 (most negative) to +1 (most positive). Scores are then categorized as positive (>=0.05), neutral, or negative (<=-0.05).
 
-* **pos**: proportion of positive words
-* **neu**: proportion of neutral words
-* **neg**: proportion of negative words
+**Analysis of Sentiment Distribution:**
+The stacked bar chart below shows the *proportion* of comments falling into each sentiment category for the most active subreddits.
 
 ![Sentiment distribution](data/plots/NLP_Q2_sentiment_distribution_stacked.png)
 
-Most comments exhibit neutral sentiment, indicating that discussions on topics such as science, AI, theoretical disciplines, and programming are primarily objective, informative, or technical in nature.
+- **Finding 1: Neutrality is Dominant.** Across almost all communities, the vast majority of comments are classified as neutral. This indicates that discussions on technical and scientific topics are often objective, informative, and factual rather than emotionally charged.
+- **Finding 2: Positive Skew.** In most subreddits, the proportion of positive comments is noticeably higher than negative ones. This suggests a generally constructive or optimistic underlying tone, even within objective discussions.
 
-The **compound** score is a normalized weighted sum that takes into account positive and negative words, negations, degree modifiers, and emotional punctuation, ranging from [-1, 1]
+**Analysis of Average Compound Score:**
+The bar chart below visualizes the average `compound` sentiment score for each subreddit.
 
 ![compound](data/plots/NLP_Q2_sentiment_by_subreddit_bar.png)
 
-As shown in the figure, the compound sentiment scores are predominantly positive, though only to a slight degree. Negative sentiment is infrequent and similarly mild, indicating that the overall discussion atmosphere is largely neutral, with a modest inclination toward positivity.
+- **Finding 3: Mildly Positive Atmosphere.** Consistent with the distribution analysis, the average sentiment score for most subreddits is slightly above zero, confirming a modest but persistent positive inclination. For example, communities like `AIforGood` and `OpenAI` show a stronger positive leaning.
+- **Finding 4: Lack of Strong Negativity.** Very few communities exhibit a negative average sentiment, and even those that do are only slightly negative. This reinforces the conclusion that the overall discussion atmosphere is not contentious but rather balanced and leaning towards positive.
 
 
-## Research Question 7: How do sentiment and topic trends evolve across Reddit communities over the course of one year?
+## Business Question 7: How do external technological or policy events disrupt or reshape existing discussion patterns in online technology-related communities?
 
 We selected a set of representative subreddits and categorized them into four major groups:
 
@@ -134,21 +136,27 @@ These lines serve as reference points to observe sentiment fluctuations around t
 
 ![Sentiment trend](data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
 
-Overall, although minor fluctuations are observed, the sentiment trends across the four subreddit categories remain relatively stable throughout the year. 
+**Analysis of Sentiment Trend:**
+The chart below plots the average monthly sentiment for four distinct categories of subreddits. Key industry and policy events are marked with vertical lines to contextualize the trends.
 
-During the periods of the Gemini launch (2024-02-15), the EU AI Act (2024-04-17), and GPT-5 rumors (2024-06-20), the AI/ML category shows upward movements, indicating a discussion atmosphere more inclined toward approval and enthusiasm. 
+![Sentiment trend](data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
 
-Nonetheless, the overall trajectories across all categories suggest consistent discussion tones, reflecting that community sentiment toward Technology, Science, and AI-related topics remained generally stable over the observed period.
+- **Overall Stability:** The primary finding is that sentiment across all four categories remains remarkably stable over the year, with average scores consistently hovering in the neutral-to-mildly-positive range (0.05 to 0.15). This suggests a mature and steady discussion environment that is not prone to dramatic, long-term shifts in mood.
 
-### Topic Trend
+- **Event-Driven Fluctuations in AI/ML:** The **AI/ML** category (blue line) displays the most sensitivity to external events.
+    - Following the **Gemini launch (Feb 2024)** and the **EU AI Act (Apr 2024)**, this category shows a distinct upward trend, indicating a period of increased optimism and positive discussion.
+    - This suggests that major product releases and significant regulatory milestones can temporarily boost positive sentiment within core AI communities.
 
-We adopted the topic categorization method from Research Question 5.
+- **Consistency in Other Categories:** The `Programming/Data`, `Science/STEM`, and `Tech/Future Trends` categories show even less volatility, reinforcing the idea that their discussion tones are less influenced by specific AI-related news cycles.
+
+**Analysis of Topic Trend:**
+We also analyzed the distribution of the ten topics (discovered in RQ5) over time.
 
 ![Topic Trend](data/plots/NLP_Q1_topic_trends_over_time.png)
 
-As shown in the figure, the distribution of topics remained stable over one year, with no significant fluctuations observed.
+- **Conclusion:** As shown in the stacked area chart, the relative prevalence of each topic remains highly consistent throughout the year. There are no major shifts, indicating that the fundamental areas of discussion within these communities are stable and not subject to seasonal or event-driven changes. For example, "informal conversation" (Topic 6) and "human-AI relations" (Topic 2) consistently remain the most dominant topics.
 
-## Research Question 8: How are ethical, technical, and societal topics represented in Technology/Science/AI-related subreddit discussions?
+## Business Question 8: How do users shape topic emphasis and sentiment dynamics across science, technology, and AI subreddits?
 
 To explore the semantic characteristics of discussions related to Technology, Science, and AI, word clouds were created to visualize the most frequent and prominent terms within each topic group.
 
@@ -166,22 +174,13 @@ This approach allows the word clouds to intuitively highlight the main topics an
 
 ![WordCloud](data/plots/NLP_Q4_wordclouds_by_topic_clean.png)
 
-In analyzing discussions related to technology, science, and artificial intelligence, the word clouds across different categories reveal distinct thematic focuses:
+**Analysis:**
+The word clouds reveal clear thematic distinctions between the different categories of discussion:
 
-- Ethical Discussion
+- **Ethical Discussion:** Prominent keywords include **regulation**, **responsibility**, **human**, **bias**, **fairness**, and **moral**. This indicates that discourse in this category centers on the governance, accountability, and human-centric implications of AI and technology.
 
-Prominent words include regulation, responsibility, human, know, need, and work. These terms indicate that the community’s discourse in the ethical category primarily centers on governance, accountability, and human implications of AI and technology applications. Users emphasize the formulation of rules, clarification of responsibilities, and the importance of human considerations in technological development.
+- **Societal Discussion:** Dominant words include **job**, **work**, **company**, **society**, **future**, and **impact**. This highlights a focus on the real-world consequences of technology, particularly concerning employment, corporate influence, and long-term social structures.
 
-- Other Discussion
+- **Technical Discussion:** Key terms are **model**, **data**, **training**, **LLM**, **neural**, and **architecture**. This demonstrates a clear focus on the mechanics of AI development, including model design, data handling, and the specifics of training large language models.
 
-Key words are removed, know, need, work, and time. This category represents more miscellaneous discussions, focusing on content management, procedural matters, or general operational issues. The emphasis is on work requirements and time management rather than technical or ethical concerns.
-
-- Societal Discussion
-
-Dominant words include job, work, need, company, society, going, future, and human. These indicate that the discussions in this category concentrate on the societal implications of technological advancement, particularly employment, corporate operations, social structures, and future societal trends. The discourse reflects forward-looking considerations of AI and technology impacts on society.
-
-- Technical Discussion
-
-Prominent words include model, human, need, data, new, time, work, training, and LLM (large language model). This demonstrates that the technical category focuses on AI model development and applications, data processing, training processes, and practical aspects of large language models, highlighting methodological and operational concerns.
-
-Overall, the word clouds illustrate clear thematic distinctions: the ethical category emphasizes responsibility and governance, the societal category highlights social impact and employment, the technical category focuses on models and methods, and the other category covers miscellaneous operational issues.
+- **Other Discussion:** This category is characterized by general or meta-discussion words like **removed**, **know**, **need**, **work**, and **time**. It likely captures content related to moderation, general inquiries, or conversations that do not fit neatly into the other three themes.

@@ -124,12 +124,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#research-question-9-can-we-predict-whether-an-ai-related-post-will-become-highly-engaging" id="toc-research-question-9-can-we-predict-whether-an-ai-related-post-will-become-highly-engaging" class="nav-link" data-scroll-target="#research-question-9-can-we-predict-whether-an-ai-related-post-will-become-highly-engaging">Research Question 9: Can we predict whether an AI-related post will become highly engaging?</a>
+  <li><a href="#business-question-9-can-high-quality-reddit-comments-in-science-technology-and-ai-subreddits-be-predicted-from-comment-content-and-basic-behavioral-features" id="toc-business-question-9-can-high-quality-reddit-comments-in-science-technology-and-ai-subreddits-be-predicted-from-comment-content-and-basic-behavioral-features" class="nav-link" data-scroll-target="#business-question-9-can-high-quality-reddit-comments-in-science-technology-and-ai-subreddits-be-predicted-from-comment-content-and-basic-behavioral-features">Business Question 9: Can high-quality Reddit comments in science, technology, and AI subreddits be predicted from comment content and basic behavioral features?</a>
   <ul class="collapse">
   <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion Matrix</a></li>
   <li><a href="#model-performance" id="toc-model-performance" class="nav-link" data-scroll-target="#model-performance">Model performance</a></li>
   </ul></li>
-  <li><a href="#research-question-10-can-we-forecast-the-next-months-public-sentiment-toward-ai" id="toc-research-question-10-can-we-forecast-the-next-months-public-sentiment-toward-ai" class="nav-link" data-scroll-target="#research-question-10-can-we-forecast-the-next-months-public-sentiment-toward-ai">Research Question 10: Can we forecast the next month’s public sentiment toward AI?</a>
+  <li><a href="#business-question-10-can-distinct-discussion-communities-be-identified-within-technology-related-subreddits-based-on-patterns-of-language-use" id="toc-business-question-10-can-distinct-discussion-communities-be-identified-within-technology-related-subreddits-based-on-patterns-of-language-use" class="nav-link" data-scroll-target="#business-question-10-can-distinct-discussion-communities-be-identified-within-technology-related-subreddits-based-on-patterns-of-language-use">Business Question 10: Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?</a>
   <ul class="collapse">
   <li><a href="#cluster-analysis-visualization" id="toc-cluster-analysis-visualization" class="nav-link" data-scroll-target="#cluster-analysis-visualization">Cluster analysis &amp; visualization</a></li>
   </ul></li>
@@ -147,6 +147,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Machine Learning</h1>
+<p class="subtitle lead">Predictive Models and Classification</p>
 </div>
 
 
@@ -169,12 +170,10 @@ ul.task-list li input[type="checkbox"] {
 <p>In this milestone, we apply various machine learning techniques using Apache Spark’s MLlib. Our focus is on solving two main business questions through classification and regression, leveraging features engineered from EDA and NLP insights.</p>
 <hr>
 </section>
-<section id="research-question-9-can-we-predict-whether-an-ai-related-post-will-become-highly-engaging" class="level2">
-<h2 class="anchored" data-anchor-id="research-question-9-can-we-predict-whether-an-ai-related-post-will-become-highly-engaging">Research Question 9: Can we predict whether an AI-related post will become highly engaging?</h2>
-<p><strong>Business Question:</strong><br>
-Can we build a model to accurately predict which AI-related posts will achieve high engagement on Reddit?</p>
+<section id="business-question-9-can-high-quality-reddit-comments-in-science-technology-and-ai-subreddits-be-predicted-from-comment-content-and-basic-behavioral-features" class="level2">
+<h2 class="anchored" data-anchor-id="business-question-9-can-high-quality-reddit-comments-in-science-technology-and-ai-subreddits-be-predicted-from-comment-content-and-basic-behavioral-features">Business Question 9: Can high-quality Reddit comments in science, technology, and AI subreddits be predicted from comment content and basic behavioral features?</h2>
 <p><strong>Analysis Approach:</strong><br>
-This is formulated as a binary classification task. We trained a Logistic Regression model using a rich set of features including post metadata (e.g., subreddit, submission time), and NLP-derived features (e.g., sentiment of title, dominant topic). Model performance is assessed using standard classification metrics.</p>
+This is formulated as a binary classification task where <code>score &gt;= 6</code> defines a “high-quality” comment. We trained a Logistic Regression model using text features (TF-IDF) and behavioral features (comment length, time of day, etc.). Model performance is assessed using standard classification metrics.</p>
 <p><strong>Features &amp; training details:</strong> - Positive label: <code>score &gt;= 6</code> (see <code>code/ml/ml_Q1.py</code>). - Features: TF-IDF text features (HashingTF + IDF), <code>comment_length</code>, <code>has_url</code>, <code>hour_of_day</code>, <code>day_of_week</code>. - Train/validation/test splits performed in code (approx. 80/20 overall; train/val internal split applied). - Class weighting applied to address imbalance (weightCol used in LogisticRegression). - Model saved at: <code>code/ml/models/logistic_regression</code>.</p>
 <section id="confusion-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="confusion-matrix">Confusion Matrix</h3>
@@ -198,17 +197,15 @@ This is formulated as a binary classification task. We trained a Logistic Regres
 <p><strong>ROC:</strong> - The ROC curve shows the model’s trade-off between true positive rate and false positive rate across thresholds. The reported AUC = <strong>0.626</strong> (see metrics file) indicates modest discriminative ability — better than random but room for improvement. - Use this plot to compare models or to choose operating points that balance sensitivity and specificity.</p>
 <p><img src="../data/plots/ML1_pr_logistic_regression.png" class="img-fluid"></p>
 <p><strong>Precision–Recall:</strong> - Precision = <strong>0.223</strong> and Recall = <strong>0.706</strong> (metrics file). The PR curve highlights that although recall is high (the model catches most high-engagement posts), precision is low — many predicted positives are false. - For deployment, consider threshold tuning on the PR curve to meet business needs (e.g., higher precision for automated actions, or higher recall for candidate selection).</p>
-<p><strong>Interpretation &amp; implications:</strong> - The model shows <strong>high recall</strong> but <strong>low precision</strong>: it successfully identifies most high-engagement posts but produces many false positives. This means the model is useful for candidate selection (e.g., flagging posts for manual review) but not ideal for automated posting strategies without threshold tuning. - AUC ≈ 0.626 indicates modest discriminative power; further work needed to improve robustness.</p>
+<p><strong>Interpretation &amp; implications:</strong> - The model shows <strong>high recall (70.6%)</strong> but <strong>low precision (22.3%)</strong>. - <strong>Specifically:</strong> It correctly identified <strong>318,706</strong> high-quality comments (True Positives) but misclassified <strong>1,112,372</strong> low-quality ones as high-quality (False Positives). - This means the model is effective at finding a majority of the high-quality content but also produces a large number of false alarms. It is best suited for tasks like flagging content for human review, rather than for fully automated decision-making where precision is paramount. - The overall <strong>AUC of 0.626</strong> indicates modest discriminative power, suggesting that while the model is better than random chance, there is significant room for improvement.</p>
 <p><strong>Future improvements:</strong> - Use embeddings (BERT / Sentence-BERT) to capture semantic meaning rather than HashingTF alone. - Incorporate richer author and subreddit metadata (author history, subreddit-specific features, prior post performance). - Try stronger classifiers (Gradient Boosting / XGBoost / LightGBM) and tune thresholds by business objective (precision vs recall tradeoffs).</p>
 <hr>
 </section>
 </section>
-<section id="research-question-10-can-we-forecast-the-next-months-public-sentiment-toward-ai" class="level2">
-<h2 class="anchored" data-anchor-id="research-question-10-can-we-forecast-the-next-months-public-sentiment-toward-ai">Research Question 10: Can we forecast the next month’s public sentiment toward AI?</h2>
-<p><strong>Business Question:</strong><br>
-Is it possible to predict future sentiment trends regarding AI in Reddit communities, thereby enabling proactive understanding of public mood?</p>
+<section id="business-question-10-can-distinct-discussion-communities-be-identified-within-technology-related-subreddits-based-on-patterns-of-language-use" class="level2">
+<h2 class="anchored" data-anchor-id="business-question-10-can-distinct-discussion-communities-be-identified-within-technology-related-subreddits-based-on-patterns-of-language-use">Business Question 10: Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?</h2>
 <p><strong>Analysis Approach:</strong><br>
-We explored clustering of subreddit submissions (K-Means) to identify groups with similar sentiment/text signatures as a first step; a supervised regression pipeline for forecasting monthly sentiment remains to be implemented.</p>
+We applied K-Means clustering to the TF-IDF features of subreddit submissions. The goal is to identify groups of subreddits that share similar textual content and language use. The elbow method was used to determine the optimal number of clusters (K).</p>
 <section id="cluster-analysis-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="cluster-analysis-visualization">Cluster analysis &amp; visualization</h3>
 <ul>
@@ -219,7 +216,7 @@ We explored clustering of subreddit submissions (K-Means) to identify groups wit
 <p><img src="../data/plots/ML2_cluster_visualization.png" class="img-fluid"></p>
 <p><strong>clustering:</strong> - The clustering plot groups subreddits by similar text/sentiment patterns. Key clusters include cluster 10 (largest, many tokens like ‘removed’, ‘ai’, ‘chatgpt’) and cluster 8 (conversational language). - These clusters can be used to build cluster-specific forecasting models or to include cluster id as a feature in regression/classification tasks.</p>
 <p><strong>Selected cluster summary:</strong> - Largest cluster id <strong>10</strong>: size <strong>43,558</strong> (tokens: ‘removed’, ‘im’, ‘ai’, ‘chatgpt’, ‘gpt’, ‘new’, ‘use’, ‘get’) - Cluster <strong>8</strong>: size <strong>4,989</strong> (conversational tokens: ‘im’, ‘like’, ‘time’) - Cluster <strong>6</strong>: size <strong>511</strong> (technical tokens: ‘ai’, ‘code’, ‘import’, ‘data’)</p>
-<p><strong>Interpretation &amp; current status:</strong> - Clustering reveals meaningful groupings that can improve targeted forecasting (modeling per cluster or using cluster as a feature). - No regression model for next-month sentiment forecasting is saved in the repository; implementing this is recommended as the next step.</p>
+<p><strong>Interpretation &amp; current status:</strong> - The K-Means clustering successfully segmented the subreddits into meaningful groups based on their language. - <strong>Cluster 10 (Size: 43,558):</strong> The largest cluster, characterized by general discussion terms (<code>'im'</code>, <code>'like'</code>), major topics (<code>'ai'</code>, <code>'chatgpt'</code>), and moderation-related tokens (<code>'removed'</code>). This represents the bulk of high-volume, general-purpose conversations. - <strong>Cluster 8 (Size: 4,989):</strong> A significant cluster focused on conversational language (<code>'ive'</code>, <code>'know'</code>, <code>'dont'</code>), indicating a community of informal interaction. - <strong>Cluster 6 (Size: 511):</strong> A smaller but highly coherent technical cluster with terms like <code>'code'</code>, <code>'import'</code>, and <code>'data'</code>, clearly identifying programming-focused discussions. - These discovered clusters can serve as valuable features for more advanced models, such as building separate sentiment forecasting models for technical vs.&nbsp;conversational communities. - No regression model for next-month sentiment forecasting is saved in the repository; implementing this is recommended as the next step.</p>
 <p><strong>Next steps to implement forecasting:</strong> 1. Aggregate monthly features per subreddit/cluster: lagged sentiment, topic shares, activity metrics. 2. Train and cross-validate regression models (GBRT, ElasticNet), evaluate with RMSE/MAE/R2. 3. Use interpretability tools (SHAP) to identify key drivers. 4. Deploy forecasting pipeline and produce monthly forecasts with uncertainty bounds.</p>
 <hr>
 </section>
