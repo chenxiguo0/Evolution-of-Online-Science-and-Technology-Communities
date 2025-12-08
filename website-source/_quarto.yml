@@ -14,6 +14,8 @@ website:
         text: Natural Language Processing
       - href: ml.qmd
         text: ML
+      - href: report.qmd
+        text: Report
       - href: conclusion.qmd
         text: Conclusion
   page-footer:

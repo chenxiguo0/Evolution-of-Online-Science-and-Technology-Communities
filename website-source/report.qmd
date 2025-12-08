@@ -1,0 +1,23 @@
+---
+title: "Final Report"
+---
+
+## Project Summary
+
+This section will contain a high-level summary of the project, its objectives, and the key findings.
+
+## Business Recommendations
+
+Based on our analysis, we propose the following business recommendations.
+
+## Detailed Findings
+
+This section will link to the detailed analysis pages for EDA, NLP, and ML.
+
+- [Exploratory Data Analysis](EDA_WEB.html)
+- [Natural Language Processing](NLP_WEB.html)
+- [Machine Learning](ML_WEB.html)
+
+## Future Work
+
+This section will outline potential future work and extensions of this project.
