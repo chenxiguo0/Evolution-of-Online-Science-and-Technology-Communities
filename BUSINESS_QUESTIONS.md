@@ -1,7 +1,7 @@
 # Project: Evolution of Online Science and Technology Communities on Reddit
 **Team:** Chenxi Guo, Linjin He, Xiaoya Meng  
 **Dataset:** Reddit comments and submissions (filtered for science, technology, and AI subreddits, ~hundreds of millions of rows)  
-**High-Level Problem Statement:** How do online science and technology communities on Reddit evolve and shape public understanding and sentiment toward AI and emerging technologies?
+**High-Level Problem Statement:** How do online science and technology communities on Reddit evolve, interact, and structure their discussions around AI and emerging technologies?
 
 ---
 

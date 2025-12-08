@@ -13,7 +13,7 @@ subtitle: "DSAN 6000 Big Data Analytics and Cloud Computing - Fall 2025"
 
 **High-Level Problem Statement:**
 
-How do online science and technology communities on Reddit evolve and shape public understanding and sentiment toward AI and emerging technologies?
+How do online science and technology communities on Reddit evolve, interact, and structure their discussions around AI and emerging technologies?
 
 ### Dataset
 

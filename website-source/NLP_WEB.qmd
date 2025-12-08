@@ -40,39 +40,40 @@ As shown in the figure, the Latent Dirichlet Allocation (LDA) model identifies t
 
 Overall, these topics illustrate the LDA model’s ability to uncover coherent thematic structures within the dataset and to organize large volumes of text into interpretable clusters.
 
-![Topic keywords](data/plots/NLP_Q1_topic_keywords.png)
+![Topic keywords](../data/plots/NLP_Q1_topic_keywords.png)
 
 ### Overall Topic Distribution
 
-As shown in the pie chart, the Latent Dirichlet Allocation (LDA) model identifies ten distinct topics from the dataset. The distribution of these topics reveals both dominant discussions and peripheral themes within the community.
+As shown in the pie chart, the Latent Dirichlet Allocation (LDA) model identifies ten distinct topics. Before ranking them, it is crucial to address Topic 6.
 
-![Overall Topic Distribution](data/plots/NLP_Q1_topic_distribution_pie.png)
+**A Note on Topic 6 (General Conversational Topic):**
+Topic 6 (22.4%), with keywords like *something, never, someone, bad, lol, yeah*, represents a "background" or "general conversational" topic. It captures common, low-specificity words and conversational filler that are prevalent across the entire dataset but do not form a coherent semantic theme. The emergence of such a topic is a common and expected artifact of LDA. For the purpose of identifying the most significant *thematic* discussions, we will exclude Topic 6 from the subsequent ranking.
 
-#### 1. Dominant Topics
+After setting aside the general conversational topic, the most dominant thematic topics are as follows:
 
-- **Topic 6 (22.4%)**  
-  Keywords: *something, never, someone, bad, lol, yeah*  
-  This topic accounts for the largest proportion of the corpus and represents informal, colloquial exchanges or personal expressions. It reflects casual interactions, user engagement, and conversational posts or comments.
+![Overall Topic Distribution](../data/plots/NLP_Q1_topic_distribution_pie.png)
+
+#### 1. Dominant Thematic Topics
 
 - **Topic 2 (13.6%)**  
   Keywords: *human, ai, power, energy, car, years*  
-  This topic focuses on human–AI relations, emerging technologies, and long-term trends in energy and transportation. It highlights discussions centered on technological development and future-oriented themes.
+  This is the most prominent thematic topic, focusing on human–AI relations, emerging technologies, and long-term trends in energy and transportation. It highlights discussions centered on technological development and future-oriented themes.
 
-- **Topic 7 (13%)**  
+- **Topic 7 (13.0%)**  
   Keywords: *learn, help, project, learning, software, job*  
   This topic captures discourse around learning resources, technical support, project development, and career-related topics. It indicates active participation in educational and professional growth discussions within AI-focused communities.
-
-#### 2. Secondary Topics
 
 - **Topic 0 (11.8%)**  
   Keywords: *data, apple, ai, science, user, marketing*  
   This topic encompasses discussions at the intersection of technology and business, including data science, AI applications, and technology-driven business practices.
 
+#### 2. Secondary Thematic Topics
+
 - **Topic 8 (11.3%)**  
   Keywords: *job, jobs, entrepreneur, pay, business, company*  
   This topic pertains to employment and entrepreneurship, reflecting user interest in career opportunities, compensation, and business activities.
 
-- **Topic 4 (11%)**  
+- **Topic 4 (11.0%)**  
   Keywords: *code, python, data, using, language, windows*  
   This topic represents programming and technical practice, emphasizing coding, software tools, and computational workflows.
 
@@ -80,19 +81,17 @@ As shown in the pie chart, the Latent Dirichlet Allocation (LDA) model identifie
 
 - **Topic 3 (7.7%)**  
   Keywords: *word, images, water, read, data*  
-  This topic relates to information extraction, text and image processing, and data analysis, but constitutes a smaller portion of the corpus.
+  This topic relates to information extraction, text and image processing, and data analysis.
 
 - **Topics 1, 5, 9 (<5% each)**  
-  These topics include discussions about application development and APIs, community interactions, and conversational agents such as ChatGPT. They are less prominent but still provide context-specific insights.
+  These topics include discussions about application development and APIs, community interactions, and conversational agents such as ChatGPT.
 
 #### 4. Overall Interpretation
 
-- Informal and conversational exchanges (Topic 6) dominate the discourse, suggesting high community engagement and interaction beyond purely technical content.  
-- Technology- and trend-related discussions (Topics 2, 4, 0) collectively account for approximately 36% of the corpus, highlighting the centrality of AI, data science, energy, and programming topics.  
-- Career- and learning-focused topics (Topics 7, 8) account for roughly 24%, indicating user interest in professional development and skill acquisition.  
-- Peripheral topics (Topics 1, 5, 9) represent niche discussions, providing supplementary insights into community management, API usage, and conversational AI.  
-
-This topic distribution underscores the diversity of discussions within AI-related subreddits, ranging from casual interactions to technical, professional, and futuristic themes.
+- After filtering out the large general conversational topic (Topic 6), the discourse is led by discussions on **future-oriented technology and human-AI relations** (Topic 2).
+- Career and learning-focused topics (Topics 7 and 8) remain highly significant, accounting for roughly 24% of the corpus and highlighting a strong user focus on professional development.
+- Technology and business-related discussions (Topics 0, 4) are also central, collectively representing over 22% of the content.
+- This revised distribution reveals that beneath a layer of casual conversation, the community's core focus is on the future implications of technology, career growth, and practical applications in business and programming.
 
 
 ## Business Question 6: What are the baseline emotional patterns of discussions about AI and emerging technologies?
@@ -144,7 +143,7 @@ GPT-5 rumors (2024-06-20).
 
 These lines serve as reference points to observe sentiment fluctuations around the time of significant events.
 
-![Sentiment trend](data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
+![Sentiment trend](../data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
 
 **Analysis of Sentiment Trend:**
 The chart below plots the average monthly sentiment for four distinct categories of subreddits. Key industry and policy events are marked with vertical lines to contextualize the trends.
@@ -182,7 +181,7 @@ Discussion content was classified into four categories using a rule-based approa
 
 This approach allows the word clouds to intuitively highlight the main topics and language features within each category, providing a visual understanding of community focus.
 
-![WordCloud](data/plots/NLP_Q4_wordclouds_by_topic_clean.png)
+![WordCloud](../data/plots/NLP_Q4_wordclouds_by_topic_clean.png)
 
 **Analysis:**
 The word clouds reveal clear thematic distinctions between the different categories of discussion:
