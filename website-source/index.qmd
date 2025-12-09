@@ -90,6 +90,7 @@ Use the navigation bar above to explore:
 - **[NLP](NLP_WEB.qmd)**: Natural language processing analysis including sentiment and topics
 - **[ML](ML_WEB.qmd)**: Machine learning models and predictions
 - **[Conclusion](conclusion.qmd)**: Summary of findings and recommendations
+- **[Report](report.qmd)**: Comprehensive analysis and results
 
 ## Repository
 

@@ -4,20 +4,60 @@ title: "Final Report"
 
 ## Project Summary
 
-This section will contain a high-level summary of the project, its objectives, and the key findings.
+This project investigates how online science, technology, and AI communities on Reddit evolve, interact, and structure their discussions around emerging technologies. Motivated by the overarching question of how these communities respond to rapid advances in AI and technology, we analyze more than 13.4 million comments and submissions from 40 curated subreddits between June 2023 and July 2024. Our goal is to uncover the temporal dynamics of community activity, patterns of user engagement, thematic structures of discussion, and the feasibility of predicting content quality through machine learning.
 
-## Business Recommendations
-
-Based on our analysis, we propose the following business recommendations.
+To support computation at this scale, we developed a distributed data-processing pipeline on an AWS EC2 Spark cluster, enabling efficient handling of over 13GB of text and metadata. Using this infrastructure, we apply an integrated analytical framework that combines Exploratory Data Analysis (EDA), Natural Language Processing (NLP), and Machine Learning (ML) to address ten core business questions. These analyses examine activity fluctuations, user retention cycles, sentiment stability, topic evolution, cross-community overlap, and the predictive modeling of high-quality content. Together, these components provide a multi-layered understanding of how Reddit’s technology and AI ecosystems function, evolve, and respond to external technological or policy events.
 
 ## Detailed Findings
 
-This section will link to the detailed analysis pages for EDA, NLP, and ML.
+This section provides an integrated overview of insights from the three analytical components of the project: Exploratory Data Analysis (EDA), Natural Language Processing (NLP), and Machine Learning (ML). Each subsection summarizes the key discoveries and links to a dedicated analysis page that documents interactive visuals, methodological details, and complete result sets.
 
-- [Exploratory Data Analysis](EDA_WEB.html)
-- [Natural Language Processing](NLP_WEB.html)
-- [Machine Learning](ML_WEB.html)
+### Exploratory Data Analysis (EDA)
+The EDA characterizes structural patterns in community behavior across 40 AI and technology subreddits by examining activity dynamics, user retention, attention allocation, and cross-community participation. Across the 14 months, community activity displays a hybrid pattern: broad technology subreddits maintain high baseline volume, while AI-focused forums exhibit episodic spikes aligned with major releases and public announcements. This separation reflects different drivers of participation, general technological interest versus AI-specific event sensitivity.
+
+User retention analysis further distinguishes communities by functional role. Mainstream AI subreddits (e.g., ChatGPT, MachineLearning) maintain stable return rates, indicating sustained month-to-month engagement. At the same time, niche or highly specialized communities show short, high-intensity retention bursts tied to topic relevance. These patterns indicate that community size and topic breadth shape long-term participation capacity.
+
+Attention distribution also varies systematically across subreddit types. High-traffic communities exhibit an intense concentration of engagement with comment activity disproportionately captured by a small number of threads consistent with viral or news-driven dynamics. In contrast, technical and research-oriented subreddits (such as Machine Learning and Data Science) show lower attention inequality, supporting more evenly distributed, parallel discussions that align with expert-driven or problem-solving interactions.
+
+Finally, user-overlap analysis reveals minimal cross-participation between AI and technology communities, even among subreddits addressing closely related topics. This indicates that Reddit’s AI ecosystem consists of distinct audience segments, each interacting primarily within its own topical domain rather than migrating across adjacent communities.
+
+Together, these EDA results identify apparent structural differences in how AI and technology communities behave, including activity drivers, engagement stability, attention allocation, and user segmentation, providing the analytical foundation for the NLP and ML components of the project.
+
+See full analysis in [Exploratory Data Analysis](EDA_WEB.html)
+
+
+### Natural Language Processing (NLP)
+
+The NLP analysis examines the semantic structure, emotional tone, event responsiveness, and user-driven discussion patterns across 40 AI and technology-related subreddits. Topic modeling reveals a stable set of thematic structures centered on future-oriented technology, human–AI relations, practical learning and project development, programming workflows, and technology-driven business applications. After excluding a significant general conversational topic, the remaining themes remain remarkably consistent throughout the 14 months, indicating that community interests are persistent and not subject to substantial drift. These findings suggest that discussions in fast-growing AI and technology communities are shaped by enduring concerns about technological impact, career development, and practical implementation rather than short-lived trends.
+
+Sentiment analysis using VADER further demonstrates that the emotional tone across all major communities is predominantly neutral to mildly positive. Average sentiment scores remain stable over time, with only modest fluctuations in AI-focused subreddits around major product announcements or regulatory milestones such as the Gemini release or the EU AI Act. These shifts, however, are short-lived and do not meaningfully alter the long-term emotional landscape. Programming, science, and broader technology communities show even less sensitivity to external events, reinforcing the conclusion that discourse in these communities is informational and measured rather than reactive or volatile.
+
+To understand how users contribute to different forms of discourse, discussions were categorized into technical, ethical, societal, and general content. Technical discussions emphasize model architectures, data workflows, and computational methods; ethical discussions focus on fairness, regulation, and governance; societal discussions address employment, corporate influence, and broader social implications; and general discussions reflect meta-talk, moderation, or uncategorized exchanges. These distinctions reveal parallel layers of conversation, each shaped by distinct user groups with different informational needs and priorities.
+
+Overall, the NLP analysis shows that Reddit’s AI and technology discussions form a stable, multidimensional discourse environment. Community conversations are thematically coherent, emotionally steady, and only marginally influenced by external technological or policy events. Users contribute across diverse topical layers—from technical implementation to societal impact—indicating a mature and sustained public engagement with emerging technologies.
+
+See full analysis in [Natural Language Processing](NLP_WEB.html)
+
+
+### Machine Learning (ML)
+The machine learning analysis evaluates whether high-quality comments can be predicted from textual and behavioral features, and whether subreddits can be meaningfully segmented based on language use. For the predictive task, we formulate comment quality classification as a binary problem using a threshold of `score >= 6`. A logistic regression model trained on TF-IDF features and lightweight metadata demonstrates modest discriminative performance. While the model achieves a high recall of over 70%, enabling it to identify the majority of high-quality comments, its precision is low, leading to a substantial number of false positives. The overall accuracy (0.50) and AUC (0.63) indicate that the classifier performs better than random but lacks the reliability required for automated decision-making. These results suggest that such a model is more appropriate as a triage or content-surfacing tool to assist human moderators rather than as a standalone quality-filtering system. They also highlight the limitations of sparse text representations and basic behavioral features for capturing the nuances of high-engagement content.
+
+To complement the predictive task, we apply unsupervised learning to uncover structural patterns in language use across subreddits. K-Means clustering on TF-IDF embeddings reveals several distinct groups, including a large cluster dominated by broad conversational language and AI-related terms, a smaller cluster focused on informal dialogue, and a well-defined technical cluster characterized by programming-related terminology. These clusters demonstrate that subreddit content naturally organizes into coherent thematic groupings, validating the use of clustering to identify community types and communication styles. Such segmentation can support downstream applications, including building community-specific forecasting models, tailoring moderation strategies, or incorporating cluster identity as a feature in supervised models.
+
+Together, the ML results show that while simple classification models offer limited predictive power, combining predictive and clustering approaches provides meaningful insights into content structure and community segmentation. Future improvements—such as replacing TF-IDF with contextual embeddings, incorporating richer author and subreddit history features, or using more advanced classifiers like gradient boosting are likely to yield significantly stronger performance. These advances would enable the transition from exploratory modeling toward more robust systems capable of supporting real-world moderation, recommendation, and content-quality assessment workflows.
+
+See full analysis in [Machine Learning](ML_WEB.html)
+
+
+## Business Recommendations
+
+The findings from this project highlight several opportunities for organizations seeking to understand better and engage with online science and technology communities. First, the strong event-driven dynamics observed across AI-related subreddits suggest that communication strategies should be aligned with major product releases, policy announcements, and industry milestones. Timely engagement during these high-visibility periods can amplify reach and influence. Second, the clear separation between niche technical communities and broader mainstream forums indicates that outreach and messaging should be tailored to each audience's specific engagement structures. Technical communities benefit from sustained, information-rich content, while general-interest groups respond more strongly to concise, high-level narratives and trend-oriented discussions. Third, the high concentration of attention within viral posts in large subreddits underscores the importance of identifying and strategically participating in high-impact threads, as these disproportionately shape community sentiment and visibility.
+
+In addition, the NLP results show that sentiment across communities remains stable and neutral, primarily positive, suggesting that discussions surrounding AI and emerging technologies create a constructive environment for public-facing communication. Organizations can leverage this stability by contributing expert perspectives, clarifications, or educational content without significant risk of entering volatile or hostile discourse. Finally, although machine learning classifiers show limited precision, their strong recall indicates potential value as triage tools within moderation or engagement workflows. Integrating predictive models to surface potentially high-value content, while maintaining human oversight, could improve efficiency in content curation and community management.
 
 ## Future Work
 
-This section will outline potential future work and extensions of this project.
+Extensions of this project may enhance both analytical depth and operational applicability. From a modeling perspective, replacing TF-IDF features with contextual language embeddings, incorporating richer author-level and subreddit-level metadata, and experimenting with more advanced classifiers such as gradient boosting or transformer-based architectures would likely improve predictive performance. In unsupervised analysis, clustering could be expanded using hierarchical or density-based approaches to capture more nuanced community structures, and cluster identities could be integrated into sentiment or engagement forecasting models.
+
+Additional longitudinal analyses may also provide insight into how community behavior evolves over multi-year periods, especially as AI technologies continue to advance. Integrating external datasets such as real-world AI release timelines, policy changes, or news sentiment could help establish causal links between external events and online discourse. Finally, developing a full forecasting pipeline for subreddit-level sentiment or activity trends would enable stakeholders to anticipate shifts in public attention, supporting more proactive communication strategies. Collectively, these extensions would deepen the analytical value of the project and expand its potential for operational use in community engagement, policy analysis, and emerging-technology monitoring.
+

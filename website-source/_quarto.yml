@@ -12,12 +12,12 @@ website:
         text: Exploratory Data Analysis
       - href: NLP_WEB.qmd
         text: Natural Language Processing
-      - href: ml.qmd
-        text: ML
-      - href: report.qmd
-        text: Report
+      - href: ML_WEB.qmd
+        text: Machine Learning
       - href: conclusion.qmd
         text: Conclusion
+      - href: report.qmd
+        text: Report
   page-footer:
     left: |
       DSAN 6000 Big Data Analytics Project
