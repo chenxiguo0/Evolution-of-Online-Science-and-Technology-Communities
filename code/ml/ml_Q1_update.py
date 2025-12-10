@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-High-quality comment classification (binary) using Logistic Regression.
+Low-score comment classification (binary) using Logistic Regression.
+Predicting comments with score < 2.
 Outputs: metrics CSVs, confusion matrix (CSV+PNG), ROC/PR curves (PNG), prediction CSVs, saved model.
 """
 
@@ -25,9 +26,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import argparse
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-logger = logging.getLogger("high_quality_classification")
+logger = logging.getLogger("low_score_classification")
 
-THRESHOLD = 20
 RANDOM_SEED = 42
 
 def plot_confusion_matrix(cm, filename, title="Confusion Matrix"):
@@ -54,7 +54,7 @@ def main():
     # Init Spark
     spark = (
         SparkSession.builder
-        .appName("HighQualityCommentClassification")
+        .appName("LowScoreCommentClassification")
         .master(master_url)
         .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
         .config("spark.hadoop.fs.s3a.request.payer", "requester")
@@ -73,7 +73,7 @@ def main():
         df = df.sample(fraction=sample_fraction, seed=RANDOM_SEED)
 
     # Basic feature engineering
-    df = df.withColumn("label", when(col("score") >= THRESHOLD, 1).otherwise(0))
+    df = df.withColumn("label", when(col("score") < 0, 1).otherwise(0))  # <0 = low score
     df = df.withColumn("comment_length", length(col("body")))
     df = df.withColumn("has_url", col("body").rlike("http").cast("int"))
     df = df.withColumn("created_ts", from_unixtime(col("created_utc")))
@@ -129,7 +129,7 @@ def main():
     # Save model
     # -------------------------------
     os.makedirs("./models", exist_ok=True)
-    model_lr.write().overwrite().save("./models/logistic_regression")
+    model_lr.write().overwrite().save("./models/logistic_regression_low_score")
 
     # -------------------------------
     # Metrics, confusion matrix, ROC/PR
@@ -164,8 +164,8 @@ def main():
     # Confusion matrix
     cm = confusion_matrix(y_true, y_pred)
     cm_df = pd.DataFrame(cm, index=["true_0","true_1"], columns=["pred_0","pred_1"])
-    cm_df.to_csv("./output/confusion_matrix_logistic_regression.csv", index=True)
-    plot_confusion_matrix(cm, "./output/confusion_matrix_logistic_regression.png", title="Confusion Matrix LogisticRegression")
+    cm_df.to_csv("./output/confusion_matrix_logistic_regression_low_score.csv", index=True)
+    plot_confusion_matrix(cm, "./output/confusion_matrix_logistic_regression_low_score.png", title="Confusion Matrix LogisticRegression")
 
     # ROC Curve
     plt.figure(figsize=(6,6))
@@ -175,7 +175,7 @@ def main():
     plt.plot([0,1],[0,1], "--", color="gray")
     plt.xlabel("FPR"); plt.ylabel("TPR"); plt.title("ROC Curve")
     plt.legend()
-    plt.savefig("./output/roc_logistic_regression.png", dpi=200)
+    plt.savefig("./output/roc_logistic_regression_low_score.png", dpi=200)
     plt.close()
 
     # Precision-Recall Curve
@@ -185,7 +185,7 @@ def main():
     plt.plot(recall, precision, label=f"LogisticRegression (AUPR={pr_auc:.3f})")
     plt.xlabel("Recall"); plt.ylabel("Precision"); plt.title("Precision-Recall Curve")
     plt.legend()
-    plt.savefig("./output/pr_logistic_regression.png", dpi=200)
+    plt.savefig("./output/pr_logistic_regression_low_score.png", dpi=200)
     plt.close()
 
     spark.stop()
