@@ -41,19 +41,19 @@ This is formulated as a binary classification task where `score >= 6` defines a 
 - F1-score: **0.3386**
 - AUC: **0.6257**
 
-![](../data/plots/ML1_confusion_matrix_logistic_regression.png)
+![](data/plots/ML1_confusion_matrix_logistic_regression.png)
 
 **confusion matrix:**
 - Counts: true_0 → pred_0: **949,839** ; pred_1: **1,112,372**; true_1 → pred_0: **132,447** ; pred_1: **318,706**.
 - This indicates the model predicts many samples as positive (pred_1), producing a substantial number of false positives. The confusion matrix helps identify where the model misclassifies and guides threshold tuning or feature improvements.
 
-![](../data/plots/ML1_roc_logistic_regression.png)
+![](data/plots/ML1_roc_logistic_regression.png)
 
 **ROC:**
 - The ROC curve shows the model's trade-off between true positive rate and false positive rate across thresholds. The reported AUC = **0.626** (see metrics file) indicates modest discriminative ability — better than random but room for improvement.
 - Use this plot to compare models or to choose operating points that balance sensitivity and specificity.
 
-![](../data/plots/ML1_pr_logistic_regression.png)
+![](data/plots/ML1_pr_logistic_regression.png)
 
 **Precision–Recall:**
 - Precision = **0.223** and Recall = **0.706** (metrics file). The PR curve highlights that although recall is high (the model catches most high-engagement posts), precision is low — many predicted positives are false.
@@ -82,7 +82,7 @@ We applied K-Means clustering to the TF-IDF features of subreddit submissions. T
 - Cluster analysis summary: `data/csv/ML2_cluster_analysis.csv`.
 - Elbow chart for K selection: `data/plots/ML2_elbow_method.png`.
 
-![](../data/plots/ML2_cluster_visualization.png)
+![](data/plots/ML2_cluster_visualization.png)
 
 **clustering:**
 - The clustering plot groups subreddits by similar text/sentiment patterns. Key clusters include cluster 10 (largest, many tokens like 'removed', 'ai', 'chatgpt') and cluster 8 (conversational language).

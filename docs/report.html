@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Final Report – DSAN 6000 Big Data Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3a18c7dc0688905cb13a6fe3dd5f47c6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DSAN 6000 Big Data Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./EDA_WEB.html"> 
+<span class="menu-text">Exploratory Data Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./NLP_WEB.html"> 
+<span class="menu-text">Natural Language Processing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ML_WEB.html"> 
+<span class="menu-text">Machine Learning</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html"> 
+<span class="menu-text">Conclusion</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./report.html" aria-current="page"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-summary" id="toc-project-summary" class="nav-link active" data-scroll-target="#project-summary">Project Summary</a></li>
+  <li><a href="#detailed-findings" id="toc-detailed-findings" class="nav-link" data-scroll-target="#detailed-findings">Detailed Findings</a>
+  <ul class="collapse">
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a></li>
+  <li><a href="#natural-language-processing-nlp" id="toc-natural-language-processing-nlp" class="nav-link" data-scroll-target="#natural-language-processing-nlp">Natural Language Processing (NLP)</a></li>
+  <li><a href="#machine-learning-ml" id="toc-machine-learning-ml" class="nav-link" data-scroll-target="#machine-learning-ml">Machine Learning (ML)</a></li>
+  </ul></li>
+  <li><a href="#business-recommendations" id="toc-business-recommendations" class="nav-link" data-scroll-target="#business-recommendations">Business Recommendations</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future Work</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final Report</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="project-summary" class="level2">
+<h2 class="anchored" data-anchor-id="project-summary">Project Summary</h2>
+<p>This project investigates how online science, technology, and AI communities on Reddit evolve, interact, and structure their discussions around emerging technologies. Motivated by the overarching question of how these communities respond to rapid advances in AI and technology, we analyze more than 13.4 million comments and submissions from 40 curated subreddits between June 2023 and July 2024. Our goal is to uncover the temporal dynamics of community activity, patterns of user engagement, thematic structures of discussion, and the feasibility of predicting content quality through machine learning.</p>
+<p>To support computation at this scale, we developed a distributed data-processing pipeline on an AWS EC2 Spark cluster, enabling efficient handling of over 13GB of text and metadata. Using this infrastructure, we apply an integrated analytical framework that combines Exploratory Data Analysis (EDA), Natural Language Processing (NLP), and Machine Learning (ML) to address ten core business questions. These analyses examine activity fluctuations, user retention cycles, sentiment stability, topic evolution, cross-community overlap, and the predictive modeling of high-quality content. Together, these components provide a multi-layered understanding of how Reddit’s technology and AI ecosystems function, evolve, and respond to external technological or policy events.</p>
+</section>
+<section id="detailed-findings" class="level2">
+<h2 class="anchored" data-anchor-id="detailed-findings">Detailed Findings</h2>
+<p>This section provides an integrated overview of insights from the three analytical components of the project: Exploratory Data Analysis (EDA), Natural Language Processing (NLP), and Machine Learning (ML). Each subsection summarizes the key discoveries and links to a dedicated analysis page that documents interactive visuals, methodological details, and complete result sets.</p>
+<section id="exploratory-data-analysis-eda" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</h3>
+<p>The EDA characterizes structural patterns in community behavior across 40 AI and technology subreddits by examining activity dynamics, user retention, attention allocation, and cross-community participation. Across the 14 months, community activity displays a hybrid pattern: broad technology subreddits maintain high baseline volume, while AI-focused forums exhibit episodic spikes aligned with major releases and public announcements. This separation reflects different drivers of participation, general technological interest versus AI-specific event sensitivity.</p>
+<p>User retention analysis further distinguishes communities by functional role. Mainstream AI subreddits (e.g., ChatGPT, MachineLearning) maintain stable return rates, indicating sustained month-to-month engagement. At the same time, niche or highly specialized communities show short, high-intensity retention bursts tied to topic relevance. These patterns indicate that community size and topic breadth shape long-term participation capacity.</p>
+<p>Attention distribution also varies systematically across subreddit types. High-traffic communities exhibit an intense concentration of engagement with comment activity disproportionately captured by a small number of threads consistent with viral or news-driven dynamics. In contrast, technical and research-oriented subreddits (such as Machine Learning and Data Science) show lower attention inequality, supporting more evenly distributed, parallel discussions that align with expert-driven or problem-solving interactions.</p>
+<p>Finally, user-overlap analysis reveals minimal cross-participation between AI and technology communities, even among subreddits addressing closely related topics. This indicates that Reddit’s AI ecosystem consists of distinct audience segments, each interacting primarily within its own topical domain rather than migrating across adjacent communities.</p>
+<p>Together, these EDA results identify apparent structural differences in how AI and technology communities behave, including activity drivers, engagement stability, attention allocation, and user segmentation, providing the analytical foundation for the NLP and ML components of the project.</p>
+<p>See full analysis in <a href="EDA_WEB.html">Exploratory Data Analysis</a></p>
+</section>
+<section id="natural-language-processing-nlp" class="level3">
+<h3 class="anchored" data-anchor-id="natural-language-processing-nlp">Natural Language Processing (NLP)</h3>
+<p>The NLP analysis examines the semantic structure, emotional tone, event responsiveness, and user-driven discussion patterns across 40 AI and technology-related subreddits. Topic modeling reveals a stable set of thematic structures centered on future-oriented technology, human–AI relations, practical learning and project development, programming workflows, and technology-driven business applications. After excluding a significant general conversational topic, the remaining themes remain remarkably consistent throughout the 14 months, indicating that community interests are persistent and not subject to substantial drift. These findings suggest that discussions in fast-growing AI and technology communities are shaped by enduring concerns about technological impact, career development, and practical implementation rather than short-lived trends.</p>
+<p>Sentiment analysis using VADER further demonstrates that the emotional tone across all major communities is predominantly neutral to mildly positive. Average sentiment scores remain stable over time, with only modest fluctuations in AI-focused subreddits around major product announcements or regulatory milestones such as the Gemini release or the EU AI Act. These shifts, however, are short-lived and do not meaningfully alter the long-term emotional landscape. Programming, science, and broader technology communities show even less sensitivity to external events, reinforcing the conclusion that discourse in these communities is informational and measured rather than reactive or volatile.</p>
+<p>To understand how users contribute to different forms of discourse, discussions were categorized into technical, ethical, societal, and general content. Technical discussions emphasize model architectures, data workflows, and computational methods; ethical discussions focus on fairness, regulation, and governance; societal discussions address employment, corporate influence, and broader social implications; and general discussions reflect meta-talk, moderation, or uncategorized exchanges. These distinctions reveal parallel layers of conversation, each shaped by distinct user groups with different informational needs and priorities.</p>
+<p>Overall, the NLP analysis shows that Reddit’s AI and technology discussions form a stable, multidimensional discourse environment. Community conversations are thematically coherent, emotionally steady, and only marginally influenced by external technological or policy events. Users contribute across diverse topical layers—from technical implementation to societal impact—indicating a mature and sustained public engagement with emerging technologies.</p>
+<p>See full analysis in <a href="NLP_WEB.html">Natural Language Processing</a></p>
+</section>
+<section id="machine-learning-ml" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-ml">Machine Learning (ML)</h3>
+<p>The machine learning analysis evaluates whether high-quality comments can be predicted from textual and behavioral features, and whether subreddits can be meaningfully segmented based on language use. For the predictive task, we formulate comment quality classification as a binary problem using a threshold of <code>score &gt;= 6</code>. A logistic regression model trained on TF-IDF features and lightweight metadata demonstrates modest discriminative performance. While the model achieves a high recall of over 70%, enabling it to identify the majority of high-quality comments, its precision is low, leading to a substantial number of false positives. The overall accuracy (0.50) and AUC (0.63) indicate that the classifier performs better than random but lacks the reliability required for automated decision-making. These results suggest that such a model is more appropriate as a triage or content-surfacing tool to assist human moderators rather than as a standalone quality-filtering system. They also highlight the limitations of sparse text representations and basic behavioral features for capturing the nuances of high-engagement content.</p>
+<p>To complement the predictive task, we apply unsupervised learning to uncover structural patterns in language use across subreddits. K-Means clustering on TF-IDF embeddings reveals several distinct groups, including a large cluster dominated by broad conversational language and AI-related terms, a smaller cluster focused on informal dialogue, and a well-defined technical cluster characterized by programming-related terminology. These clusters demonstrate that subreddit content naturally organizes into coherent thematic groupings, validating the use of clustering to identify community types and communication styles. Such segmentation can support downstream applications, including building community-specific forecasting models, tailoring moderation strategies, or incorporating cluster identity as a feature in supervised models.</p>
+<p>Together, the ML results show that while simple classification models offer limited predictive power, combining predictive and clustering approaches provides meaningful insights into content structure and community segmentation. Future improvements—such as replacing TF-IDF with contextual embeddings, incorporating richer author and subreddit history features, or using more advanced classifiers like gradient boosting are likely to yield significantly stronger performance. These advances would enable the transition from exploratory modeling toward more robust systems capable of supporting real-world moderation, recommendation, and content-quality assessment workflows.</p>
+<p>See full analysis in <a href="ML_WEB.html">Machine Learning</a></p>
+</section>
+</section>
+<section id="business-recommendations" class="level2">
+<h2 class="anchored" data-anchor-id="business-recommendations">Business Recommendations</h2>
+<p>The findings from this project highlight several opportunities for organizations seeking to understand better and engage with online science and technology communities. First, the strong event-driven dynamics observed across AI-related subreddits suggest that communication strategies should be aligned with major product releases, policy announcements, and industry milestones. Timely engagement during these high-visibility periods can amplify reach and influence. Second, the clear separation between niche technical communities and broader mainstream forums indicates that outreach and messaging should be tailored to each audience’s specific engagement structures. Technical communities benefit from sustained, information-rich content, while general-interest groups respond more strongly to concise, high-level narratives and trend-oriented discussions. Third, the high concentration of attention within viral posts in large subreddits underscores the importance of identifying and strategically participating in high-impact threads, as these disproportionately shape community sentiment and visibility.</p>
+<p>In addition, the NLP results show that sentiment across communities remains stable and neutral, primarily positive, suggesting that discussions surrounding AI and emerging technologies create a constructive environment for public-facing communication. Organizations can leverage this stability by contributing expert perspectives, clarifications, or educational content without significant risk of entering volatile or hostile discourse. Finally, although machine learning classifiers show limited precision, their strong recall indicates potential value as triage tools within moderation or engagement workflows. Integrating predictive models to surface potentially high-value content, while maintaining human oversight, could improve efficiency in content curation and community management.</p>
+</section>
+<section id="future-work" class="level2">
+<h2 class="anchored" data-anchor-id="future-work">Future Work</h2>
+<p>Extensions of this project may enhance both analytical depth and operational applicability. From a modeling perspective, replacing TF-IDF features with contextual language embeddings, incorporating richer author-level and subreddit-level metadata, and experimenting with more advanced classifiers such as gradient boosting or transformer-based architectures would likely improve predictive performance. In unsupervised analysis, clustering could be expanded using hierarchical or density-based approaches to capture more nuanced community structures, and cluster identities could be integrated into sentiment or engagement forecasting models.</p>
+<p>Additional longitudinal analyses may also provide insight into how community behavior evolves over multi-year periods, especially as AI technologies continue to advance. Integrating external datasets such as real-world AI release timelines, policy changes, or news sentiment could help establish causal links between external events and online discourse. Finally, developing a full forecasting pipeline for subreddit-level sentiment or activity trends would enable stakeholders to anticipate shifts in public attention, supporting more proactive communication strategies. Collectively, these extensions would deepen the analytical value of the project and expand its potential for operational use in community engagement, policy analysis, and emerging-technology monitoring.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>DSAN 6000 Big Data Analytics Project</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Made with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

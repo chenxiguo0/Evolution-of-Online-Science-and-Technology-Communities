@@ -40,7 +40,7 @@ As shown in the figure, the Latent Dirichlet Allocation (LDA) model identifies t
 
 Overall, these topics illustrate the LDA model’s ability to uncover coherent thematic structures within the dataset and to organize large volumes of text into interpretable clusters.
 
-![Topic keywords](../data/plots/NLP_Q1_topic_keywords.png)
+![Topic keywords](data/plots/NLP_Q1_topic_keywords.png)
 
 ### Overall Topic Distribution
 
@@ -51,7 +51,7 @@ Topic 6 (22.4%), with keywords like *something, never, someone, bad, lol, yeah*,
 
 After setting aside the general conversational topic, the most dominant thematic topics are as follows:
 
-![Overall Topic Distribution](../data/plots/NLP_Q1_topic_distribution_pie.png)
+![Overall Topic Distribution](data/plots/NLP_Q1_topic_distribution_pie.png)
 
 #### 1. Dominant Thematic Topics
 
@@ -101,7 +101,7 @@ After setting aside the general conversational topic, the most dominant thematic
 **Analysis of Sentiment Distribution:**
 The stacked bar chart below shows the *proportion* of comments falling into each sentiment category for the most active subreddits.
 
-![Sentiment distribution](../data/plots/NLP_Q2_sentiment_distribution_stacked.png)
+![Sentiment distribution](data/plots/NLP_Q2_sentiment_distribution_stacked.png)
 
 - **Finding 1: Neutrality is Dominant.** Across almost all communities, the vast majority of comments are classified as neutral. This indicates that discussions on technical and scientific topics are often objective, informative, and factual rather than emotionally charged.
 - **Finding 2: Positive Skew.** In most subreddits, the proportion of positive comments is noticeably higher than negative ones. This suggests a generally constructive or optimistic underlying tone, even within objective discussions.
@@ -109,7 +109,7 @@ The stacked bar chart below shows the *proportion* of comments falling into each
 **Analysis of Average Compound Score:**
 The bar chart below visualizes the average `compound` sentiment score for each subreddit.
 
-![compound](../data/plots/NLP_Q2_sentiment_by_subreddit_bar.png)
+![compound](data/plots/NLP_Q2_sentiment_by_subreddit_bar.png)
 
 - **Finding 3: Mildly Positive Atmosphere.** Consistent with the distribution analysis, the average sentiment score for most subreddits is slightly above zero, confirming a modest but persistent positive inclination. For example, communities like `AIforGood` and `OpenAI` show a stronger positive leaning.
 - **Finding 4: Lack of Strong Negativity.** Very few communities exhibit a negative average sentiment, and even those that do are only slightly negative. This reinforces the conclusion that the overall discussion atmosphere is not contentious but rather balanced and leaning towards positive.
@@ -143,12 +143,12 @@ GPT-5 rumors (2024-06-20).
 
 These lines serve as reference points to observe sentiment fluctuations around the time of significant events.
 
-![Sentiment trend](../data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
+![Sentiment trend](data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
 
 **Analysis of Sentiment Trend:**
 The chart below plots the average monthly sentiment for four distinct categories of subreddits. Key industry and policy events are marked with vertical lines to contextualize the trends.
 
-![Sentiment trend](../data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
+![Sentiment trend](data/plots/NLP_Q3_sentiment_trend_all_categories_VADER.png)
 
 - **Overall Stability:** The primary finding is that sentiment across all four categories remains remarkably stable over the year, with average scores consistently hovering in the neutral-to-mildly-positive range (0.05 to 0.15). This suggests a mature and steady discussion environment that is not prone to dramatic, long-term shifts in mood.
 
@@ -161,7 +161,7 @@ The chart below plots the average monthly sentiment for four distinct categories
 ### Topic Trend
 We also analyzed the distribution of the ten topics (discovered in RQ5) over time.
 
-![Topic Trend](../data/plots/NLP_Q1_topic_trends_over_time.png)
+![Topic Trend](data/plots/NLP_Q1_topic_trends_over_time.png)
 
 - **Conclusion:** As shown in the stacked area chart, the relative prevalence of each topic remains highly consistent throughout the year. There are no major shifts, indicating that the fundamental areas of discussion within these communities are stable and not subject to seasonal or event-driven changes. For example, "informal conversation" (Topic 6) and "human-AI relations" (Topic 2) consistently remain the most dominant topics.
 
@@ -181,7 +181,7 @@ Discussion content was classified into four categories using a rule-based approa
 
 This approach allows the word clouds to intuitively highlight the main topics and language features within each category, providing a visual understanding of community focus.
 
-![WordCloud](../data/plots/NLP_Q4_wordclouds_by_topic_clean.png)
+![WordCloud](data/plots/NLP_Q4_wordclouds_by_topic_clean.png)
 
 **Analysis:**
 The word clouds reveal clear thematic distinctions between the different categories of discussion:

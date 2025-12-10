@@ -39,6 +39,7 @@ import pandas as pd
 df_sum = pd.read_csv("../data/csv/dataset_summary_final.csv")
 df_sum
 ```
+
 ```{python}
 #| echo: false
 #| tbl-subcap: "This table shows subreddit statistics sorted in descending order."
@@ -138,17 +139,32 @@ To what extent are conversations driven by a small number of highly viral posts,
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+
 df = pd.read_csv("../data/csv/rq3_gini.csv")
-sns.violinplot(data=df, x="subreddit", y="gini_comments", palette="coolwarm", inner="box")
+
+sns.violinplot(
+data=df,
+x="subreddit",
+y="gini_comments",
+palette="coolwarm",
+inner="box",
+hue="subreddit",  
+legend=False     
+)
+
 plt.title("Discussion Gini Index by Subreddit")
-plt.xlabel("Subreddit"), plt.ylabel("Gini (Comments/Post)"), plt.xticks(rotation=30, ha="right")
+plt.xlabel("Subreddit")
+plt.ylabel("Gini (Comments/Post)")
+plt.xticks(rotation=30, ha="right")
 plt.tight_layout()
+plt.show()
+
 ```
 
 ```{python}
 #| echo: false
 avg_gini = df.groupby("subreddit")[["gini_comments", "gini_scores"]].mean().reset_index()
-sns.barplot(data=avg_gini, x="gini_comments", y="subreddit", palette="viridis")
+sns.barplot(data=avg_gini, x="gini_comments", y="subreddit", palette="viridis",hue="subreddit")
 plt.title("Average Gini Index - Attention Concentration")
 plt.xlabel("Average Gini (Comments/Post)")
 plt.tight_layout()
