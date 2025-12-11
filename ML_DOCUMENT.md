@@ -1,100 +1,234 @@
 # Machine Learning (ML) Findings
 
-## Introduction
+## Overview
 
-This document presents the Machine Learning (ML) component of our project, focusing on predictive modeling related to AI and technology discussions on Reddit. We leverage Apache Spark's MLlib for scalable model training and evaluation. This section addresses two core ML business questions, presenting the methodologies, model performance metrics, and key insights derived from our analysis.
+In this milestone, we harness the power of Apache Spark’s MLlib to explore and analyze Reddit discussions in science, technology, and AI communities. By applying a suite of machine learning techniques, we aim to uncover patterns in user behavior and comment content, and use these insights to tackle two key business questions. Through classification and regression models, we translate raw textual and behavioral data into actionable predictions, providing a deeper understanding of comment quality and the structure of discussion communities across technology-related subreddits.
 
----
 
-## Business Question 9: Can high-quality Reddit comments in science, technology, and AI subreddits be predicted from comment content and basic behavioral features?
 
-**Analysis Approach:**
-We framed this as a binary classification problem. Features engineered from post metadata (e.g., subreddit, time of posting) and textual content (e.g., sentiment, topic categories from NLP) were used to train a Logistic Regression model. The model aims to classify posts into "highly engaging" or "not highly engaging."
+## Business Question 9: Can the Quality of Reddit Comments in Science, Technology, and AI Subreddits Be Predicted from comment content and basic behavioral features?
 
-**Features and training details:**
-- Positive label definition: `score >= 6` (threshold used in `code/ml/ml_Q1.py`).
-- Feature set: TF-IDF text features (HashingTF + IDF) plus `comment_length`, `has_url`, `hour_of_day`, and `day_of_week`.
-- Train/validation/test split: ~80/20 overall with an internal train/val split (train_val -> train,val approximately 75/25).
-- Class weighting: computed from training set and passed to LogisticRegression via `weightCol` to mitigate class imbalance.
-- Model saved at: `code/ml/models/logistic_regression`.
+### Experiment Introduction: 
 
-**Visualizations and metrics**
+The Reddit **score** is calculated using the platform’s voting system and is defined as:
 
-### Confusion Matrix
-- true_0 → pred_0: **949,839** ; pred_1: **1,112,372**
-- true_1 → pred_0: **132,447** ; pred_1: **318,706**
+**score = upvotes − downvotes**
 
-![Confusion Matrix for Logistic Regression](data/plots/ML1_confusion_matrix_logistic_regression.png)
+This value reflects community evaluation of how useful or high-quality a comment is.
 
-**confusion matrix:**
-- The confusion matrix shows the counts of true/false positives and negatives. The model produces a large number of predicted positives (pred_1), resulting in many false positives (true_0→pred_1 = 1,112,372).
-- Practical implication: the model favors sensitivity (finding most high-engagement posts) at the cost of precision; useful as a candidate selector but not for direct automated actions without further filtering.
+To explore how well we can predict comment quality under different definitions, we designed **three classification experiments**:
 
-### ROC Curve
+1. **Experiment 1 – Predicting general high-quality comments**  
+   - **Positive class:** score ≥ 6  
+   - Represents comments with moderate positive engagement.
 
-![ROC Curve for Logistic Regression](data/plots/ML1_roc_logistic_regression.png)
+2. **Experiment 2 – Predicting highly popular high-quality comments**  
+   - **Positive class:** score ≥ 20  
+   - Targets comments that achieved strong community resonance.
 
-**ROC:**
-- The ROC curve displays the trade-off between true positive rate and false positive rate as the decision threshold varies. The computed AUC = **0.626** indicates modest discriminative ability — better than random guessing but limited for high-confidence decisions.
-- Use the ROC to compare models or to select thresholds that balance sensitivity and specificity according to operational needs.
+3. **Experiment 3 – Predicting low-quality comments**  
+   - **Positive class:** score < 0  
+   - A reverse-classification setup focusing on comments evaluated negatively by the community.
 
-### Precision-Recall Curve
+Class weighting applied to address imbalance (weightCol used in LogisticRegression).
 
-![Precision-Recall Curve for Logistic Regression](data/plots/ML1_pr_logistic_regression.png)
+Train/test splits performed in code (80/20).
 
-**Precision–Recall:**
-- The PR curve focuses on precision vs recall, which is more informative for imbalanced problems. Reported precision = **0.223** and recall = **0.706**.
-- This pattern (high recall, low precision) means the model detects most truly high-engagement posts but returns many false positives. For production, tune the classification threshold to match the desired trade-off (e.g., increase precision if human review cost is high).
+Across all three experiments, we trained Logistic Regression models using both TF-IDF text features and behavioral features such as comment length, URL presence, posting hour, and day of week.  
+Model performance was evaluated using standard classification metrics including Accuracy, Precision, Recall, F1-score, and AUC.
 
-**Model performance**
-- Accuracy: **0.5047**
-- Precision: **0.2227**
-- Recall: **0.7064**
-- F1-score: **0.3386**
-- AUC: **0.6257**
 
-**Interpretation:**
-- The confusion matrix shows the model correctly identified **318,706** high-quality comments (True Positives) but misclassified **1,112,372** low-quality comments as high-quality (False Positives).
-- It correctly identified **949,839** low-quality comments (True Negatives) but missed **132,447** high-quality ones (False Negatives).
-- This confirms the pattern of high recall (70.6%) at the cost of low precision (22.3%). The model is effective at finding most of the target class but includes many incorrect predictions. This makes it suitable for filtering or flagging content for review, but not for fully automated decisions where precision is critical.
 
-**Future Improvement:**
-- Enrich text representations using contextual embeddings (BERT / Sentence-BERT) instead of or in addition to HashingTF+IDF.
-- Add author- and subreddit-level features (author history, prior post scores, subreddit norms).
-- Try ensemble or tree-based models (Gradient Boosting, XGBoost, LightGBM) and calibrate probabilities. Use PR curve-based threshold selection aligned to business goals.
+### Model performance on Experiment 1
+
+| Metric   | Accuracy | Precision | Recall | F1-score | AUC |
+|----------|----------|-----------|--------|----------|-----|
+| Value    | 0.5047   | 0.2227    | 0.7064 | 0.3386   | 0.6257 |
+
+
+
+<p float="left">
+  <img src="data/plots/ML1_confusion_matrix_logistic_regression.png" width="30%" />
+  <img src="data/plots/ML1_roc_logistic_regression.png" width="30%" />
+  <img src="data/plots/ML1_pr_logistic_regression.png" width="30%" />
+</p>
+
+
+Overall, the model exhibits a clear bias in identifying high-quality comments. On one hand, it successfully detects 318,706 high-quality comments (true positives), demonstrating strong recall; on the other hand, it misclassifies 1,112,372 low-quality comments as high-quality (false positives), indicating substantial difficulty in distinguishing positive from negative samples. This “high recall, low precision” pattern means the model is effective at capturing potentially valuable content but generates a large number of false alarms, making it unsuitable for fully automated applications requiring high precision.
+
+In terms of overall performance, the ROC curve shows AUC = 0.626, only slightly better than random guessing, indicating limited discriminative ability. Further inspection of the Precision–Recall curve reveals that, due to the low precision, simply adjusting thresholds is unlikely to significantly improve precision, reflecting a performance ceiling with the current feature representation. The main reason is that the current HashingTF text representation fails to effectively capture semantic information, making it difficult to distinguish high-value comments from regular ones.
+
+
+### Model performance on Experiment 2
+
+| Metric    | Accuracy | Precision | Recall  | F1-score | AUC   |
+|-----------|---------|-----------|---------|----------|-------|
+| LogisticRegression | 0.575   | 0.069    | 0.611   | 0.125    | 0.636 |
+
+<p float="left">
+  <img src="data/plots/ML1.2confusion_matrix_logistic_regression.png" width="30%" />
+  <img src="data/plots/ML1.2roc_logistic_regression.png" width="30%" />
+  <img src="data/plots/ML1.2pr_logistic_regression.png" width="30%" />
+</p>
+
+The model identifies a portion of high-quality comments (76,072 true positives) but misclassifies a substantial number of low-quality comments as high-quality (1,020,158 false positives). In the original dataset, high-quality comments constitute only a small fraction of the total samples, reflecting a significant class imbalance. Although we applied class weighting in Logistic Regression to partially mitigate this imbalance, the model still exhibits extremely low precision (0.069) despite moderate recall (0.611).
+
+The ROC curve shows AUC = 0.636, indicating that the model has modest discriminative ability — it performs better than random but is far from optimal. The Precision–Recall (PR) curve further highlights the issue: while recall is reasonable, precision remains extremely low, and adjusting the classification threshold is unlikely to improve it substantially. This demonstrates that the model tends to predict a large number of samples as positive (high-quality), resulting in many false positives.
+
+### Model performance on Experiment 3
+
+| Accuracy | Precision | Recall | F1-score | AUC   |
+|----------|-----------|--------|----------|-------|
+| 0.605    | 0.067     | 0.634  | 0.121    | 0.666 |
+
+
+<p float="left">
+  <img src="data/plots/ML1.1confusion_matrix_logistic_regression_low_score.png" width="30%" />
+  <img src="data/plots/ML1.1roc_logistic_regression_low_score.png" width="30%" />
+  <img src="data/plots/ML1.1pr_logistic_regression_low_score.png" width="30%" />
+</p>
+
+The model identifies a portion of low-quality comments (68,049 true positives) but misclassifies a substantial number of high-quality comments as low-quality (953,913 false positives). In the original dataset, low-quality comments constitute only a small fraction of the total samples, reflecting a significant class imbalance. Although we applied class weighting in Logistic Regression to partially mitigate this imbalance, the model still exhibits extremely low precision (0.067) despite moderate recall (0.634).
+
+The ROC curve shows AUC = 0.666, indicating that the model has modest discriminative ability — it performs better than random but is far from optimal. The Precision–Recall (PR) curve further highlights the issue: while recall is reasonable, precision remains extremely low, and adjusting the classification threshold is unlikely to improve it substantially. This demonstrates that the model tends to predict a large number of samples as positive (low-quality), resulting in many false positives.
+
+This “high recall, very low precision” behavior suggests that the model may be useful for flagging potential low-quality comments for further review but is not suitable for fully automated high-precision applications. Compared with Experiment 1 (general high-quality comments), the precision is even lower, indicating that predicting low-quality comments is particularly challenging due to their rarity and the limitations of the current text and behavioral features.
+
+### Answer of Business Question 9
+
+**Summary and Comparison of Experiments:**  
+Across the three experiments, Logistic Regression models showed the following patterns:
+
+- **Experiment 1 (general high-quality comments):** High recall (≈71%) but low precision (≈22%), indicating the model can identify most high-quality comments but produces many false positives.  
+- **Experiment 2 (highly popular high-quality comments):** Even lower precision (≈7%) with moderate recall (≈63%), reflecting the difficulty of predicting rare highly popular comments despite applying class weighting.  
+- **Experiment 3 (low-quality comments):** Low precision (≈7%) with moderate recall (≈61%), showing that identifying low-quality comments is also challenging but feasible for flagging purposes.
+
+**Conclusion:**  
+Logistic Regression can partially predict comment quality using text and behavioral features. The models are useful for flagging candidate comments (high recall), but due to low precision, they are not suitable for fully automated decisions. Predicting extreme categories (highly popular or low-quality comments) is more difficult due to class imbalance and feature limitations.
+
+Therefore, key directions for improving model performance are:
+
+1. Use stronger semantic embeddings (e.g., BERT, Sentence-BERT) to better capture contextual and semantic information in comments.
+2. Apply more powerful classifiers (e.g., Gradient Boosting, XGBoost, LightGBM) and incorporate richer metadata.
+3. Further optimize threshold strategies and feature engineering based on task requirements.
+
 
 ---
 
 ## Business Question 10: Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?
 
-**Analysis Approach:**
-This question is framed as a regression problem. We used historical monthly sentiment scores (derived from NLP analysis) as the target variable, along with aggregated features such as past activity levels, topic prevalence, and external event indicators. A regression model (e.g., Gradient Boosting) would typically be trained to predict the continuous sentiment score for the subsequent month.
+### Introduction
 
-**Completed work and available artifacts:**
-- Clustering analysis of subreddit-level text/sentiment patterns is implemented in `code/ml/ml_Q2.py` and the model artifacts are saved under `code/ml/models/kmeans_k13`.
-- Cluster analysis summary is available in `data/csv/ML2_cluster_analysis.csv` and visualized in `data/plots/ML2_cluster_visualization.png`.
-- Elbow method chart (used to select K) is available: `data/plots/ML2_elbow_method.png`.
+In this analysis, we aim to explore whether technology-related subreddits exhibit distinct discussion communities that can be characterized by their language patterns. By examining the textual content of subreddit submissions, we investigate the extent to which subreddits cluster together based on shared terminology, phrasing, and communication styles. Identifying these communities can provide insights into topic specialization, user engagement, and the structure of discourse across different forums. This understanding can also inform strategies for content moderation, recommendation systems, and targeted community engagement.
 
-### Cluster summary (from `ML2_cluster_analysis.csv`)
-- **Cluster 10 (Size: 43,558):** This is the largest cluster by a significant margin. Its top terms include generic words (`'im'`, `'like'`, `'use'`, `'get'`) and high-frequency discussion topics (`'ai'`, `'chatgpt'`, `'gpt'`). The token `'removed'` is also prominent, suggesting this cluster may contain a large volume of moderated or deleted content, typical in high-traffic subreddits.
-- **Cluster 8 (Size: 4,989):** A medium-sized cluster characterized by highly conversational language (`'im'`, `'like'`, `'time'`, `'ive'`, `'know'`). This likely represents informal discussions, personal anecdotes, or user interactions.
-- **Cluster 6 (Size: 511):** A smaller, more specialized cluster. Its top terms (`'ai'`, `'code'`, `'import'`, `'data'`) clearly point to technical discussions related to programming and data science.
-- **Other Clusters:** The remaining clusters are much smaller and capture more niche topics, such as `paused`/`playing` in Cluster 0, likely related to media or games.
+We randomly selected 50,000 subreddit submissions and applied K-Means clustering to their TF-IDF features. The goal was to identify groups of subreddits that share similar textual content and language use. The elbow method was used to determine the optimal number of clusters (K).
 
-![Cluster Visualization of Subreddit Sentiment](data/plots/ML2_cluster_visualization.png)
+- Cluster artifacts and model saved in `code/ml/models/kmeans_k13`.
+- Cluster analysis summary: `data/csv/ML2_cluster_analysis.csv`.
+- Elbow chart for K selection: `data/plots/ML2_elbow_method.png`.
 
-**Clustering Interpretation:**
-- The K-Means analysis successfully identified distinct thematic groups. The dominance of a large, general-purpose cluster (10) alongside smaller, more coherent clusters (like 6 and 8) is a common pattern in text clustering.
-- These clusters can be used for more targeted analysis. For example, a sentiment forecasting model could be trained separately on the "technical" cluster vs. the "conversational" one to capture different dynamics.
+### Analysis：
 
-**Limitations & Future Improvement:**
-- No supervised regression model for next-month sentiment is currently saved in the repository; the cluster analysis is preparatory work.
-- To implement forecasting: aggregate lagged features, train regression models with cross-validation, evaluate using RMSE/MAE/R2, and interpret with SHAP to identify drivers.
+![](data/plots/ML2_elbow_method.png){ width=400px }
+
+After applying the elbow method to evaluate the optimal number of clusters, and balancing within-cluster cohesion against between-cluster separation, we ultimately selected **13 clusters**. This choice preserves thematic consistency within each cluster while ensuring sufficient distinction between clusters, thereby capturing meaningful differences in language use across technology-related subreddits.
+
+This is the cluster visualization：
+
+This cluster visualization shows that some clusters are fairly well-separated, while others are tightly overlapping.
+![](data/plots/ML2_cluster_visualization.png)
+
+**Cluster Sizes and Distribution**
+
+Cluster sizes vary significantly, from small technical or code-specific clusters (size 6–185) to very large community discussion clusters (size 4,989–43,558).
+
+Largest clusters:
+
+Cluster 10 (43,558) – AI community high-frequency discussions, including ChatGPT-related topics.
+
+Cluster 8 (4,989) – Natural-language conversational discussions, reflecting informal user interactions.
+
+Medium clusters: Clusters 3, 6, and 11 (185–511) capture AI-related code/project discussions, AI comment interactions, and Python tutorials.
+
+Small clusters: Clusters 0–5, 7, 9, 12 (6–301) are focused on specific programming tasks, code snippets, game logic, front-end layout, or grid/table operations.
+
+| Cluster ID | Size  | Top Terms | Category Tendency |
+|------------|-------|-------------------|-----------------|
+| 0          | 14    | paused, playing, def, import, printstrfplaypause, const, new, return, else | Audio/video player related code snippets / scripting functionality |
+| 1          | 17    | return, x, resize, div, px, int, y, tilesize, public | Front-end web layout / GUI related code |
+| 2          | 43    | return, import, def, guess, code, data, px, value, div | Python programming basics / data processing / small program logic |
+| 3          | 185   | ai, xb, code, import, new, data, x, return, use | AI-related code or project implementation / algorithm development |
+| 4          | 13    | xb, false, player, temparray, return, gamepass, manufacturer, imgnull, true | Game development or player logic / small program functionality |
+| 5          | 6     | return, import, public, int, new, cell, def, class, grid | Grid or table processing / object-oriented basic code |
+| 6          | 511   | ai, like, im, data, use, time, get, code, new | AI community comments / user interaction related text |
+| 7          | 99    | import, return, def, div, left, right, else, data, code | Front-end layout and function logic / web page scripting |
+| 8          | 4989  | im, like, time, ive, know, get, work, ai, dont | Community natural-language discussions / user comments / social interaction |
+| 9          | 162   | code, import, xb, im, return, new, file, like, def | Programming discussion / file operations / small scripts |
+| 10         | 43558 |  removed, im, ai, like, chatgpt, gpt, new, use, get | AI community high-frequency discussions / ChatGPT-related topics |
+| 11         | 301   |  code, im, def, xb, import, like, return, python, x | Programming tutorials / Python code examples / scripts |
+| 12         | 102   | time, like, ai, xb, people, one, get, new, first | AI community comments / user time and opinion expression |
+
+
+**Cluster Content Summary**
+
+| Category                         | Cluster IDs          | Percentage | Description                                                                                 |
+|----------------------------------|--------------------|-----------|---------------------------------------------------------------------------------------------|
+| Natural-Language / General Discussion | 10, 8, 6, 12       | 98%       | Large-scale conversational content, general discussions about AI, user opinions, and everyday language. |
+| Programming / Technical Content   | 0, 1, 2, 3, 5, 7, 9, 11 | 2%        | Code snippets, debugging, Python scripts, front-end layouts, data-processing code, and AI project implementation. |
+
+
+Based on K-Means clustering of 50,000 randomly selected subreddit submissions, we categorized 13 clusters into two main content domains: Natural-Language / General Discussion and Programming / Technical Content.
+
+Natural-Language / General Discussion (Clusters 6, 8, 10, 12 – 98% of submissions)
+
+Cluster 10 (43,558 submissions): High-frequency AI discussions, including ChatGPT, AI concepts, and moderation-related content ('removed'). Represents the largest portion of general AI conversations.
+
+Cluster 8 (4,989 submissions): Conversational discussions with informal language ('im', 'like', 'time'), reflecting community interactions and casual exchanges.
+
+Cluster 6 (511 submissions): AI-related comments with a mix of technical terms and user interactions ('ai', 'code', 'use', 'time'), bridging casual discussion and technical engagement.
+
+Cluster 12 (102 submissions): Smaller cluster capturing user opinions, timing, and interaction patterns in AI-related discussions.
+
+Insight: These clusters dominate Reddit AI conversations, reflecting large-scale user engagement, opinion sharing, and general discussion.
+
+Programming / Technical Content (Clusters 0, 1, 2, 3, 5, 7, 9, 11 – 2% of submissions)
+
+Clusters 0, 1, 2, 5, 7, 9, 11: Focus on coding examples, debugging, front-end layouts, and small programming projects. Examples include Python basics, grid/table processing, and front-end scripts.
+
+Cluster 3 (185 submissions): AI-related project implementation and algorithm development, combining technical code with problem-solving content.
+
+Insight: These clusters are smaller in size but highly specialized, capturing programming-focused discussions and technical knowledge sharing.
+
+### Overall Interpretation
+
+The clustering effectively separates high-volume conversational discussions from smaller, specialized technical content.
+
+Large clusters (Natural-Language) reflect broad engagement and informal community interactions.
+
+Small clusters (Technical Content) capture targeted programming topics and code-oriented tasks.
+
+These cluster distinctions provide a foundation for feature engineering in predictive models, sentiment analysis, or engagement forecasting, allowing models to treat conversational and technical clusters differently.
 
 ---
 
 ## Summary
 
-Our ML experiments demonstrate that classification models can assist in identifying potentially high-engagement posts, while clustering helps segment communities for refined downstream forecasting. However, further improvements in text representation, feature engineering, and model complexity are needed to raise precision and overall predictive utility before deploying automatic decision systems.
+1. **Can the Quality of Reddit Comments in Science, Technology, and AI Subreddits Be Predicted from comment content and basic behavioral features?**
 
----
+Partially predictable: Logistic Regression using text and behavioral features can capture potential high- and low-quality comments, but precision is low.
+
+**Performance overview**:
+
+General high-quality comments: high recall (≈71%), low precision (≈22%)
+
+Highly popular high-quality comments: moderate recall (≈63%), very low precision (≈7%)
+
+Low-quality comments: moderate recall (≈61%), low precision (≈7%)
+
+**Conclusion:** Models are suitable for flagging candidate comments for manual review but not for fully automated decisions. Improving performance requires stronger semantic representations and richer features.
+
+2. **Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?**
+
+**Identifiable**: K-Means clustering (K=13) successfully separated submissions into natural-language/general discussion (98%) and programming/technical content (2%).
+
+**Conclusion**: Clustering effectively distinguishes broad community interactions from specialized technical topics, providing a foundation for predictive modeling, sentiment analysis, and engagement forecasting.

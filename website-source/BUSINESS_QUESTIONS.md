@@ -87,15 +87,14 @@
 
 **Analysis Type:** ML
 **Technical Approach:**
-- Label comments as high-quality using a score threshold (implementation: score >= 6 → positive label).
+- Label comments quality using a score threshold.
 - Feature engineering includes text features produced by Tokenizer → StopWordsRemover → HashingTF → IDF (text_features), plus numeric/behavioral features (comment length, presence of URL, hour_of_day, day_of_week). Class weighting is applied to address imbalance.
 - Train a Spark ML pipeline with Logistic Regression (implemented) and evaluate on test data with accuracy, precision, recall, F1, ROC/AUC, and confusion matrix; save model and output metrics.
-- Expected outcome: Predict high-engagement/high-quality comments and report model performance.
+- Expected outcome: Predict high-engagement/high-quality/low-quality comments and report model performance.
 
 ---
 
-## Question 10: 
-Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?
+## Question 10: Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?
 
 **Analysis Type:** ML
 **Technical Approach (implemented):**

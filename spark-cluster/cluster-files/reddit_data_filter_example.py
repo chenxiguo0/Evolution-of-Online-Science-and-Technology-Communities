@@ -248,7 +248,7 @@ def _read_reddit_data(
     Returns:
         DataFrame with Reddit data
     """
-    s3_path = f"s3a://{net_id}-dsan6000-datasets/reddit/parquet/{data_type}/"
+    s3_path = f"s3a://{net_id}-dsan6000-datasets-2025/reddit/parquet/{data_type}/"
 
     logger.info(f"Reading {data_type} data from: {s3_path}")
     print(f"Reading {data_type} data from S3...")
@@ -335,7 +335,7 @@ def _save_filtered_data(
         data_type: Either "comments" or "submissions"
         net_id: Student's net ID for S3 bucket access
     """
-    output_path = f"s3a://{net_id}-dsan6000-datasets/project/reddit/parquet/{data_type}/"
+    output_path = f"s3a://{net_id}-dsan6000-datasets-2025/project/reddit/parquet/{data_type}/"
 
     logger.info(f"Saving filtered {data_type} to: {output_path}")
     print(f"\nSaving filtered {data_type} to S3...")
@@ -472,8 +472,8 @@ def main() -> int:
         print("✅ REDDIT DATA FILTERING COMPLETED SUCCESSFULLY!")
         print(f"\nTotal execution time: {overall_time:.1f} seconds")
         print("\nFiltered data saved to:")
-        print(f"  - s3://{net_id}-dsan6000-datasets/project/reddit/parquet/comments/")
-        print(f"  - s3://{net_id}-dsan6000-datasets/project/reddit/parquet/submissions/")
+        print(f"  - s3://{net_id}-dsan6000-datasets-2025/project/reddit/parquet/comments/")
+        print(f"  - s3://{net_id}-dsan6000-datasets-2025/project/reddit/parquet/submissions/")
         print("\nNext steps:")
         print("  1. Verify the filtered data in S3")
         print("  2. Customize the subreddit list and columns for your analysis")

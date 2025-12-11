@@ -11,7 +11,13 @@ subtitle: "DSAN 6000 Big Data Analytics and Cloud Computing - Fall 2025"
 
 ## Project Overview
 
-**High-Level Problem Statement:**
+Every day, millions of people gather on Reddit to make sense of rapid technological change. Some come to celebrate new AI breakthroughs, others to troubleshoot code, debate ethics, or simply share curiosity about the future. These conversations unfold across fragmented subreddits—each with its own tone, norms, and pace—yet they are all part of a broader ecosystem reacting in real time to the accelerating world of science and technology.
+
+As AI tools reshape how people work, create, and communicate, online communities have become one of the most important places where public understanding takes shape. But despite the scale and influence of these spaces, we still know surprisingly little about how they evolve, what drives engagement, and how different groups organize around emerging technologies.
+
+This leads to our core question:
+
+**High-Level Problem:**
 
 How do online science and technology communities on Reddit evolve, interact, and structure their discussions around AI and emerging technologies?
 
@@ -19,7 +25,7 @@ How do online science and technology communities on Reddit evolve, interact, and
 
 - **Source:** Reddit Comments and Submissions
 - **Time Period:** 2023-06-01 to 2024-07-31
-- **Subreddits:** A curated list of science, technology, and AI-related subreddits, including `ChatGPT`, `technology`, `ArtificialInteligence`, `MachineLearning`, `Futurology`, `datascience`, `OpenAI`, and more.
+- **Subreddits:** 100 Total number of subreddits of science, technology, and AI-related subreddits, Covering AI, programming, technology, and science domains.
 - **Scale:** ~13.4 million rows (~12.6M comments, ~0.8M submissions)
 - **Size:** ~13.4 GB
 
@@ -43,12 +49,14 @@ We address 10 business questions spanning three analytical approaches:
 
 **Machine Learning (ML):**
 
-9.  Can high-quality Reddit comments in science, technology, and AI subreddits be predicted from comment content and basic behavioral features?
+9.  Can the Quality of Reddit Comments in Science, Technology, and AI Subreddits Be Predicted from comment content and basic behavioral features?
 10. Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?
 
-See [BUSINESS_QUESTIONS.md](../BUSINESS_QUESTIONS.md) for detailed technical approaches.
+See [BUSINESS_QUESTIONS.md](./BUSINESS_QUESTIONS.md) for detailed technical approaches.
 
 ## Methodology
+
+We analyzed Reddit submissions and comments from science, technology, and AI communities using a combination of EDA, natural language processing (NLP), and machine learning techniques. Data were processed with Apache Spark, aggregating posts and comments by subreddit and month to compute community activity, user retention, and attention concentration metrics. NLP features included text cleaning, tokenization, stopword removal, TF-IDF or CountVectorizer encoding, topic modeling (LDA), sentiment analysis (VADER/TextBlob), and rule-based discussion type classification. Machine learning involved Logistic Regression to predict comment quality using text and behavioral features (e.g., comment length, URL presence, posting time) and K-Means clustering (with PCA visualization) to identify distinct discussion communities.
 
 ### Data Processing Infrastructure
 
@@ -57,7 +65,7 @@ See [BUSINESS_QUESTIONS.md](../BUSINESS_QUESTIONS.md) for detailed technical app
 - **Storage:** Amazon S3 for data lake architecture
 - **Scale:** Processing over 13 million rows of text and metadata
 
-### Analysis Pipeline
+### Analysis Pipeline and Navigation
 
 1.  **Data Acquisition & Filtering**
     - Copied and filtered a large public Reddit dataset to relevant subreddits and timeframes.
@@ -69,6 +77,8 @@ See [BUSINESS_QUESTIONS.md](../BUSINESS_QUESTIONS.md) for detailed technical app
     - Trained and evaluated classification and clustering models to predict content quality and identify user segments.
 5.  **Final Analysis** → [Conclusion](conclusion.qmd)
     - Synthesized all findings into actionable insights and business recommendations.
+6. **Project Summary** → [Report](report.qmd)
+    - Summarizes the entire project pipeline, highlights key findings, and provides a cohesive narrative linking methods, results, and business relevance.
 
 ## Key Findings Preview
 
@@ -76,21 +86,11 @@ See [BUSINESS_QUESTIONS.md](../BUSINESS_QUESTIONS.md) for detailed technical app
 
 1.  **Community Engagement is Event-Driven but Emotionally Stable:** User activity surges in response to major AI product launches and news, but the overall emotional tone of the communities remains consistently neutral-to-positive, showing high resilience.
 2.  **A Core, Interconnected AI Community Drives the Conversation:** A handful of central AI-focused subreddits (like `r/ChatGPT`, `r/OpenAI`) share a large, active user base, acting as the primary hub for discourse that spreads to the wider tech ecosystem.
-3.  **Predictive Models Can Augment, Not Replace, Human Moderation:** Our machine learning model can successfully identify the majority of high-quality comments (high recall), but its lower precision makes it best suited as a tool to assist human moderators, not fully automate their work.
+3.  **Most Conversations Are Casual, with a Few Tight-Knit Tech Corners:** Our research reveals that the vast majority of submissions (≈98%) cluster into everyday, natural-language discussions, while only a small portion (≈2%) forms specialized technical or programming clusters. 
 
 ### Business Impact
 
 Our findings provide a roadmap for understanding and engaging with online technology communities. By identifying key hubs of conversation, understanding the stable emotional climate, and leveraging ML for content curation, organizations can develop more efficient and impactful communication and community management strategies.
-
-## Navigation
-
-Use the navigation bar above to explore:
-
-- **[EDA](EDA_WEB.qmd)**: Exploratory data analysis with statistical insights and temporal patterns
-- **[NLP](NLP_WEB.qmd)**: Natural language processing analysis including sentiment and topics
-- **[ML](ML_WEB.qmd)**: Machine learning models and predictions
-- **[Conclusion](conclusion.qmd)**: Summary of findings and recommendations
-- **[Report](report.qmd)**: Comprehensive analysis and results
 
 ## Repository
 
