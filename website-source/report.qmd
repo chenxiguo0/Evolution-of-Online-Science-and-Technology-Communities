@@ -1,5 +1,5 @@
 ---
-title: "Project Summary"
+title: "Project Report"
 ---
 ## Introduction
 
@@ -27,7 +27,7 @@ Machine learning involved Logistic Regression to predict comment quality using t
 
 ## 10 Business Questions and technical approaches
 
-See [BUSINESS_QUESTIONS.md](./BUSINESS_QUESTIONS.md)
+See [BUSINESS_QUESTIONS.md](../BUSINESS_QUESTIONS.md)
 
 ## Main Analysis
 
@@ -71,24 +71,23 @@ For community detection, we combined submission titles and selftext to generate 
 See full analysis in [Machine Learning](ML_WEB.html)
 
 
-## Business Recommendations
+## Key Recommendations
 
-The findings from this project highlight several opportunities for organizations seeking to understand better and engage with online science and technology communities. First, the strong event-driven dynamics observed across AI-related subreddits suggest that communication strategies should be aligned with major product releases, policy announcements, and industry milestones. Timely engagement during these high-visibility periods can amplify reach and influence. 
+Our findings suggest several strategic recommendations for engaging with Reddit's science and technology communities:
 
-Second, the clear separation between niche technical communities and broader mainstream forums indicates that outreach and messaging should be tailored to each audience's specific engagement structures. Technical communities benefit from sustained, information-rich content, while general-interest groups respond more strongly to concise, high-level narratives and trend-oriented discussions. 
+1.  **Align with Key Events:** Capitalize on the event-driven nature of AI subreddits by timing announcements and content to coincide with major industry milestones.
+2.  **Tailor Content to the Audience:** Differentiate between technical and general-interest communities. Provide in-depth content for niche forums and high-level, concise narratives for broader ones.
+3.  **Focus on High-Impact Threads:** In large subreddits, strategically engage in viral or high-visibility posts to maximize influence and shape community sentiment.
+4.  **Leverage the Constructive Environment:** The stable, neutral-to-positive sentiment provides a safe space for organizations to contribute expert insights and educational content.
+5.  **Use ML for Triage, Not Automation:** While our predictive models have high recall, their precision is limited. Use them to flag content for human review rather than for fully automated moderation.
+6.  **Segment Engagement Strategies:** Recognize that most discussions are casual. Develop broad, conversational content for the majority, while reserving targeted, technical material for specialized subgroups to improve engagement efficiency.
 
-Third, the high concentration of attention within viral posts in large subreddits underscores the importance of identifying and strategically participating in high-impact threads, as these disproportionately shape community sentiment and visibility.
+## Next Steps
 
-In addition, the NLP results show that sentiment across communities remains stable and neutral, primarily positive, suggesting that discussions surrounding AI and emerging technologies create a constructive environment for public-facing communication. Organizations can leverage this stability by contributing expert perspectives, clarifications, or educational content without significant risk of entering volatile or hostile discourse. 
+Future work could extend this analysis in several promising directions:
 
-Although machine learning classifiers show limited precision, their strong recall indicates potential value as triage tools within moderation or engagement workflows. Integrating predictive models to surface potentially high-value content, while maintaining human oversight, could improve efficiency in content curation and community management.
-
-Findings on discussion clustering, which show that the vast majority of conversations (≈98%) are casual, natural-language interactions, while only a small fraction (≈2%) form specialized technical or programming clusters.
-Organizations should tailor content and engagement strategies according to discussion type. Broad, conversational content can foster general community interaction and awareness, while targeted technical posts can engage niche programming or AI-focused subgroups. Leveraging clustering insights for personalized recommendations, topic segmentation, or feature engineering in predictive models can improve engagement efficiency and ensure messaging resonates with both casual participants and specialized audiences.
-
-## Future Work
-
-Extensions of this project may enhance both analytical depth and operational applicability. From a modeling perspective, replacing TF-IDF features with contextual language embeddings, incorporating richer author-level and subreddit-level metadata, and experimenting with more advanced classifiers such as gradient boosting or transformer-based architectures would likely improve predictive performance. In unsupervised analysis, clustering could be expanded using hierarchical or density-based approaches to capture more nuanced community structures, and cluster identities could be integrated into sentiment or engagement forecasting models.
-
-Additional longitudinal analyses may also provide insight into how community behavior evolves over multi-year periods, especially as AI technologies continue to advance. Integrating external datasets such as real-world AI release timelines, policy changes, or news sentiment could help establish causal links between external events and online discourse. Finally, developing a full forecasting pipeline for subreddit-level sentiment or activity trends would enable stakeholders to anticipate shifts in public attention, supporting more proactive communication strategies. Collectively, these extensions would deepen the analytical value of the project and expand its potential for operational use in community engagement, policy analysis, and emerging-technology monitoring.
+- **Advanced Modeling:** Improve predictive accuracy by using contextual language embeddings (e.g., BERT), richer metadata, and more sophisticated classifiers like gradient boosting or transformers.
+- **Nuanced Community Detection:** Employ hierarchical or density-based clustering to uncover more subtle community structures and integrate these findings into forecasting models.
+- **Longitudinal and Causal Analysis:** Extend the analysis over a longer timeframe to track multi-year evolution and integrate external datasets (e.g., news sentiment, policy timelines) to establish causal links between real-world events and online discourse.
+- **Forecasting Pipelines:** Develop a full forecasting pipeline to predict subreddit-level sentiment and activity, enabling proactive communication and engagement strategies.
 

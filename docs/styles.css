@@ -76,11 +76,20 @@ img {
 /* ============================= */
 /* Navigation bar */
 .navbar {
-    background-color: #4e73df; /* 蓝色导航栏 */
-    color: #fff;
+    background-color: #a0c0ff; /* Darker light blue background */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 0.8rem 1.2rem;
     border-radius: 0.5rem;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #003366; /* Dark blue text for readability */
+    font-weight: 500;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: #0056b3; /* A slightly lighter blue for hover and active states */
 }
 
 /* ============================= */

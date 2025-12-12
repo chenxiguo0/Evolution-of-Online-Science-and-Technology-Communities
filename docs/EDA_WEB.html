@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,24 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a18c7dc0688905cb13a6fe3dd5f47c6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,15 +66,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -127,23 +122,43 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-overview" id="toc-data-overview" class="nav-link active" data-scroll-target="#data-overview">Data Overview</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview">Data Overview</a>
   <ul class="collapse">
   <li><a href="#dataset-summary" id="toc-dataset-summary" class="nav-link" data-scroll-target="#dataset-summary">Dataset Summary</a></li>
   </ul></li>
-  <li><a href="#rq1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time" id="toc-rq1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time" class="nav-link" data-scroll-target="#rq1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time">RQ1: How has community activity evolved across AI and technology subreddits over time?</a></li>
-  <li><a href="#rq2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time" id="toc-rq2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time" class="nav-link" data-scroll-target="#rq2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time">RQ2: Which AI-related subreddits demonstrate the strongest user engagement and retention over time?</a></li>
-  <li><a href="#rq3-how-concentrated-is-attention-within-ai-and-tech-discussions" id="toc-rq3-how-concentrated-is-attention-within-ai-and-tech-discussions" class="nav-link" data-scroll-target="#rq3-how-concentrated-is-attention-within-ai-and-tech-discussions">RQ3: How concentrated is attention within AI and tech discussions?</a></li>
-  <li><a href="#rq4-do-ai-and-technology-subreddits-share-overlapping-user-communities" id="toc-rq4-do-ai-and-technology-subreddits-share-overlapping-user-communities" class="nav-link" data-scroll-target="#rq4-do-ai-and-technology-subreddits-share-overlapping-user-communities">RQ4: Do AI and technology subreddits share overlapping user communities?</a></li>
-  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  <li><a href="#business-question-1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time" id="toc-business-question-1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time" class="nav-link" data-scroll-target="#business-question-1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time">Business Question 1: How has community activity evolved across AI and technology subreddits over time?</a>
+  <ul class="collapse">
+  <li><a href="#analysis-approach" id="toc-analysis-approach" class="nav-link" data-scroll-target="#analysis-approach">Analysis Approach</a></li>
+  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
+  </ul></li>
+  <li><a href="#business-question-2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time" id="toc-business-question-2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time" class="nav-link" data-scroll-target="#business-question-2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time">Business Question 2: Which AI-related subreddits demonstrate the strongest user engagement and retention over time?</a>
+  <ul class="collapse">
+  <li><a href="#analysis-approach-1" id="toc-analysis-approach-1" class="nav-link" data-scroll-target="#analysis-approach-1">Analysis Approach</a></li>
+  <li><a href="#findings-1" id="toc-findings-1" class="nav-link" data-scroll-target="#findings-1">Findings</a></li>
+  </ul></li>
+  <li><a href="#business-question-3-how-concentrated-is-attention-within-ai-and-tech-discussions" id="toc-business-question-3-how-concentrated-is-attention-within-ai-and-tech-discussions" class="nav-link" data-scroll-target="#business-question-3-how-concentrated-is-attention-within-ai-and-tech-discussions">Business Question 3: How concentrated is attention within AI and tech discussions?</a>
+  <ul class="collapse">
+  <li><a href="#analysis-approach-2" id="toc-analysis-approach-2" class="nav-link" data-scroll-target="#analysis-approach-2">Analysis Approach</a></li>
+  <li><a href="#findings-2" id="toc-findings-2" class="nav-link" data-scroll-target="#findings-2">Findings</a></li>
+  </ul></li>
+  <li><a href="#business-question-4-do-ai-and-technology-subreddits-share-overlapping-user-communities" id="toc-business-question-4-do-ai-and-technology-subreddits-share-overlapping-user-communities" class="nav-link" data-scroll-target="#business-question-4-do-ai-and-technology-subreddits-share-overlapping-user-communities">Business Question 4: Do AI and technology subreddits share overlapping user communities?</a>
+  <ul class="collapse">
+  <li><a href="#analysis-approach-3" id="toc-analysis-approach-3" class="nav-link" data-scroll-target="#analysis-approach-3">Analysis Approach</a></li>
+  <li><a href="#findings-3" id="toc-findings-3" class="nav-link" data-scroll-target="#findings-3">Findings</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -151,6 +166,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Exploratory Data Analysis</h1>
+<p class="subtitle lead">Community Dynamics and Engagement Patterns</p>
 </div>
 
 
@@ -167,22 +183,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This study examines activity dynamics, user engagement, attention concentration, and cross-community interactions across major AI and technology subreddits from June 2023 to July 2024. Through large-scale data processing with Spark and Python, we explore how community participation evolves over time, which subreddits retain returning users most effectively, how discussion attention is distributed across posts, and whether AI/tech communities share overlapping user bases. These analyses provide a foundational understanding of behavioral patterns within the broader Reddit AI ecosystem.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This section presents a comprehensive exploratory data analysis (EDA) of user activity across 46 major AI and technology-focused subreddits from June 2023 to July 2024. By processing a large-scale dataset of over 12 million comments and 800,000 submissions with Spark and Python, we investigate four key business questions. Our analysis uncovers temporal activity patterns, quantifies user engagement and retention, measures attention inequality in discussions, and maps the landscape of cross-community user overlap. These findings provide a foundational understanding of the behavioral dynamics shaping the Reddit AI and technology ecosystem.</p>
+</section>
 <section id="data-overview" class="level2">
 <h2 class="anchored" data-anchor-id="data-overview">Data Overview</h2>
 <section id="dataset-summary" class="level3">
 <h3 class="anchored" data-anchor-id="dataset-summary">Dataset Summary</h3>
-<p>This project analyzes a large-scale Reddit dataset covering user activity from <strong>June 2023 to July 2024</strong> across <strong>46 unique subreddits</strong>. The dataset captures both submissions and comments, enabling a comprehensive examination of engagement patterns, topic trends, and community dynamics over time. The two charts below illustrate the relevant content.</p>
-<ul>
-<li><p><strong>Time range</strong>: 2023-06 – 2024-07</p></li>
-<li><p><strong>Total Comments</strong>:<br>
-The dataset contains a total of <strong>12,561,291 comments</strong> collected from Reddit between June 2023 and July 2024. This large volume of user-generated content enables detailed temporal, thematic, and engagement-focused analyses.</p></li>
-<li><p><strong>Total Submissions</strong>:<br>
-In addition to comments, the dataset includes <strong>831,021 submissions</strong>, representing the initial posts that anchor each discussion thread. These submissions provide essential context for understanding topic initiation patterns and community-level activity.</p></li>
-<li><p><strong>Total Subreddits</strong>:<br>
-The dataset spans <strong>46 distinct subreddits</strong>, covering a diverse range of themes including technology, artificial intelligence, science, careers, and future-oriented discussions. This breadth allows for comparative analysis across communities with different interests and engagement behaviors.</p></li>
-<li><p><strong>Top Subreddits by Total Activity</strong><br>
-Activity is measured by <code>total_rows = num_comments + num_submissions</code>. The most active subreddits in the dataset are:</p>
+<p>This project analyzes a large-scale Reddit dataset covering user activity from June 2023 to July 2024 across 46 unique subreddits, enabling a comprehensive examination of engagement patterns and community dynamics.</p>
+<p>The dataset’s overall scope is detailed in Table 1. It comprises over 12.5 million comments and 831,000 submissions, providing a rich foundation for analyzing user-generated content and discussion patterns.</p>
+<p><strong>Dataset Summary by Data Type</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 25%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Total Rows</th>
+<th style="text-align: left;">Size (GB)</th>
+<th style="text-align: left;">Date Range Start</th>
+<th style="text-align: left;">Date Range End</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">comments</td>
+<td style="text-align: left;">12,561,291</td>
+<td style="text-align: left;">12.56</td>
+<td style="text-align: left;">2023-06-01</td>
+<td style="text-align: left;">2024-07-31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">submissions</td>
+<td style="text-align: left;">831,021</td>
+<td style="text-align: left;">0.83</td>
+<td style="text-align: left;">2023-06-01</td>
+<td style="text-align: left;">2024-07-31</td>
+</tr>
+</tbody>
+</table>
+<p>Among the 46 communities, activity is highly concentrated in a few key subreddits. The top five, measured by the total number of comments and submissions, are:</p>
 <ol type="1">
 <li><strong>technology</strong> — 3,265,248 total rows<br>
 </li>
@@ -194,857 +240,415 @@ Activity is measured by <code>total_rows = num_comments + num_submissions</code>
 </li>
 <li><strong>Futurology</strong> — 914,347 total rows</li>
 </ol>
-<p>These subreddits account for a significant share of the dataset’s total activity, reflecting strong user engagement in discussions related to emerging technologies, AI tools, scientific topics, and career development.</p></li>
-</ul>
-<div class="cell" data-tbl-cap="Dataset Summary Table" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<caption>Dataset Summary Table</caption>
+<p>To facilitate temporal analysis, this raw data was aggregated into monthly activity counts. Table 2 provides a sample of this structured data, which is used to explore activity trends in Business Question 1.</p>
+<p><strong>Sample of Monthly Activity Data</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 17%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 23%">
+</colgroup>
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">data_type</th>
-<th data-quarto-table-cell-role="th">total_rows</th>
-<th data-quarto-table-cell-role="th">size_gb</th>
-<th data-quarto-table-cell-role="th">date_range_start</th>
-<th data-quarto-table-cell-role="th">date_range_end</th>
+<th style="text-align: left;">subreddit</th>
+<th style="text-align: left;">month</th>
+<th style="text-align: left;">posts</th>
+<th style="text-align: left;">comments</th>
+<th style="text-align: left;">total_activity</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>comments</td>
-<td>12561291</td>
-<td>12.56</td>
-<td>2023-06-01</td>
-<td>2024-07-31</td>
+<td style="text-align: left;">ArtificialInteligence</td>
+<td style="text-align: left;">2023-06-01</td>
+<td style="text-align: left;">1900</td>
+<td style="text-align: left;">11962</td>
+<td style="text-align: left;">13862</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>submissions</td>
-<td>831021</td>
-<td>0.83</td>
-<td>2023-06-01</td>
-<td>2024-07-31</td>
+<td style="text-align: left;">ArtificialInteligence</td>
+<td style="text-align: left;">2023-07-01</td>
+<td style="text-align: left;">1829</td>
+<td style="text-align: left;">12078</td>
+<td style="text-align: left;">13907</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ArtificialInteligence</td>
+<td style="text-align: left;">2023-08-01</td>
+<td style="text-align: left;">1759</td>
+<td style="text-align: left;">9922</td>
+<td style="text-align: left;">11681</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ChatGPT</td>
+<td style="text-align: left;">2023-06-01</td>
+<td style="text-align: left;">11357</td>
+<td style="text-align: left;">139633</td>
+<td style="text-align: left;">150990</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ChatGPT</td>
+<td style="text-align: left;">2023-07-01</td>
+<td style="text-align: left;">10597</td>
+<td style="text-align: left;">142224</td>
+<td style="text-align: left;">152821</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ChatGPT</td>
+<td style="text-align: left;">2023-08-01</td>
+<td style="text-align: left;">10431</td>
+<td style="text-align: left;">131996</td>
+<td style="text-align: left;">142427</td>
 </tr>
 </tbody>
 </table>
-
-</div>
-</div>
-</div>
-<div id="1f9f1a81" class="cell" data-tbl-subcap="This table shows subreddit statistics sorted in descending order." data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">subreddit</th>
-<th data-quarto-table-cell-role="th">num_comments</th>
-<th data-quarto-table-cell-role="th">avg_comment_score</th>
-<th data-quarto-table-cell-role="th">num_submissions</th>
-<th data-quarto-table-cell-role="th">avg_submission_score</th>
-<th data-quarto-table-cell-role="th">total_rows</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">44</th>
-<td>technology</td>
-<td>3210257</td>
-<td>11.109351</td>
-<td>54991</td>
-<td>337.551036</td>
-<td>3265248</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">4</th>
-<td>ChatGPT</td>
-<td>1748893</td>
-<td>6.564207</td>
-<td>145862</td>
-<td>51.257984</td>
-<td>1894755</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">40</th>
-<td>science</td>
-<td>1028744</td>
-<td>9.878945</td>
-<td>22592</td>
-<td>354.457596</td>
-<td>1051336</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">28</th>
-<td>cscareerquestions</td>
-<td>910865</td>
-<td>5.916743</td>
-<td>64125</td>
-<td>12.182316</td>
-<td>974990</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">12</th>
-<td>Futurology</td>
-<td>898463</td>
-<td>6.395128</td>
-<td>15884</td>
-<td>176.512465</td>
-<td>914347</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">9</th>
-<td>Entrepreneur</td>
-<td>755790</td>
-<td>2.477290</td>
-<td>86534</td>
-<td>4.859373</td>
-<td>842324</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">45</th>
-<td>webdev</td>
-<td>516710</td>
-<td>4.481493</td>
-<td>57369</td>
-<td>8.473967</td>
-<td>574079</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">35</th>
-<td>learnprogramming</td>
-<td>452260</td>
-<td>3.041514</td>
-<td>50429</td>
-<td>5.591862</td>
-<td>502689</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">19</th>
-<td>OpenAI</td>
-<td>337768</td>
-<td>4.450842</td>
-<td>25574</td>
-<td>24.268476</td>
-<td>363342</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">38</th>
-<td>programming</td>
-<td>325140</td>
-<td>8.167888</td>
-<td>31396</td>
-<td>20.063256</td>
-<td>356536</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">32</th>
-<td>gadgets</td>
-<td>331981</td>
-<td>8.062708</td>
-<td>6434</td>
-<td>254.383898</td>
-<td>338415</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">36</th>
-<td>learnpython</td>
-<td>208024</td>
-<td>2.108420</td>
-<td>30948</td>
-<td>2.720628</td>
-<td>238972</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">8</th>
-<td>ElectricalEngineering</td>
-<td>214790</td>
-<td>4.132976</td>
-<td>22407</td>
-<td>8.276208</td>
-<td>237197</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">43</th>
-<td>technews</td>
-<td>222603</td>
-<td>5.017843</td>
-<td>9896</td>
-<td>147.518795</td>
-<td>232499</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>ArtificialInteligence</td>
-<td>193665</td>
-<td>2.013590</td>
-<td>27614</td>
-<td>3.891903</td>
-<td>221279</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">29</th>
-<td>datascience</td>
-<td>193664</td>
-<td>4.106711</td>
-<td>24717</td>
-<td>6.360278</td>
-<td>218381</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">16</th>
-<td>MachineLearning</td>
-<td>146901</td>
-<td>3.897986</td>
-<td>37191</td>
-<td>4.729182</td>
-<td>184092</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">20</th>
-<td>Physics</td>
-<td>166907</td>
-<td>5.138023</td>
-<td>16552</td>
-<td>11.204265</td>
-<td>183459</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">18</th>
-<td>MechanicalEngineering</td>
-<td>142210</td>
-<td>4.528043</td>
-<td>10692</td>
-<td>8.584175</td>
-<td>152902</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>Astronomy</td>
-<td>114814</td>
-<td>5.744718</td>
-<td>13305</td>
-<td>41.608794</td>
-<td>128119</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">21</th>
-<td>Python</td>
-<td>100149</td>
-<td>3.893229</td>
-<td>18323</td>
-<td>6.637396</td>
-<td>118472</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">42</th>
-<td>tech</td>
-<td>78069</td>
-<td>4.071629</td>
-<td>6321</td>
-<td>109.124347</td>
-<td>84390</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">37</th>
-<td>physicsmemes</td>
-<td>62492</td>
-<td>13.372304</td>
-<td>3764</td>
-<td>242.282147</td>
-<td>66256</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">39</th>
-<td>robotics</td>
-<td>44127</td>
-<td>2.407347</td>
-<td>7575</td>
-<td>9.391551</td>
-<td>51702</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">27</th>
-<td>computerscience</td>
-<td>31181</td>
-<td>3.723197</td>
-<td>7504</td>
-<td>3.898188</td>
-<td>38685</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">30</th>
-<td>deeplearning</td>
-<td>29739</td>
-<td>1.890346</td>
-<td>5534</td>
-<td>3.626671</td>
-<td>35273</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">34</th>
-<td>learnjava</td>
-<td>23050</td>
-<td>1.671584</td>
-<td>3392</td>
-<td>2.901238</td>
-<td>26442</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">5</th>
-<td>ComputerEngineering</td>
-<td>14360</td>
-<td>2.661490</td>
-<td>2563</td>
-<td>4.098712</td>
-<td>16923</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">23</th>
-<td>QuantumPhysics</td>
-<td>11850</td>
-<td>1.812911</td>
-<td>1668</td>
-<td>3.244005</td>
-<td>13518</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">22</th>
-<td>QuantumComputing</td>
-<td>11155</td>
-<td>1.864186</td>
-<td>1786</td>
-<td>4.209966</td>
-<td>12941</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">15</th>
-<td>MLQuestions</td>
-<td>7726</td>
-<td>1.470230</td>
-<td>3094</td>
-<td>1.648675</td>
-<td>10820</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">41</th>
-<td>spaceflight</td>
-<td>8408</td>
-<td>2.907112</td>
-<td>1707</td>
-<td>12.414177</td>
-<td>10115</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">26</th>
-<td>coding</td>
-<td>5564</td>
-<td>2.204889</td>
-<td>4081</td>
-<td>2.046557</td>
-<td>9645</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">11</th>
-<td>Futurism</td>
-<td>7000</td>
-<td>1.429000</td>
-<td>1042</td>
-<td>8.631478</td>
-<td>8042</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">13</th>
-<td>Innovation</td>
-<td>392</td>
-<td>1.168367</td>
-<td>4995</td>
-<td>1.061061</td>
-<td>5387</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">17</th>
-<td>MaterialsScience</td>
-<td>2075</td>
-<td>1.902169</td>
-<td>589</td>
-<td>2.558574</td>
-<td>2664</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">25</th>
-<td>bigdata</td>
-<td>864</td>
-<td>1.261574</td>
-<td>1255</td>
-<td>1.521116</td>
-<td>2119</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">0</th>
-<td>AI_Agents</td>
-<td>1270</td>
-<td>1.277165</td>
-<td>594</td>
-<td>2.028620</td>
-<td>1864</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">7</th>
-<td>EarthScience</td>
-<td>829</td>
-<td>1.917973</td>
-<td>351</td>
-<td>2.934473</td>
-<td>1180</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">14</th>
-<td>LLM</td>
-<td>349</td>
-<td>1.137536</td>
-<td>89</td>
-<td>0.561798</td>
-<td>438</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">33</th>
-<td>genai</td>
-<td>90</td>
-<td>1.044444</td>
-<td>182</td>
-<td>1.730769</td>
-<td>272</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">6</th>
-<td>DataScienceMemes</td>
-<td>44</td>
-<td>1.068182</td>
-<td>86</td>
-<td>3.127907</td>
-<td>130</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">1</th>
-<td>AIethics</td>
-<td>45</td>
-<td>1.044444</td>
-<td>7</td>
-<td>0.857143</td>
-<td>52</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">10</th>
-<td>EnvironmentalScience</td>
-<td>11</td>
-<td>1.000000</td>
-<td>0</td>
-<td>0.000000</td>
-<td>11</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">31</th>
-<td>futurescience</td>
-<td>0</td>
-<td>0.000000</td>
-<td>7</td>
-<td>1.000000</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">24</th>
-<td>TechEntrepreneur</td>
-<td>3</td>
-<td>1.000000</td>
-<td>0</td>
-<td>0.000000</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
 </section>
 </section>
-<section id="rq1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time" class="level2">
-<h2 class="anchored" data-anchor-id="rq1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time">RQ1: How has community activity evolved across AI and technology subreddits over time?</h2>
-<p><strong>Business Question:</strong><br>
-How have monthly post and comment volumes changed across major AI and technology subreddits? Do any noticeable surges correspond to major AI or technology events?</p>
-<p><strong>Analysis Approach:</strong><br>
-- Use Spark to aggregate posts and comments by subreddit and month<br>
-- Visualize monthly activity trends to compare engagement patterns and identify periods of rapid growth or decline</p>
-<div id="1581e20b" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display">
-<div>
+<section id="business-question-1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="business-question-1-how-has-community-activity-evolved-across-ai-and-technology-subreddits-over-time">Business Question 1: How has community activity evolved across AI and technology subreddits over time?</h2>
+<section id="analysis-approach" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-approach">Analysis Approach</h3>
+<p>To answer this, we aggregated the total number of posts and comments by subreddit for each month. This allowed us to create a time-series visualization that highlights activity trends, identifies periods of significant growth or decline, and compares the engagement trajectories of different communities. Surges in activity were then contextualized with major AI or technology events.</p>
+</section>
+<section id="findings" class="level3">
+<h3 class="anchored" data-anchor-id="findings">Findings</h3>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="EDA_WEB_files/figure-html/cell-4-output-1.png" width="943" height="470" class="figure-img"></p>
+<p><img src="data/plots/rq1_activity_trends.png" class="img-fluid figure-img"></p>
+<figcaption>Monthly Activity Trends</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p><strong>Findings:</strong><br>
-- <strong>technology</strong> consistently dominates overall activity, peaking above 300,000 monthly interactions in mid-2023 and again in mid-2024, reflecting its broad and sustained user interest.<br>
-- <strong>ChatGPT</strong> shows several pronounced surges—particularly around late 2023 and early 2024—likely corresponding to major AI announcements and product updates.<br>
-- <strong>Futurology</strong> exhibits a steady upward trend throughout the year, suggesting growing interest in future-oriented and AI-related discussions.<br>
-- <strong>OpenAI</strong> experiences sharp but short-lived spikes (e.g., late 2023 and mid-2024), consistent with event-driven engagement tied to major releases or public statements.<br>
-- Smaller communities such as <strong>MachineLearning</strong>, <strong>technews</strong>, and <strong>ArtificialInteligence</strong> remain relatively stable, showing modest fluctuations but no large-scale surges.</p>
-<p>Overall, activity patterns indicate that major AI/tech events tend to drive short-term spikes in engagement, while broader technology interest maintains high baseline levels throughout the entire period.</p>
+<ul>
+<li><strong><code>technology</code> consistently dominates</strong> in overall activity, peaking above 300,000 monthly interactions and reflecting broad, sustained user interest.</li>
+<li><strong><code>ChatGPT</code> shows pronounced surges</strong>, especially around late 2023 and early 2024, which likely correspond to major product updates and public announcements (e.g., OpenAI DevDay).</li>
+<li><strong><code>Futurology</code> exhibits a steady upward trend</strong>, suggesting growing mainstream interest in future-oriented and AI-related discussions.</li>
+<li><strong><code>OpenAI</code> experiences sharp but short-lived spikes</strong>, consistent with event-driven engagement tied to specific releases or corporate news.</li>
+<li>Smaller communities like <code>MachineLearning</code> and <code>ArtificialInteligence</code> remain relatively stable, indicating a more niche and consistent user base.</li>
+</ul>
+<p>Overall, activity patterns reveal that while major AI/tech events drive short-term spikes in specialized communities, broader technology interest maintains a high baseline of engagement throughout the year.</p>
 </section>
-<section id="rq2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time" class="level2">
-<h2 class="anchored" data-anchor-id="rq2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time">RQ2: Which AI-related subreddits demonstrate the strongest user engagement and retention over time?</h2>
-<p><strong>Business Question:</strong><br>
-Which AI communities successfully retain users across months—indicating sustained engagement—rather than attracting only short-term or event-driven traffic?</p>
-<p><strong>Analysis Approach:</strong><br>
-- Use Spark to compute the monthly <em>returning-to-active user ratio</em> for each subreddit as a proxy for retention.<br>
-- Visualize retention trends with a heatmap to highlight which communities maintain consistent returning user activity over time.</p>
-<div id="6dd3ce94" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display">
-<div>
+</section>
+<section id="business-question-2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="business-question-2-which-ai-related-subreddits-demonstrate-the-strongest-user-engagement-and-retention-over-time">Business Question 2: Which AI-related subreddits demonstrate the strongest user engagement and retention over time?</h2>
+<section id="analysis-approach-1" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-approach-1">Analysis Approach</h3>
+<p>We used Spark to compute a monthly <em>returning-to-active user ratio</em> for each subreddit. This metric serves as a proxy for user retention, measuring the proportion of a month’s active users who also participated in the previous month. A heatmap was then used to visualize these retention ratios, allowing for easy comparison of which communities maintain consistent user engagement over time.</p>
+</section>
+<section id="findings-1" class="level3">
+<h3 class="anchored" data-anchor-id="findings-1">Findings</h3>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="EDA_WEB_files/figure-html/cell-5-output-1.png" width="962" height="566" class="figure-img"></p>
+<p><img src="data/plots/rq2_engagement_heatmap.png" class="img-fluid figure-img"></p>
+<figcaption>User Retention Heatmap</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p><strong>Findings:</strong></p>
 <ul>
-<li><p><strong>Niche AI communities exhibit sharp fluctuations in retention.</strong><br>
-Subreddits with smaller and more specialized audiences—such as <em>Alethics</em>—show periods of extremely high retention, with ratios reaching up to ~1.0 in certain months. This indicates that when these communities experience relevant discussions or bursts of interest, the majority of users who are active in those months tend to return. However, these peaks are intermittent, suggesting that engagement in niche communities is event-driven and highly sensitive to topical relevance rather than sustained momentum.</p></li>
-<li><p><strong>Mainstream AI subreddits maintain moderate but stable retention levels.</strong><br>
-Larger communities like <em>ChatGPT</em>, <em>MachineLearning</em>, and <em>OpenAI</em> display retention ratios that consistently fall within the 0.2–0.4 range. Although these values are lower than those of niche subreddits during their peak months, their stability reflects a healthier and more durable engagement structure: a substantial portion of users continue returning month over month, supported by continual content flow, broader topic coverage, and steady user inflow.</p></li>
-<li><p><strong>Temporal patterns reveal community-specific engagement cycles.</strong><br>
-Retention for niche subreddits tends to be more volatile, with visible month-to-month jumps. This volatility suggests communities formed around narrow or emerging topics experience engagement surges only when new developments occur. In contrast, mainstream subreddits exhibit smoother seasonal variations that correspond more closely to long-term trends in AI and technology discourse.</p></li>
-<li><p><strong>General AI forums demonstrate stronger baseline cohesion.</strong><br>
-Communities like <em>MachineLearning</em> and <em>OpenAI</em> do not show extreme highs or lows but instead maintain a persistent core of recurring users. This indicates well-established community identity and ongoing discussions that encourage users to return even outside of major events.</p></li>
-<li><p><strong>Overall interpretation:</strong><br>
-The heatmap highlights a clear divide between niche and broad AI communities. Niche subreddits achieve high short-term engagement but lack consistency, while mainstream subreddits sustain steady returning-user activity, suggesting stronger community cohesion and long-term user retention. These patterns underline how topic breadth, community size, and event-driven interest all influence user retention dynamics across Reddit’s AI ecosystem.</p></li>
+<li><strong>Niche communities show sharp fluctuations.</strong> Subreddits like <code>Alethics</code> exhibit periods of extremely high retention (ratios near 1.0), suggesting that when relevant topics emerge, nearly all active users are returning participants. However, this engagement is event-driven and not sustained.</li>
+<li><strong>Mainstream AI subreddits maintain stable retention.</strong> Larger communities like <code>ChatGPT</code>, <code>MachineLearning</code> and <code>OpenAI</code> consistently show retention ratios in the 0.2–0.4 range. This stability reflects a healthier, more durable engagement structure with a continuous flow of content and a steady user base.</li>
+<li><strong>General AI forums demonstrate stronger cohesion.</strong> Communities like <code>MachineLearning</code> and <code>OpenAI</code> do not show extreme highs but maintain a persistent core of recurring users, indicating a well-established community identity that encourages return visits even without major events.</li>
 </ul>
+<p>In summary, the heatmap highlights a clear distinction: niche subreddits achieve high short-term engagement but lack consistency, whereas mainstream subreddits sustain steady returning-user activity, suggesting stronger community health and long-term value.</p>
 </section>
-<section id="rq3-how-concentrated-is-attention-within-ai-and-tech-discussions" class="level2">
-<h2 class="anchored" data-anchor-id="rq3-how-concentrated-is-attention-within-ai-and-tech-discussions">RQ3: How concentrated is attention within AI and tech discussions?</h2>
-<p><strong>Business Question:</strong><br>
-To what extent are conversations driven by a small number of highly viral posts, versus being distributed more evenly across many posts? In other words, do certain subreddits exhibit stronger attention inequality than others?</p>
-<p><strong>Analysis Approach:</strong><br>
-- Use Spark to compute the Gini coefficient of comments per post for each subreddit, where higher Gini values indicate more concentrated attention.<br>
-- Visualize distribution patterns using violin plots to show variability across months and bar charts to compare average attention concentration between subreddits.</p>
-<div id="8c4d04ab" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display">
-<div>
+</section>
+<section id="business-question-3-how-concentrated-is-attention-within-ai-and-tech-discussions" class="level2">
+<h2 class="anchored" data-anchor-id="business-question-3-how-concentrated-is-attention-within-ai-and-tech-discussions">Business Question 3: How concentrated is attention within AI and tech discussions?</h2>
+<section id="analysis-approach-2" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-approach-2">Analysis Approach</h3>
+<p>To measure attention inequality, we calculated the <strong>Gini coefficient</strong> of comments per post for each subreddit. A Gini coefficient near 1 indicates that a very small number of “viral” posts attract most of the comments, while a value closer to 0 suggests that attention is distributed more evenly across many posts. We visualized these distributions using violin plots and bar charts to compare concentration levels.</p>
+</section>
+<section id="findings-2" class="level3">
+<h3 class="anchored" data-anchor-id="findings-2">Findings</h3>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="EDA_WEB_files/figure-html/cell-6-output-1.png" width="657" height="470" class="figure-img"></p>
+<p><img src="data/plots/rq3_gini_violin.png" class="img-fluid figure-img"></p>
+<figcaption>Discussion Gini Index Violin Plot</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<div id="1bac818d" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="EDA_WEB_files/figure-html/cell-7-output-1.png" width="661" height="470" class="figure-img"></p>
+<p><img src="data/plots/rq3_gini_bar_sorted.png" class="img-fluid figure-img"></p>
+<figcaption>Average Gini Index Bar Chart</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p><strong>Findings:</strong></p>
 <ul>
-<li><p><strong>Technology and ChatGPT exhibit the strongest concentration of attention, with average Gini values approaching 0.88–0.90.</strong><br>
-This indicates that engagement in these subreddits is dominated by a handful of highly viral posts. When major announcements, controversies, or breakthrough AI tools emerge, these communities often experience rapid surges in attention focused on a small number of trending threads. As a result, the distribution of comments becomes heavily skewed: most posts receive modest engagement while a small set of “blockbuster” discussions absorb the majority of user activity. Such dynamics are typical of large, heterogeneous audiences that respond quickly to broad-interest or news-driven content.</p></li>
-<li><p><strong>Professional and technical communities—including MachineLearning and datascience—show significantly lower attention inequality (Gini ≈ 0.70–0.78).</strong><br>
-These subreddits display a more evenly distributed engagement pattern, where comments accumulate across a wider range of posts rather than concentrating around a few viral threads. This suggests that discussions are more specialized, sustained, and topic-focused, attracting recurring contributions from users who are participating for informational or expert-driven purposes rather than reacting to viral events. The lower Gini values imply that these communities support richer, multi-thread parallel discussions typical of technical forums.</p></li>
-<li><p><strong>OpenAI occupies a middle ground, with moderate concentration levels (~0.75–0.80) but higher variability across months.</strong><br>
-This pattern reflects the community’s sensitivity to event-driven cycles: during major OpenAI releases or controversies, a few posts dominate the discourse, while in quieter periods, engagement becomes more evenly distributed.</p></li>
-<li><p><strong>Overall, the Gini-based comparisons highlight a structural divide between general-interest and expert-focused AI communities.</strong><br>
-Large, news-oriented subreddits tend to exhibit “winner-take-most” behavior, where viral content disproportionately shapes the conversation. In contrast, subreddits centered on technical learning, research, or professional practice support more equitable attention patterns, indicating a healthier distribution of dialogue across diverse posts. These findings reveal how audience composition, content type, and topic breadth jointly influence the way discussions unfold within online AI and technology communities.</p></li>
+<li><strong><code>technology</code> and <code>ChatGPT</code> exhibit the highest attention concentration</strong>, with average Gini coefficients approaching 0.90. This “winner-take-most” dynamic is typical of large, news-driven communities where engagement is dominated by a few highly viral posts.</li>
+<li><strong>Technical communities show lower inequality.</strong> Subreddits like <code>MachineLearning</code> and <code>datascience</code> have more moderate Gini values (≈0.70–0.78). This indicates a healthier, more evenly distributed engagement pattern where discussions are spread across a wider range of specialized, topic-focused posts rather than a few viral threads.</li>
+<li><strong><code>OpenAI</code> occupies a middle ground</strong>, with moderate concentration levels but higher month-to-month variability, reflecting its sensitivity to event-driven news cycles.</li>
 </ul>
+<p>These findings reveal a structural divide: general-interest subreddits are prone to viral, top-heavy discussions, while expert-focused communities foster a more equitable distribution of attention across multiple parallel conversations.</p>
 </section>
-<section id="rq4-do-ai-and-technology-subreddits-share-overlapping-user-communities" class="level2">
-<h2 class="anchored" data-anchor-id="rq4-do-ai-and-technology-subreddits-share-overlapping-user-communities">RQ4: Do AI and technology subreddits share overlapping user communities?</h2>
-<p><strong>Business Question:</strong><br>
-To what extent do users participate across multiple AI and technology subreddits? Are some communities closely interconnected through shared user bases, while others attract distinct, non-overlapping audiences?</p>
-<p><strong>Analysis Approach:</strong></p>
-<ul>
-<li>Extract unique users from each subreddit using Spark.</li>
-<li>Compute pairwise Jaccard similarity to quantify user overlap.</li>
-<li>Visualize the subreddit-to-subreddit similarity matrix using a heatmap to highlight shared and distinct audience patterns.</li>
-</ul>
-<div id="ac6ac608" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display">
-<div>
+</section>
+<section id="business-question-4-do-ai-and-technology-subreddits-share-overlapping-user-communities" class="level2">
+<h2 class="anchored" data-anchor-id="business-question-4-do-ai-and-technology-subreddits-share-overlapping-user-communities">Business Question 4: Do AI and technology subreddits share overlapping user communities?</h2>
+<section id="analysis-approach-3" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-approach-3">Analysis Approach</h3>
+<p>We identified the unique user bases for each subreddit and then computed the pairwise <strong>Jaccard similarity</strong> to quantify the degree of user overlap between every pair of communities. The resulting similarity matrix was visualized as a heatmap, where warmer colors would indicate a higher percentage of shared users.</p>
+</section>
+<section id="findings-3" class="level3">
+<h3 class="anchored" data-anchor-id="findings-3">Findings</h3>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="EDA_WEB_files/figure-html/cell-8-output-1.png" width="882" height="757" class="figure-img"></p>
+<p><img src="data/plots/rq4_user_overlap_heatmap.png" class="img-fluid figure-img"></p>
+<figcaption>Cross-Subreddit User Overlap Heatmap</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p><strong>Findings:</strong></p>
 <ul>
-<li><p>Overall user overlap across the selected AI and technology subreddits is low, with most Jaccard similarity values close to zero. This indicates that these communities attract largely distinct audiences rather than sharing a common user base.</p></li>
-<li><p>General-interest subreddits such as technology and technews show only weak connections to more specialized communities (e.g., MachineLearning, robotics, OpenAI), suggesting that mainstream tech discussions do not substantially overlap with expert-driven or AI-focused forums.</p></li>
-<li><p>Similarly, AI-related subreddits such as ChatGPT, OpenAI, and ArtificialInteligence do not exhibit strong user overlap with one another, implying that users tend to engage in platform- or topic-specific communities rather than participating broadly across the AI ecosystem.</p></li>
-<li><p>The near-diagonal heatmap pattern reinforces the idea that each subreddit represents a relatively independent audience segment, with minimal cross-community engagement or user migration during the study period.</p></li>
+<li><strong>Overall user overlap is extremely low.</strong> The vast majority of Jaccard similarity scores are close to zero, indicating that the selected AI and technology subreddits attract largely distinct and separate audiences.</li>
+<li><strong>Even closely related communities are siloed.</strong> For instance, AI-centric subreddits like <code>ChatGPT</code>, <code>OpenAI</code>, and <code>ArtificialInteligence</code> do not share a significant user base. This suggests that users tend to engage with platform- or topic-specific communities rather than participating broadly across the AI ecosystem.</li>
+<li><strong>The strong diagonal pattern</strong> in the heatmap visually confirms that each subreddit functions as a relatively independent community with minimal cross-pollination of users during the observed period.</li>
 </ul>
 </section>
-<section id="key-takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
-<ul>
-<li>Community activity is highly event-driven, with major AI/tech announcements producing clear surges in monthly posts and comments. Among all communities, the technology subreddit consistently maintains the highest baseline activity, highlighting its broad relevance and responsiveness to industry-wide events.</li>
-<li>User retention patterns differ sharply across subreddit types. Specialized communities (e.g., science, robotics) show intermittent but intense periods of returning-user engagement, whereas larger mainstream AI communities such as ChatGPT and technology exhibit more stable, steady retention, indicating continuous community participation.</li>
-<li>Attention concentration varies with community purpose. General tech forums display high Gini coefficients (≈0.9), suggesting a “viral hit” structure where a few posts dominate engagement. In contrast, technical and research-focused subreddits (e.g., MachineLearning) distribute attention more evenly (Gini ≈0.7), supporting sustained, multi-threaded discussions rather than viral dynamics.</li>
-<li>Cross-community user overlap is minimal, showing that AI and technology subreddits maintain largely distinct audience groups. Even closely related AI subreddits share limited user participation, indicating strong topical specialization rather than fluid cross-community engagement.</li>
-</ul>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>This exploratory analysis reveals several key dynamics of Reddit’s AI and technology ecosystem:</p>
+<ol type="1">
+<li><strong>Community Activity is Event-Driven:</strong> Monthly activity in specialized subreddits like <code>ChatGPT</code> spikes in response to major industry events, while broader forums like <code>technology</code> maintain high, consistent engagement.</li>
+<li><strong>Retention Varies by Community Type:</strong> Niche communities experience volatile but intense user retention, whereas larger, mainstream subreddits demonstrate more stable and durable long-term engagement.</li>
+<li><strong>Attention is Highly Concentrated in Large Forums:</strong> General-interest tech subreddits exhibit a “winner-take-most” pattern where a few viral posts dominate discussion. In contrast, technical communities foster a more equitable distribution of attention.</li>
+<li><strong>User Communities are Highly Siloed:</strong> There is minimal user overlap between different AI and tech subreddits, indicating that these online spaces operate as distinct communities with specialized audiences rather than an interconnected network.</li>
+</ol>
 
 
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1052,161 +656,185 @@ To what extent do users participate across multiple AI and technology subreddits
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

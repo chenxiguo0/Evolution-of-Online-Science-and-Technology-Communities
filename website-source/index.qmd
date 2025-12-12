@@ -52,7 +52,7 @@ We address 10 business questions spanning three analytical approaches:
 9.  Can the Quality of Reddit Comments in Science, Technology, and AI Subreddits Be Predicted from comment content and basic behavioral features?
 10. Can distinct discussion communities be identified within technology-related subreddits based on patterns of language use?
 
-See [BUSINESS_QUESTIONS.md](./BUSINESS_QUESTIONS.md) for detailed technical approaches.
+See [BUSINESS_QUESTIONS.md](BUSINESS_QUESTIONS.md) for detailed technical approaches.
 
 ## Methodology
 
@@ -69,15 +69,15 @@ We analyzed Reddit submissions and comments from science, technology, and AI com
 
 1.  **Data Acquisition & Filtering**
     - Copied and filtered a large public Reddit dataset to relevant subreddits and timeframes.
-2.  **Exploratory Data Analysis** → [EDA Page](EDA_WEB.qmd)
+2.  **Exploratory Data Analysis** → [EDA Page](eda.qmd)
     - Analyzed temporal patterns, user engagement, attention concentration, and community overlap.
-3.  **Natural Language Processing** → [NLP Page](NLP_WEB.qmd)
+3.  **Natural Language Processing** → [NLP Page](nlp.qmd)
     - Deployed topic modeling, sentiment analysis, and rule-based text classification.
-4.  **Machine Learning** → [ML Page](ML_WEB.qmd)
+4.  **Machine Learning** → [ML Page](ml.qmd)
     - Trained and evaluated classification and clustering models to predict content quality and identify user segments.
-5.  **Final Analysis** → [Conclusion](conclusion.qmd)
+5.  **Final Conclusion** → [Conclusion](conclusion.qmd)
     - Synthesized all findings into actionable insights and business recommendations.
-6. **Project Summary** → [Report](report.qmd)
+6. **Project Report** → [Report](report.qmd)
     - Summarizes the entire project pipeline, highlights key findings, and provides a cohesive narrative linking methods, results, and business relevance.
 
 ## Key Findings Preview
@@ -94,7 +94,7 @@ Our findings provide a roadmap for understanding and engaging with online techno
 
 ## Repository
 
-- **GitHub:** https://github.com/gu-dsan6000/fall-2025-project-team29
+- **GitHub:** [https://github.com/gu-dsan6000/fall-2025-project-team29](https://github.com/gu-dsan6000/fall-2025-project-team29)
 - **Documentation:** Comprehensive project details, methodology, and results are presented on this website. All source code and data outputs can be found in the GitHub repository.
 
 ---
