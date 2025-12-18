@@ -51,7 +51,6 @@ logs/
 # Scratchpad
 .scratchpad/
 
-#
 ./_site/build.sh
 
 styles.css
