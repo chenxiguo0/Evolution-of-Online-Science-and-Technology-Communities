@@ -51,6 +51,8 @@ logs/
 # Scratchpad
 .scratchpad/
 
-build.sh
+./_site/build.sh
+
 styles.css
+
 uv.lock
