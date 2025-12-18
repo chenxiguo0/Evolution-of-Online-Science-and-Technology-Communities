@@ -1,31 +1,39 @@
 # Project: Evolution of Online Science and Technology Communities on Reddit
 
+## Project Motivation and Overview
+
+In the digital era, Reddit has become one of the world’s most influential hubs for science and technology discussion. Subreddits devoted to AI, programming, and emerging tech not only aggregate cutting-edge knowledge and best practices, but also reflect the evolving landscape of online expertise, public sentiment, and the social impact of technology. However, the ways these science and technology communities evolve, interact, and structure their collective discourse over time remain underexplored at scale. Questions about the internal dynamics of these communities—what drives user engagement, how do discussion themes change in response to real-world events, and how does sentiment flow through key technology hubs—are increasingly relevant as online dialogue shapes innovation and opinion.
+
+This project aims to systematically analyze how online science and technology communities on Reddit evolved between June 2023 and July 2024, with a special focus on discussions concerning artificial intelligence and emerging technologies. Leveraging big data tools, we track structural change, thematic evolution, user collaboration and clustering across 100 of the most active science and tech subreddits, providing insights into the “digital pulse” of this rapidly shifting sphere.
+
 **Team:** Chenxi Guo, Linjin He, Xiaoya Meng
+
+---
 
 ## High-Level Problem Statement
 
-This project analyzes how online science and technology communities on Reddit evolve, interact, and structure their discussions around AI and emerging technologies.
+This project investigates how online science and technology communities on Reddit develop, interact, and organize their discussions around AI and emerging technologies, using data-driven methods to uncover hidden patterns of engagement, sentiment, and knowledge diffusion.
 
 ## Dataset
 
-The analysis is based on a large-scale dataset of over 13 million Reddit comments and submissions from June 2023 to July 2024. The data is filtered to include discussions from 100 subreddits related to science, technology, AI, and programming. All processing and analysis were performed using a distributed Apache Spark cluster to handle the scale of the data.
+Our study is based on a large-scale dataset exceeding 13 million Reddit comments and posts collected from June 2023 to July 2024, filtered to include 100 subreddits dedicated to science, technology, artificial intelligence, and programming. All data processing and analysis was performed using distributed Apache Spark clusters to efficiently handle the vast data volume.
 
 ## Project Summary
 
-This project is divided into three main analytical components:
+The project consists of three main analytical components:
 
-1.  **Exploratory Data Analysis (EDA):** We investigated community activity, user engagement, attention concentration, and user overlap across different subreddits to understand the structural dynamics of these online communities.
-2.  **Natural Language Processing (NLP):** We applied topic modeling (LDA) and sentiment analysis (VADER) to uncover the dominant themes of discussion, track emotional patterns, and assess the impact of external events on community discourse.
-3.  **Machine Learning (ML):** We developed classification and clustering models to predict comment quality and identify distinct discussion communities based on language use, providing tools for content moderation and audience segmentation.
+1.  **Exploratory Data Analysis (EDA):** Community activity, user participation, attention centralization, and cross-subreddit overlap are quantified to illustrate the underlying social structure of these online spaces.
+2.  **Natural Language Processing (NLP):** Topic modeling (LDA) and sentiment analysis (VADER) are used to extract dominant themes, trace sentiment dynamics, and assess the impact of major real-world events on community mood.
+3.  **Machine Learning (ML):** Classification and clustering models are built to predict comment quality and to automatically identify distinct discussion communities, supporting moderation and audience research.
 
-All findings, visualizations, and detailed analyses are presented on the project website.
+The full results, interactive graphs, and detailed methodology are available on the project website.
 
 ## Key Findings
 
-- **Event-Driven Engagement:** Community activity, particularly in AI-focused subreddits, spikes in response to major industry events (e.g., new model releases), but the overall emotional tone of the communities remains remarkably stable and neutral-to-positive.
-- **Core AI Hub:** A few key AI subreddits (`r/ChatGPT`, `r/OpenAI`) form a highly interconnected core, driving the majority of the AI-related discourse on the platform.
-- **Dominant Discussion Themes:** The most prevalent topics revolve around human-AI relations, future technologies, and career/learning opportunities. These themes have remained consistent over the one-year analysis period.
-- **Predictive Modeling:** While predicting comment "quality" with high precision is challenging, our models show high recall, making them suitable for flagging content for human review. Clustering models effectively separated broad, casual conversations from niche, technical discussions.
+- **Event-Driven Engagement:** Spikes in community activity—especially in AI-related subreddits—often correspond to industry breakthroughs, though sentiment remains stably neutral-to-positive overall.
+- **AI Hub Centralization:** Subreddits such as `r/ChatGPT` and `r/OpenAI` function as a highly interconnected core, anchoring much of the public discourse around AI.
+- **Stable Themes:** Across the year, recurring discussion topics cluster around human-AI relations, future technologies, and educational/career opportunities.
+- **Predictive Success & Limitations:** While predicting comment quality with high precision is challenging, our models excel at recall, making them practical for flagging questionable content. Clustering models reveal clear divides between broad general discussions and technical niche conversations.
 
 ## Repository Structure
 
@@ -46,24 +54,24 @@ All findings, visualizations, and detailed analyses are presented on the project
     └── (Generated website files)
 ```
 
--   **`code/`**: Contains all PySpark scripts for EDA, NLP, and ML analysis.
--   **`data/`**: Contains the results of our analysis, including generated CSV files and plots.
--   **`website/`**: Contains the Quarto source files (`.qmd`) for the project website.
--   **`docs/`**: Contains the rendered HTML files for the final website, suitable for hosting on GitHub Pages.
+-   **`code/`**: PySpark scripts for EDA, NLP, and ML analyses.
+-   **`data/`**: Results of all analyses, including processed CSVs and visualizations.
+-   **`website-source/`**: Quarto source files (`.qmd`) for the project website.
+-   **`docs/`**: Rendered HTML files, ready for GitHub Pages hosting.
 
 ## How to Build the Website
 
-The project website is built using Quarto.
-
-1.  **Install Quarto:** Follow the instructions at [quarto.org](https://quarto.org/docs/get-started/).
-
+1.  **Install Quarto:** See [quarto.org](https://quarto.org/docs/get-started/).
 2.  **Navigate to the website directory:**
     ```bash
     cd website-source
     ```
-
 3.  **Render the website:**
     ```bash
     quarto render
     ```
-    This command will generate the final HTML files in the `docs/` directory. To preview the site with live reloading, you can use `quarto preview`.
+    The final HTML files will appear in the `docs/` directory. To preview locally with live reload, use `quarto preview`.
+
+---
+
+Thank you for your interest! Feedback and collaboration are welcome.

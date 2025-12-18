@@ -1,23 +1,28 @@
 project:
   type: website
-  output-dir: ../docs
+  output-dir: ../_site
+  render:
+    - "*.qmd"
+    - "!notes/"
 
 website:
-  title: "DSAN 6000 Big Data Project"
+  title: "Project-04: Evolution of Online Sci-Tech Communities"
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: "Home"
       - href: eda.qmd
-        text: Exploratory Data Analysis
+        text: "Exploratory Data Analysis"
       - href: nlp.qmd
-        text: Natural Language Processing
+        text: "Natural Language Processing"
       - href: ml.qmd
-        text: Machine Learning
+        text: "Machine Learning"
       - href: conclusion.qmd
-        text: Conclusion
+        text: "Conclusion"
       - href: report.qmd
-        text: Report
+        text: "Report"
+      - text: "Back to Portfolio"
+        href: "https://gcx1372.georgetown.domains/chenxiguo_website/"
   page-footer:
     left: |
       DSAN 6000 Big Data Analytics Project
