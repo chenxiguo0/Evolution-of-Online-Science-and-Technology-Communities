@@ -50,3 +50,7 @@ logs/
 
 # Scratchpad
 .scratchpad/
+
+build.sh
+styles.css
+uv.lock
